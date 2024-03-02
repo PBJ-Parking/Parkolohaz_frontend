@@ -1,0 +1,35 @@
+
+nav {
+    display: flex;
+    justify-content: start;
+    border: 1px solid black;
+    padding: 0;
+    height: 60px;
+    padding-left: 15px;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    height: 100%;
+  }
+  
+  nav ul li {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li a {
+    border-color: darkblue;
+    color: darkblue;
+    text-shadow: none;
+  }
+  
+  nav ul li a:hover {
+    border-color: #0101c9;
+    color: #0101c9;
+    background-color: rgba(199, 210, 224, 0.87);
+  }
