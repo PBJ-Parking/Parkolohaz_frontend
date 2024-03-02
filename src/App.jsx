@@ -1,8 +1,10 @@
-import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Nav from "./components/Nav";
+import Article from "./components/Article";
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
           <li><a href=""> <i className="bi bi-person-plus-fill"></i> Regisztáció</a></li>
         </ul>
       </header>
+      <Nav />
+      <Article />
     </main>
     </>
   )
