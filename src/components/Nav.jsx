@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./css/nav.css";
 
 export default function Nav() {
@@ -5,19 +6,19 @@ export default function Nav() {
     <nav>
       <ul>
         <li>
-          <a href="">
+          <Link to="/">
             <i className="bi bi-house-fill"></i> Főoldal
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+          <Link to="/foglalas">
             <i className="bi bi-cart3"></i> Foglalás
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+          <Link to="/kapcsolat">
             <i className="bi bi-person-lines-fill"></i> Kapcsolat
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

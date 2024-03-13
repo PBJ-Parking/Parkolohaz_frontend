@@ -1,8 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Young+Serif&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Madimi+One&family=Young+Serif&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Madimi+One&family=Noto+Sans+JP:wght@100..900&family=Young+Serif&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anta&family=Kode+Mono:wght@400..700&family=Madimi+One&family=Noto+Sans+JP:wght@100..900&family=Young+Serif&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 
 
 * {
@@ -26,68 +22,4 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-a {
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
-  border: wheat 2px solid;
-  padding: 5px;
-  font-family: "Anta", sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-}
-
-a:hover {
-  color: wheat;
-  border: white 2px solid;
-  background-color: rgba(80, 76, 76, 0.87);
-}
-
-li {
-  list-style: none;
-}
-
-header ul {
-  display: flex;
-  padding: 0;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  gap: 15px;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-h1:hover {
-  color: black;
-  text-shadow: 2px 2px 4px rgb(255, 255, 255);
-}
-
-header {
-  background-image: url("../kepek/header/_04404cee-6188-4db5-9105-9064fce49474.jpg"),
-    url("../kepek/header/_42a6dc26-b3bb-4a4e-b849-ed418c1a0d19.jpg"),
-    url("../kepek/header/_afbf6836-821f-4890-a534-02c53e35eff2.jpg"),
-    url("../kepek/header/_de1dde7b-3de1-4215-a9d0-68e8a8698486.jpg");
-  height: 404px;
-  background-position-x: 0%, 33.5%, 66.5%, 100%;
-  background-size: 25%;
-  background-repeat: no-repeat;
-}
-
-header h1 {
-  display: flex;
-  height: fit-content;
-  color: #ffffff;
-  font-size: 120px;
-  align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-  font-family: "Anta", sans-serif;
-  width: fit-content;
-}
-
 
