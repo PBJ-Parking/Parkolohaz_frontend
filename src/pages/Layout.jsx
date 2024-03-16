@@ -5,14 +5,14 @@ import Header from "../components/Header";
 const Layout = () => {
   return (
     <>
-    <main>
-      <Header/>
-      <Nav />
-    
-    </main>
-      
+      <main>
+        <Header bal={"belepes"} balOldali={"Belépés"} jobb={"regisztacio"} jobbOldali={"Regisztráció"} balIkon={"bi bi-box-arrow-in-right"} jobbIkon={"bi bi-person-plus-fill"} />
+        <Nav />
         <Outlet />
-    
+      </main>
+
+
+
     </>
   );
 };

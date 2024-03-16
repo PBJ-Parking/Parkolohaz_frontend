@@ -40,9 +40,11 @@ a {
     position: relative;
   }
   
-  h1:hover {
+  .h1:hover {
     color: black;
     text-shadow: 2px 2px 4px rgb(255, 255, 255);
+    border: none;
+    background-color: transparent;
   }
   
   header {
@@ -56,7 +58,7 @@ a {
     background-repeat: no-repeat;
   }
   
-  header h1 {
+  header .h1 {
     display: flex;
     height: fit-content;
     color: #ffffff;
@@ -65,5 +67,7 @@ a {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
     font-family: "Anta", sans-serif;
     width: fit-content;
+    border: none;
+    background-color: none;
   }
   

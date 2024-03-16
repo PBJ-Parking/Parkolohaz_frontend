@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./css/kepnezegeto.css";
+import "../css/kepnezegeto.css";
 
 import kep1 from "../../kepek/slide/LimeWire AI Studio Asset.jpg";
 import kep2 from "../../kepek/slide/LimeWire AI Studio Asset (1).jpg";

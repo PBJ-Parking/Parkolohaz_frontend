@@ -23,8 +23,9 @@ export const AuthProvider = ({ children }) => {
 
     //bejelentkezett felhasználó adatainak lekérdezése
     const getUser = async () => {
-        const { data } = await axios.get("/api/user");
+        const { data } = await axios.get("/api/authUser");
         setUser(data);
+        console.log(data)
     };
     const logout = async () => {
         await csrf()
@@ -33,6 +34,7 @@ export const AuthProvider = ({ children }) => {
             setUser(null);
             console.log(resp);
         });
+        navigate("/");
     };
     
     const loginReg = async ({ ...adat }, vegpont) => {
@@ -54,7 +56,7 @@ export const AuthProvider = ({ children }) => {
             //Lekérdezzük a usert
             await getUser();
             //elmegyünk  a kezdőlapra
-            navigate("/");
+            navigate("/loggedIn");
         } catch (error) {
             console.log(error);
             if (error.response.status === 422) {
