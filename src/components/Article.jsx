@@ -1,7 +1,7 @@
 import "../css/article.css"
 import Kepnezegeto from "./Kepnezegeto";
 import useAuthContext from "../contexts/AuthContext";
-
+import Napi_arak from "./Napi_arak";
 
 export default function Article() {
 
@@ -11,7 +11,7 @@ export default function Article() {
     <article>
       
       <h2>Üdvözöljük{user ? " "+ user.name : ""}!</h2>
-
+      <div> Aktuális áraink:</div>{ <Napi_arak/>}
       <Kepnezegeto />
 
       <h3>Rólunk</h3>
