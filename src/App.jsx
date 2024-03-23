@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Article from "./components/Article";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import LoggedIn from "./pages/LoggedIn";
 import Bejelentkezes from "./pages/Bejelentkezes";
-import axios from "./api/axios";
+import Profile from "./pages/Profile";
+import ProfileArticle from "./components/ProfileArticle";
 
 
 function App() {
@@ -19,7 +19,13 @@ function App() {
         </Route>
         <Route path="/loggedIn" element={<LoggedIn />}>
           <Route index element={<Article />} />
+          {/* <Route path="/profil" element={<Profile />} /> */}
         </Route>
+        <Route>
+          
+        </Route>
+        
+
       </Routes>
     </>
   );
