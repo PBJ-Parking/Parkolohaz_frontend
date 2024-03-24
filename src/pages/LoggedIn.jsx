@@ -11,7 +11,7 @@ const LoggedIn = () => {
     <>
       <main>
         <Header
-          bal={"profil"}
+          bal={"loggedIn/profil"}
           balOldali={"Profilom"}
           jobb={""}
           jobbOldali={"Kijelentkezés"}

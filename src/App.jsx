@@ -6,7 +6,6 @@ import Layout from "./pages/Layout";
 import LoggedIn from "./pages/LoggedIn";
 import Bejelentkezes from "./pages/Bejelentkezes";
 import Profile from "./pages/Profile";
-import ProfileArticle from "./components/ProfileArticle";
 
 
 function App() {
@@ -19,10 +18,7 @@ function App() {
         </Route>
         <Route path="/loggedIn" element={<LoggedIn />}>
           <Route index element={<Article />} />
-          {/* <Route path="/profil" element={<Profile />} /> */}
-        </Route>
-        <Route>
-          
+          <Route path="/loggedIn/profil" element={<Profile />} />
         </Route>
         
 

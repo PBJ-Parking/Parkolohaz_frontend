@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
+    const [jarmu, setJarmu] = useState("");
     const [errors, setErrors] = useState({
         name: "",
         email: "",
@@ -30,13 +31,20 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         await csrf()
         console.log(token)
-        axios.post("/logout",{_token:token}).then((resp) => {
+        axios.post("/logout", { _token: token }).then((resp) => {
             setUser(null);
             console.log(resp);
         });
         navigate("/");
     };
-    
+
+    const profileAdatLekeres = async () => {
+        const { data } = await axios.get("api/authAdatok");
+
+        setJarmu(data);
+        console.log(data);
+    };
+
     const loginReg = async ({ ...adat }, vegpont) => {
         await csrf()
         console.log(token)
@@ -55,6 +63,7 @@ export const AuthProvider = ({ children }) => {
             //sikeres bejelentkezés/regisztráció esetén
             //Lekérdezzük a usert
             await getUser();
+            await profileAdatLekeres();
             //elmegyünk  a kezdőlapra
             navigate("/loggedIn");
         } catch (error) {
@@ -65,14 +74,41 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const userUpdate = async (field, newValue) => {
+        try {
+            // Lekérjük a CSRF tokent
+            const { data: token } = await axios.get("/token");
+    
+            // Beállítjuk az Axios fejlécét
+            axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
+    
+            // Frissítjük a felhasználói adatokat a szerveren
+            const response = await axios.put(`api/felhasznalo/${user.id}`, {
+                [field]: newValue,
+            });
+    
+            if (response.status === 200) {
+                // Sikeres frissítés esetén frissítjük a felhasználói adatokat a frontend-en is
+                setUser({ ...user, [field]: newValue });
+            } else {
+                console.error('Hiba történt a felhasználói adatok frissítése közben');
+            }
+        } catch (error) {
+            console.error('Hiba történt a felhasználói adatok frissítése közben', error);
+        }
+    };
+    
+    
+
     return (
         <AuthContext.Provider
-            value={{ logout, loginReg, errors, getUser, user }}
+            value={{ logout, loginReg, errors, getUser, user, profileAdatLekeres, jarmu, userUpdate }}
         >
             {children}
         </AuthContext.Provider>
     );
 };
+
 export default function useAuthContext() {
     return useContext(AuthContext);
 }
