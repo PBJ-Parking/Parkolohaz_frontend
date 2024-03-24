@@ -7,7 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
-    const [jarmu, setJarmu] = useState("");
+    const [jarmu, setJarmu] = useState(null);
     const [errors, setErrors] = useState({
         name: "",
         email: "",
@@ -83,13 +83,41 @@ export const AuthProvider = ({ children }) => {
             axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
     
             // Frissítjük a felhasználói adatokat a szerveren
-            const response = await axios.put(`api/felhasznalo/${user.id}`, {
+            const response = await axios.patch(`api/felhasznalo/${user.id}`, {
                 [field]: newValue,
+                
             });
-    
+             console.log([field], newValue)
             if (response.status === 200) {
                 // Sikeres frissítés esetén frissítjük a felhasználói adatokat a frontend-en is
                 setUser({ ...user, [field]: newValue });
+            } else {
+                console.error('Hiba történt a felhasználói adatok frissítése közben');
+            }
+        } catch (error) {
+            console.error('Hiba történt a felhasználói adatok frissítése közben', error);
+        }
+    };
+
+    const jarmuUpdate = async (field, newValue) => {
+        try {
+            // Lekérjük a CSRF tokent
+            const { data: token } = await axios.get("/token");
+    
+            // Beállítjuk az Axios fejlécét
+            axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
+    
+            // Frissítjük a felhasználói adatokat a szerveren
+            const response = await axios.patch(`api/jarmu/${jarmu.jarmu_id}`, {
+                [field]: newValue,
+                
+            });
+             console.log([field], newValue)
+            if (response.status === 200) {
+                // Sikeres frissítés esetén frissítjük a felhasználói adatokat a frontend-en is
+                setJarmu({ ...jarmu, [field]: newValue });
+                console.log(jarmu, [field], newValue )
+                console.log("Benne vagyok")
             } else {
                 console.error('Hiba történt a felhasználói adatok frissítése közben');
             }
@@ -102,7 +130,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider
-            value={{ logout, loginReg, errors, getUser, user, profileAdatLekeres, jarmu, userUpdate }}
+            value={{ logout, loginReg, errors, getUser, user, profileAdatLekeres, jarmu, userUpdate, jarmuUpdate}}
         >
             {children}
         </AuthContext.Provider>

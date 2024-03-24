@@ -5,18 +5,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ProfileArticle() {
     const { user, userUpdate } = useAuthContext();
-    const { jarmu } = useAuthContext();
+    const { jarmu, jarmuUpdate } = useAuthContext();
 
     const [editIndex, setEditIndex] = useState(null);
     const [editValue, setEditValue] = useState("");
 
     const UserAdatok = [
-        { label: "Telefonszám", value: user.telefonszam, editable: false },
-        { label: "Cím", value: user.cim, editable: true },
-        { label: "Email", value: user.email, editable: true },
-        { label: "Jelszó", value: "***********", editable: true },
-        { label: "Adószám", value: user.adoszam, editable: true },
-        { label: "Rendszám", value: jarmu[0].rendszam, editable: true }
+        { label: "Név", value: user.name, editable: true, valtozonev: 'name' },
+        { label: "Telefonszám", value: user.telefonszam, editable: true, valtozonev: 'telefonszam' },
+        { label: "Cím", value: user.cim, editable: true, valtozonev: 'cim' },
+        { label: "Email", value: user.email, editable: true, valtozonev: 'email' },
+        { label: "Jelszó", value: user.password, editable: true, valtozonev: 'password' },
+        { label: "Adószám", value: user.adoszam, editable: true, valtozonev: 'adoszam' },
+        { label: "Rendszám", value: jarmu.rendszam, editable: true, valtozonev: 'rendszam' }
     ];
 
     const handleEdit = (index) => {
@@ -28,8 +29,14 @@ export default function ProfileArticle() {
 
     const handleSave = async (index) => {
         if (UserAdatok[index].editable) {
-            await userUpdate(UserAdatok[index].label.toLowerCase(), editValue);
-            setEditIndex(null);
+            if (UserAdatok[index].label == "Rendszám") {
+                await jarmuUpdate(UserAdatok[index].valtozonev, editValue);
+                setEditIndex(null);
+            } else {
+                await userUpdate(UserAdatok[index].valtozonev, editValue);
+                setEditIndex(null);
+            }
+
         }
     };
 
@@ -37,7 +44,7 @@ export default function ProfileArticle() {
         <article>
             <h1>Profilom</h1>
             <div className="userNeveEsKepe">
-                <h2>{user ? " " + user.name : ""} <button><i className="bi bi-pencil-square"></i> Módosít</button></h2>
+                <h2>{user ? " " + user.name : ""}</h2>
             </div>
             <div className="UserTovabbiAdatai">
                 <ul>
