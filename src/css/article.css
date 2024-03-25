@@ -1,9 +1,8 @@
 article {
-  padding: 15px;
-}
-
-article p {
-    padding-left: 30px;
-    text-align: justify;
+    padding: 15px;
   }
   
+  p {
+      padding-left: 30px;
+      text-align: justify;
+    }

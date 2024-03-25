@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Anta", sans-serif;
+}
+
+.foglalasHelyekVeglegesitve {
+  width: 92%;
+  border: 1px solid;
+  grid-area: fh;
+  height: 75%;
+}
+
+.letoltes {
+  grid-area: fu;
+  padding-left: 10%;
+  position: relative;
+  justify-content: start;
+  align-items: start;
+}
+
+.container {
+  height: 500px;
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 10% 100%;
+  grid-template-areas:
+    "h2 h2"
+    "fh fu";
+}
+
+.container h2 {
+  grid-area: h2;
+  padding: 0px;
+  margin: 0;
+}
+
+.letoltes button {
+  border-color: darkblue;
+  color: darkblue;
+  text-shadow: none;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.letoltes button:hover {
+  border-color: #0101c9;
+  color: #0101c9;
+  background-color: rgba(199, 210, 224, 0.87);
+}

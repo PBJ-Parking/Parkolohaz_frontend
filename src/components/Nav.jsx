@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../css/nav.css";
 
-export default function Nav() {
+export default function Nav(props) {
   return (
     <nav>
       <ul>
@@ -11,7 +11,7 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/foglalas">
+          <Link to={"/" + props.foglalas}>
             <i className="bi bi-cart3"></i> Foglalás
           </Link>
         </li>

@@ -19,7 +19,10 @@ const LoggedIn = () => {
           balIkon={"bi bi-person-lines-fill"}
           jobbEsemeny ={logout}
         />
-        <Nav />
+        <Nav 
+        foglalas={"loggedIn/foglalas"}
+        />
+        
         <Outlet />
       </main>
     </>

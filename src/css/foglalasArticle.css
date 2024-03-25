@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anta", sans-serif;
+    
+  }
+
+  .foglalasHelyek{
+    width: 90%;
+    border: 1px solid;
+    grid-area: fh;
+    height: 95%;
+  }
+
+  .foglalasUrlap{
+    grid-area: fu;
+    padding-left: 10%;
+    position: relative;
+    justify-content: start;
+    align-items: start;
+  }
+  
+  article{
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'h2 h2'
+                        'fh fu';
+ }
+  
+  p {
+    padding: 0;
+    margin: 0;
+  }
+  
+  input, label, select {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+  
+  li{
+    color: green;
+    list-style: circle;
+  }
+
+  ul{
+    padding-left: 5%;
+  }
+
+  h2{
+    grid-area: h2;
+    padding: 0;
+  }
+
+  label{
+    padding-bottom: 5px;
+    width: fit-content;
+  }
+
+  input, select{
+    color: black;
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    width: 500px;
+    padding: 10px;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%) sepia(100%) hue-rotate(90deg);
+  }
+  
+  .form-group, form{
+    width: fit-content;
+  }
+
+  button{
+    margin-left: 0;
+    border-radius: 0;
+  }
+
+  button.btn-outline-danger{
+    margin-left: 15px;
+  }
+  
+  
