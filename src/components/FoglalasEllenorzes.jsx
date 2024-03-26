@@ -3,12 +3,14 @@ import { useState } from 'react';
 import Foglalas from "../pages/Foglalas";
 import useAuthContext from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import {useInput} from "../contexts/DatumContext";
 
 
 
 export default function FoglalasEllenorzes() {
     const { user } = useAuthContext();
     const { jarmu } = useAuthContext();
+    const {datumVege, datumKezdete} = useInput();
     const navigate = useNavigate();
     
     const handleSubmit = (event) => {
@@ -63,7 +65,7 @@ export default function FoglalasEllenorzes() {
                                 <label>Foglalási időszak:
                                     <input
                                         type="text"
-                                        value={""}
+                                        value={datumKezdete+" - "+ datumVege}
                                         onChange={(e) => setName(e.target.value)}
                                     />
                                 </label>

@@ -9,12 +9,15 @@ import Profile from "./pages/Profile";
 import Foglalas from "./pages/Foglalas";
 import FoglalasEllenorzes from "./components/FoglalasEllenorzes";
 import FoglalasVeglegesitve from "./components/FoglalasVeglegesitve";
+import { InputProvider } from "./contexts/DatumContext";
+import FoglalasArticle from "./components/FoglalasArticle";
 
 
 function App() {
   return (
     <>
       <Routes>
+        
         <Route path="/" element={<Layout />}>
           <Route index element={<Article />} />
           <Route path="/belepes" element={<Bejelentkezes />} />
@@ -22,13 +25,14 @@ function App() {
         <Route path="/loggedIn" element={<LoggedIn />}>
           <Route index element={<Article />} />
           <Route path="/loggedIn/profil" element={<Profile />} />
-          <Route path="/loggedIn/foglalas" element={<Foglalas />} />
-          <Route path="/loggedIn/foglalasEllenorzes" element={<FoglalasEllenorzes />} />
+          
+          <Route path="/loggedIn/foglalas" element={<InputProvider><FoglalasArticle /></InputProvider>} />
+          <Route path="/loggedIn/foglalasEllenorzes" element={<InputProvider><FoglalasEllenorzes /></InputProvider>} />
+          
           <Route path="/loggedIn/foglalasVeglegesitve" element={<FoglalasVeglegesitve />} />
         </Route>
-        
-
       </Routes>
+
     </>
   );
 }

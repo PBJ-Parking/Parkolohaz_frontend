@@ -2,14 +2,17 @@ import "../css/foglalasArticle.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import {useInput} from "../contexts/DatumContext";
 
 export default function FoglalasArticle() {
     const [foglalasVege, setFoglalasVege] = useState(new Date().toISOString().substring(0, 10));
     const [foglalasKezdete, setFoglalasKezdete] = useState(new Date().toISOString().substring(0, 10));
     const [Emelet, setEmelet] = useState();
     const navigate = useNavigate();
+    const {setDatumVege, setDatumKezdete} = useInput();
+    
 
-
+    
     const handleChange = (event) => {
         switch (event.target.id) {
             case 'Emeletek':
@@ -17,9 +20,11 @@ export default function FoglalasArticle() {
                 break;
             case 'foglalasKezdet':
                 setFoglalasKezdete(event.target.value);
+                setDatumKezdete(event.target.value);
                 break;
             case 'foglalasVeg':
                 setFoglalasVege(event.target.value);
+                setDatumVege(event.target.value);
                 break;
             default:
                 break;
