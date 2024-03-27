@@ -4,6 +4,7 @@ import Foglalas from "../pages/Foglalas";
 import useAuthContext from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import {useInput} from "../contexts/DatumContext";
+import { useParkolohelyContext } from "../contexts/ParkolohelyContext";
 
 
 
@@ -12,6 +13,7 @@ export default function FoglalasEllenorzes() {
     const { jarmu } = useAuthContext();
     const {datumVege, datumKezdete} = useInput();
     const navigate = useNavigate();
+    const {parkolohely} = useParkolohelyContext();
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,6 +26,8 @@ export default function FoglalasEllenorzes() {
     const handleButtonClick = () => {
         navigate("/loggedIn/foglalasVeglegesitve");
       };
+
+      console.log(parkolohely);
     
     return (
         <div className="FoglalasEllenorzesArticle">
