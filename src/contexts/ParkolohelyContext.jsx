@@ -11,53 +11,48 @@ export const ParkolohelyProvider = ({ children }) => {
   const [masodikEmelet, setMasodikEmelet] = useState([]);
   const [harmadikEmelet, setHarmadikEmelet] = useState([]);
 
-  const getParkolohely = async () => {
-    try {
-      const { data } = await axios.get("api/parkolohely");
-      setParkolohely(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  const getElsoEmelet= async () => {
+  const getElsoEmelet = async () => {
     try {
-      const { data } = await axios.get("api/elsoEmelet");
+      const { data } = await axios.get("api/emeletek/1");
       setElsoEmelet(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-  const getMasodikEmelet= async () => {
+  const getMasodikEmelet = async () => {
     try {
-      const { data } = await axios.get("api/masodikEmelet");
+      const { data } = await axios.get("api/emeletek/2");
       setMasodikEmelet(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-    getParkolohely();
-    getElsoEmelet()
-    getMasodikEmelet()
-
-    /* parkolohely.forEach((element) => {
-        if (element.emelet === 1) {
-          setElsoEmelet((prevElsoEmelet) => [...prevElsoEmelet, element]);
-        } else if (element.emelet === 2) {
-          setMasodikEmelet((prevMasodikEmelet) => [...prevMasodikEmelet, element]);
-        } else if (element.emelet === 3) {
-          setHarmadikEmelet((prevHarmadikEmelet) => [...prevHarmadikEmelet, element]);
-        }
-      }); */
+  const getHarmadikEmelet = async () => {
+    try {
+      const { data } = await axios.get("api/emeletek/3");
+      setHarmadikEmelet(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   
+
+  /* parkolohely.forEach((element) => {
+      if (element.emelet === 1) {
+        setElsoEmelet((prevElsoEmelet) => [...prevElsoEmelet, element]);
+      } else if (element.emelet === 2) {
+        setMasodikEmelet((prevMasodikEmelet) => [...prevMasodikEmelet, element]);
+      } else if (element.emelet === 3) {
+        setHarmadikEmelet((prevHarmadikEmelet) => [...prevHarmadikEmelet, element]);
+      }
+    }); */
+
 
 
 
   return (
-    <ParkolohelyContext.Provider value={{ parkolohely, setParkolohely }}>
+    <ParkolohelyContext.Provider value={{ parkolohely, setParkolohely, getElsoEmelet, getMasodikEmelet, getHarmadikEmelet, elsoEmelet, setElsoEmelet, masodikEmelet, harmadikEmelet }}>
       {children}
     </ParkolohelyContext.Provider>
   );

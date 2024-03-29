@@ -10,7 +10,6 @@ export default function Napi_arak(props) {
     const {data}= await axios.get("api/akt_arak") 
         
     setakt_arak(data);
-    console.log(data);
     };
   
    useEffect(() => {
@@ -22,7 +21,6 @@ export default function Napi_arak(props) {
 
 
           {akt_arak.map((elem, index) => {
-            console.log(elem, index)
             return <p key={index}>típus: {elem.tipus}  {elem.ar} forint</p>;
           })}
        

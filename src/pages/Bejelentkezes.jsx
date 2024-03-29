@@ -6,24 +6,19 @@ import useAuthContext from "../contexts/AuthContext";
 export default function Bejelentkezes() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const { loginReg, errors } = useAuthContext();
-    
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        //bejelentkezés
-        //Összegyűjtjük egyetlen objektumban az űrlap adatokat
+        await csrf();
         const adat = {
-            email: email,
-            password: password,
-        };
-        //*********** ITT HÍVJUK MEG useAuthContext-ből a loginReg függvényt. **************//
+          email: email,
+          password: password,
+          _token: token,
+      };
+        console.log(adat);
         loginReg(adat, "/login");
     };
   
-
   let token = "";
   const csrf = () =>
     axios.get("/token").then((response) => {
@@ -31,11 +26,7 @@ export default function Bejelentkezes() {
       token = response.data;
     });
 
-    const adat = {
-        email: email,
-        password: password,
-        _token: token,
-    };
+    
 
   return (
     <div className="m-auto" style={{ maxWidth: "400px" }}>
@@ -47,9 +38,7 @@ export default function Bejelentkezes() {
           </label>
           <input
             type="email"
-            // value beállítása a state értékére
             value={email}
-            // state értékének módosításváltozik a beviteli mező tartalma
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -71,7 +60,6 @@ export default function Bejelentkezes() {
           <input
             type="password"
             value={password}
-            // state értékének módosításváltozik a beviteli mező tartalma
             onChange={(e) => {
               setPassword(e.target.value);
             }}

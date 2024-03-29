@@ -43,6 +43,7 @@ export default function FoglalasEllenorzes() {
                                         type="text"
                                         value={user.name}
                                         onChange={(e) => setName(e.target.value)}
+                                        disabled
                                     />
                                 </label>
                                 <label>Telefonszám:
@@ -50,6 +51,7 @@ export default function FoglalasEllenorzes() {
                                         type="text"
                                         value={user.telefonszam}
                                         onChange={(e) => setName(e.target.value)}
+                                        disabled
                                     />
                                 </label>
                                 <label>Email:
@@ -57,6 +59,7 @@ export default function FoglalasEllenorzes() {
                                         type="text"
                                         value={user.email}
                                         onChange={(e) => setName(e.target.value)}
+                                        disabled
                                     />
                                 </label>
                                 <label>Rendszám:
@@ -64,6 +67,7 @@ export default function FoglalasEllenorzes() {
                                         type="text"
                                         value={jarmu.rendszam}
                                         onChange={(e) => setName(e.target.value)}
+                                        disabled
                                     />
                                 </label>
                                 <label>Foglalási időszak:
@@ -71,6 +75,7 @@ export default function FoglalasEllenorzes() {
                                         type="text"
                                         value={datumKezdete+" - "+ datumVege}
                                         onChange={(e) => setName(e.target.value)}
+                                        disabled
                                     />
                                 </label>
                             </form>
