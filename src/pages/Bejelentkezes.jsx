@@ -22,7 +22,7 @@ export default function Bejelentkezes() {
   let token = "";
   const csrf = () =>
     axios.get("/token").then((response) => {
-      console.log(response);
+      //console.log(response);
       token = response.data;
     });
 

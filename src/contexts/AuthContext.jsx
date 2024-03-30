@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     let token = "";
     const csrf = () =>
         axios.get("/token").then((response) => {
-            console.log(response);
+            //console.log(response);
             token = response.data;
         });
 
@@ -26,11 +26,11 @@ export const AuthProvider = ({ children }) => {
     const getUser = async () => {
         const { data } = await axios.get("/api/authUser");
         setUser(data);
-        console.log(data)
+        //console.log(data)
     };
     const logout = async () => {
         await csrf()
-        console.log(token)
+        //console.log(token)
         axios.post("/logout", { _token: token }).then((resp) => {
             setUser(null);
             console.log(resp);
@@ -47,9 +47,9 @@ export const AuthProvider = ({ children }) => {
 
     const loginReg = async ({ ...adat }, vegpont) => {
         await csrf()
-        console.log(token)
+        //console.log(token)
         adat._token = token;
-        console.log(adat)
+        //console.log(adat)
         //lekérjük a csrf tokent
         await csrf();
         //bejelentkezés
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
         // hiba esetén kiiratjuk a hibaüzenetet
         try {
             await axios.post(vegpont, adat);
-            console.log("siker");
+            //console.log("siker");
             //sikeres bejelentkezés/regisztráció esetén
             //Lekérdezzük a usert
             await getUser();
@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
                 [field]: newValue,
                 
             });
-             console.log([field], newValue)
+             //console.log([field], newValue)
             if (response.status === 200) {
                 // Sikeres frissítés esetén frissítjük a felhasználói adatokat a frontend-en is
                 setUser({ ...user, [field]: newValue });
