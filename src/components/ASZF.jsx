@@ -1,5 +1,5 @@
 import React from 'react'
-import SzovegKiir from "./ASZF"
+import SzovegKiir from "./SzovegKiir"
 
 export default function ASZF(){
     const $cim="Általános szerződési feltételek";

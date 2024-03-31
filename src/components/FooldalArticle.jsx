@@ -6,16 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Napi_arak from "./Napi_arak";
 
 export default function FooldalArticle() {
-
  // const { user } = useAuthContext()
 
   return (
-    
-   
     <Container fluid className="fooldal-container">
    
   
-  <div class="row">
+  <div className="row">
 
       <div className="col"><h1> Napijegy áraink:</h1>{ <Napi_arak/>}</div>
      

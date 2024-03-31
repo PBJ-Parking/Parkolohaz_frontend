@@ -7,7 +7,6 @@ import LayoutAdmin from "./pages/LayoutAdmin";
 import LoggedIn from "./pages/LoggedIn";
 import Bejelentkezes from "./pages/Bejelentkezes";
 import Profile from "./pages/Profile";
-import Foglalas from "./pages/Foglalas";
 import FoglalasEllenorzes from "./components/FoglalasEllenorzes";
 import FoglalasVeglegesitve from "./components/FoglalasVeglegesitve";
 import { InputProvider } from "./contexts/DatumContext";
@@ -15,7 +14,6 @@ import FoglalasArticle from "./components/FoglalasArticle";
 import AdminArticle from "./components/AdminArticle";
 import FooldalArticle from "./components/FooldalArticle";
 import Rolunk from "./components/Rolunk"
-import SzovegKiir from "./components/SzovegKiir";
 import ASZF from "./components/ASZF";
 function App() {
   return (
@@ -23,10 +21,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<FooldalArticle />} />
-          <Route path="/Rolunk" index element={<Rolunk />} />
-          <Route index element={<Article />} />
+          <Route path="/Rolunk" element={<Rolunk />} />
           <Route path="/belepes" element={<Bejelentkezes />} />
-          <Route path="/ASZF" index element={<ASZF />} />
+          <Route path="/ASZF" element={<ASZF />} />
         </Route>
 
         <Route path="/loggedIn" element={<LoggedIn />}>
