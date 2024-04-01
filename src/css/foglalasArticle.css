@@ -11,6 +11,64 @@
     border: 1px solid;
     grid-area: fh;
     height: 95%;
+    padding: 20px;
+  }
+
+  .motor{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+    color: transparent;
+  }
+  .hagyományos{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+    color: transparent;
+  }
+  .mozgássérült{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    color: transparent;
+  }
+  .elektromos{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+    color: transparent;
+  }
+
+  .foglalasBorder{
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+  .motorHely{
+    width: 90px;
+    height: 40px;
+    border: 1px solid black;
+    
+  }
+  .hagyományosHely{
+    width: 90px;
+    height: 40px;
+    border: 1px solid black;
+    margin: 2px;
+  }
+  .mozgássérültHely{
+    width: 150px;
+    height: 40px;
+    border: 1px solid black;
+  }
+  .elektromosHely{
+    width: 90px;
+    height: 40px;
+    border: 1px solid black;
+  }
+
+  .foglalasHelyek{
+    border: 1px solid black;
   }
 
   .foglalasUrlap{
@@ -19,6 +77,30 @@
     position: relative;
     justify-content: start;
     align-items: start;
+  }
+
+  .piros{
+    color: red;
+    -webkit-text-stroke: 0.5px black;
+    font-size: 22px;
+  }
+
+  .sarga{
+    color: yellow;
+    -webkit-text-stroke: 0.5px black;
+    font-size: 22px;
+  }
+
+  .szurke{
+    color: silver;
+    -webkit-text-stroke: 0.5px black;
+    font-size: 22px;
+  }
+
+  .zold{
+    color: green;
+    -webkit-text-stroke: 0.5px black;
+    font-size: 22px;
   }
   
   article{

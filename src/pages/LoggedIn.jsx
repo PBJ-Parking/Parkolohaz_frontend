@@ -21,6 +21,7 @@ const LoggedIn = () => {
         />
         <Nav 
         foglalas={"loggedIn/foglalas"}
+        isLoggedIn={true}
         />
         
         <Outlet />

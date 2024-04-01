@@ -16,7 +16,6 @@ export const ParkolohelyProvider = ({ children }) => {
     try {
       const { data } = await axios.get("api/emeletek/1");
       setElsoEmelet(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
