@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <>
       <main>
-        <Header bal={"belepes"} balOldali={"Belépés"} jobb={"regisztacio"} jobbOldali={"Regisztráció"} balIkon={"bi bi-box-arrow-in-right"} jobbIkon={"bi bi-person-plus-fill"} />
+        <Header bal={"belepes"} balOldali={"Belépés"} jobb={"regisztracio"} jobbOldali={"Regisztráció"} balIkon={"bi bi-box-arrow-in-right"} jobbIkon={"bi bi-person-plus-fill"} />
         <Nav />
         <Outlet />
         <Footer />

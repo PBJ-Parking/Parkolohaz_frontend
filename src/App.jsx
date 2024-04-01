@@ -19,6 +19,7 @@ import Adatkezeles from "./components/Adatkezeles";
 import Kapcsolat from "./components/Kapcsolat";
 import Email from "./components/Email";
 import NoPage from "./pages/NoPage";
+import Regisztracio from "./pages/Regisztracio";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route index element={<FooldalArticle />} />
           <Route path="/Rolunk" element={<Rolunk />} />
           <Route path="/belepes" element={<Bejelentkezes />} />
+          <Route path="/regisztracio" element={<Regisztracio />} />
           <Route path="/ASZF" element={<ASZF />} />
           <Route path="/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/Kapcsolat" element={<Kapcsolat />} />
