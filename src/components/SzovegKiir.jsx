@@ -11,9 +11,11 @@ export default function SzovegKiir(props){
   <Container fluid className="rolunk-container">
    <div>
       <h1>{props.cim}</h1>
+   </div>
+   <div>
       <span>{props.tartalom}</span>
-     
-    </div>
+   </div> 
+    
     </Container>
  )  
  }

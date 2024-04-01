@@ -15,6 +15,10 @@ import AdminArticle from "./components/AdminArticle";
 import FooldalArticle from "./components/FooldalArticle";
 import Rolunk from "./components/Rolunk"
 import ASZF from "./components/ASZF";
+import Adatkezeles from "./components/Adatkezeles";
+import Kapcsolat from "./components/Kapcsolat";
+import Email from "./components/Email";
+
 function App() {
   return (
     <>
@@ -24,6 +28,9 @@ function App() {
           <Route path="/Rolunk" element={<Rolunk />} />
           <Route path="/belepes" element={<Bejelentkezes />} />
           <Route path="/ASZF" element={<ASZF />} />
+          <Route path="/Adatkezeles" element={<Adatkezeles />} />
+          <Route path="/Kapcsolat" element={<Kapcsolat />} />
+          <Route path="/email" element={<Email />} />
         </Route>
 
         <Route path="/loggedIn" element={<LoggedIn />}>

@@ -23,18 +23,7 @@ useEffect(() => {
 }, []);
 
 return (
-  /*   <div className="m-auto row" style={{ maxWidth: "400px" }} >
-
-
-       {akt_arak.map((elem, index) => {
-         return <p key={index}> {elem.elnevezes}  {elem.ar} forint</p>;
-       })}
-    
-
-
-     </div>
-     */
-   
+  
     <ul className="list-group">
       {akt_arak.map((elem, index) => {
         return <li className="list-group-item list-group-item-light" key={index}> {elem.elnevezes} : {elem.ar} forint</li>;
