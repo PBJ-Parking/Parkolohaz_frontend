@@ -18,6 +18,7 @@ import ASZF from "./components/ASZF";
 import Adatkezeles from "./components/Adatkezeles";
 import Kapcsolat from "./components/Kapcsolat";
 import Email from "./components/Email";
+import NoPage from "./pages/NoPage";
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<AdminArticle />} />
         </Route>
-       
+        <Route path="*" element={<NoPage />} />
+      
         
       
 
