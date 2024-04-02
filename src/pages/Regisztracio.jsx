@@ -41,16 +41,7 @@ export default function Regisztracio() {
   };
 
 
-  let token = "";
-
-  const csrf = () =>
-    axios.get("/token").then((response) => {
-
-      token = response.data;
-    });
-
-
-
+ 
 
   return (
     <div className="m-auto" style={{ maxWidth: "400px" }}>
