@@ -31,7 +31,7 @@ export default function Footer() {
 
             </ul>
             </nav>
-            <h3 className="text-area text-center" >PJB Parking Kft. 2024 </h3>
+            <h3 className="text-area text-center" >PBJ Parking Kft. 2024 </h3>
         </footer>
         </Container>
 

@@ -48,10 +48,10 @@ a {
   }
   
   header {
-    background-image: url("../kepek/header/_04404cee-6188-4db5-9105-9064fce49474.jpg"),
-      url("../kepek/header/_42a6dc26-b3bb-4a4e-b849-ed418c1a0d19.jpg"),
-      url("../kepek/header/_afbf6836-821f-4890-a534-02c53e35eff2.jpg"),
-      url("../kepek/header/_de1dde7b-3de1-4215-a9d0-68e8a8698486.jpg");
+    background-image: url("../kepek/header/header-1.webp"),
+      url("../kepek/header/header-2.webp"),
+      url("../kepek/header/header-3.webp"),
+      url("../kepek/header/header-4.webp");
     height: 404px;
     background-position-x: 0%, 33.5%, 66.5%, 100%;
     background-size: 25%;
