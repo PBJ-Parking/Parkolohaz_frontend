@@ -70,6 +70,7 @@ export const AuthProvider = ({ children }) => {
             console.log(error);
             if (error.response.status === 422) {
                 setErrors(error.response.data.errors);
+                console.log(errors)
             }
         }
     };

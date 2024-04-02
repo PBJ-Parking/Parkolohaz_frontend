@@ -13,8 +13,19 @@ export default function TablaSor(props) {
     setModosithato(true);
   }
 
+  const csrf = async () => {
+    try {
+      const { data: token } = await axios.get("/token");
+      return token;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
+
   function ertek_modositas(event) {
     setObjektum({ ...objektum, [event.target.name]: event.target.value });
+    console.log(objektum);
   }
 
   function mentes(event) {
@@ -34,14 +45,8 @@ export default function TablaSor(props) {
 
   async function axiosModositas(modositottId) {
     await axios.put(`api/felhasznalok/${modositottId}`, {
-      name: objektum.name,
-      telefonszam: objektum.telefonszam,
-      cim: objektum.cim,
-      email: objektum.email,
-      password: objektum.password,
-      megrendelo_tipus: objektum.megrendelo_tipus,
-      adoszam: objektum.adoszam,
-      admin_e: objektum.admin_e,
+      ...objektum,
+      _token: await csrf(),
     });
   }
 
@@ -54,7 +59,11 @@ export default function TablaSor(props) {
     const torlendoId = event.target.attributes["sorindex"].value;
     try {
       const axiosTorles = async () => {
-        await axios.delete(`api/felhasznalok/${torlendoId}`);
+        await axios.delete(`api/felhasznalok/${torlendoId}`, {
+          headers: {
+            "X-CSRF-TOKEN": await csrf(),
+          },
+        });
         SetLathatosag("none");
         console.log(torlendoId + " azonosítójú sor törölve!");
       };
