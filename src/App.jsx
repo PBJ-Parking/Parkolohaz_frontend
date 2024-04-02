@@ -35,6 +35,7 @@ function App() {
           <Route path="/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/email" element={<Email />} />
         </Route>
+       
 
         <Route path="/loggedIn" element={<LoggedIn />}>
           <Route index element={<Article />} />
@@ -44,9 +45,19 @@ function App() {
           <Route path="/loggedIn/foglalasEllenorzes" element={<InputProvider><FoglalasEllenorzes /></InputProvider>} />
 
           <Route path="/loggedIn/foglalasVeglegesitve" element={<FoglalasVeglegesitve />} />
+          <Route path="/loggedIn/ASZF" element={<ASZF />} />
+          <Route path="/loggedIn/Adatkezeles" element={<Adatkezeles />} />
+          <Route path="/loggedIn/Kapcsolat" element={<Kapcsolat />} />
+          <Route path="/loggedIn/email" element={<Email />} />
+          <Route path="/loggedIn/Rolunk" element={<Rolunk />} />
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<AdminArticle />} />
+          <Route path="/admin/Rolunk" element={<Rolunk />} />
+          <Route path="/admin/ASZF" element={<ASZF />} />
+          <Route path="/admin/Adatkezeles" element={<Adatkezeles />} />
+          <Route path="/admin/Kapcsolat" element={<Kapcsolat />} />
+          <Route path="/admin/email" element={<Email />} />
         </Route>
         <Route path="*" element={<NoPage />} />
       

@@ -7,7 +7,8 @@ const Layout = () => {
     <>
       <main>
         <Header bal={"belepes"} balOldali={"Belépés"} jobb={"regisztracio"} jobbOldali={"Regisztráció"} balIkon={"bi bi-box-arrow-in-right"} jobbIkon={"bi bi-person-plus-fill"} />
-        <Nav />
+        <Nav
+         isLoggedIn= {false}/>
         <Outlet />
         <Footer />
       </main>

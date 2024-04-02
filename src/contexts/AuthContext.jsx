@@ -13,6 +13,8 @@ export const AuthProvider = ({ children }) => {
         email: "",
         password: "",
         password_confirmation: "",
+        megrendelo_tipus:"",
+        adoszam:"",
     });
     //const csrf = () => axios.get("/sanctum/csrf-cookie");
     let token = "";

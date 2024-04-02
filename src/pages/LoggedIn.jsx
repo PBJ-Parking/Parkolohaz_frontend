@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Header from "../components/Header";
 import "../css/loggedIn.css";
 import useAuthContext from "../contexts/AuthContext";
+import Footer from "../components/Footer";
 
 const LoggedIn = () => {
   const { logout } = useAuthContext();
@@ -20,10 +21,12 @@ const LoggedIn = () => {
           jobbEsemeny ={logout}
         />
         <Nav 
+        isLoggedIn= {true}
         foglalas={"loggedIn/foglalas"}
         />
         
         <Outlet />
+        <Footer />
       </main>
     </>
   );
