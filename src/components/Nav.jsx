@@ -18,10 +18,16 @@ export default function Nav(props) {
           </Link>
         </li>
         <li>
+        <Link to="/rolunk">
+          <i className="bi bi-book"></i> Rólunk
+        </Link>
+      </li>
+        <li>
           <Link to="/kapcsolat">
             <i className="bi bi-person-lines-fill"></i> Kapcsolat
           </Link>
         </li>
+
       </ul>
     </nav>
   );

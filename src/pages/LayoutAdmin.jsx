@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
 import useAuthContext from "../contexts/AuthContext";
+import Footer from "../components/Footer";
 const LayoutAdmin = () => {
   const { logout } = useAuthContext();
   return (
@@ -16,8 +17,10 @@ const LayoutAdmin = () => {
           balIkon={"bi bi-person-lines-fill"}
           jobbEsemeny={logout}
         />
-        <Nav />
+        <Nav
+        isLoggedIn= {true}/>
         <Outlet />
+        <Footer />
       </main>
     </>
   );

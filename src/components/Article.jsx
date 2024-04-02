@@ -13,7 +13,7 @@ export default function Article() {
    
       <Kepnezegeto />
 
-      
+     
     </article>
   );
 }
