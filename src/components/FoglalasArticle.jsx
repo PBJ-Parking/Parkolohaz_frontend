@@ -1,10 +1,11 @@
 import "../css/foglalasArticle.css"
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "../api/axios";
 import { useParkolohelyContext } from "../contexts/ParkolohelyContext";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useInput } from "../contexts/DatumContext";
-
+import { Fragment } from "react";
 
 export default function FoglalasArticle() {
     const [foglalasVege, setFoglalasVege] = useState(new Date().toISOString().substring(0, 10));
@@ -14,10 +15,14 @@ export default function FoglalasArticle() {
     const { setDatumVege, setDatumKezdete } = useInput();
     const { getElsoEmelet, getMasodikEmelet, getHarmadikEmelet, elsoEmelet, masodikEmelet, harmadikEmelet } = useParkolohelyContext();
     const [aktualisEmelet, setAktualisEmelet] = useState(elsoEmelet);
-
+    let foglalasVegeDate = new Date(foglalasVege);
+    let foglalasKezdeteDate = new Date(foglalasKezdete);
+    let napokKulonbseg = Math.abs(foglalasKezdeteDate - foglalasVegeDate) / (1000 * 60 * 60 * 24);
+    const [kedvezmeny, setKedvezmeny] = useState({});
     useEffect(() => {
         getElsoEmelet();
         setAktualisEmelet(elsoEmelet);
+        getKedvezmeny(napokKulonbseg);
     }, [])
 
     useEffect(() => {
@@ -32,6 +37,7 @@ export default function FoglalasArticle() {
                 setAktualisEmelet(harmadikEmelet);
                 break;
             default:
+                setAktualisEmelet(elsoEmelet);
                 break;
         }
     }, [Emelet, elsoEmelet, masodikEmelet, harmadikEmelet]);
@@ -47,18 +53,31 @@ export default function FoglalasArticle() {
             case 'foglalasKezdet':
                 setFoglalasKezdete(event.target.value);
                 setDatumKezdete(event.target.value);
+                foglalasKezdeteDate = new Date(event.target.value);
+                napSzam = Math.abs(foglalasKezdeteDate - foglalasVegeDate) / (1000 * 60 * 60 * 24);
+                getKedvezmeny(napSzam);
                 break;
             case 'foglalasVeg':
                 setFoglalasVege(event.target.value);
                 setDatumVege(event.target.value);
+                foglalasVegeDate = new Date(event.target.value);
+                var napSzam = Math.abs(foglalasKezdeteDate - foglalasVegeDate) / (1000 * 60 * 60 * 24);
+                getKedvezmeny(napSzam);
                 break;
             default:
                 break;
         }
-
-       
     }
 
+    const getKedvezmeny = async (napSzam) => {
+        try {
+            console.log(napSzam)
+            const { data } = await axios.get("api/kedvezmenyNapokSzamanakSzerint/" +  napSzam );
+            setKedvezmeny(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -71,61 +90,72 @@ export default function FoglalasArticle() {
     const helyHandle = (event) => {
         console.log(event)
     }
-     /* const emeletChange = () =>{
-        useEffect(() => {
-            switch (Emelet) {
-                case '1emelet1p':
-                    setAktualisEmelet(elsoEmelet);
-                    break;
-                case '2emelet1p':
-                    setAktualisEmelet(masodikEmelet);
-                    break;
-                case '3emelet1p':
-                    setAktualisEmelet(harmadikEmelet);
-                    break;
-                default:
-                    break;
-            }
-        }, [Emelet, elsoEmelet, masodikEmelet, harmadikEmelet]);
-     } */
-
 
     return (
-
         <article>
             <>
                 <h2>Foglalás</h2>
                 <div className="foglalasHelyek">
-                    {Object.keys(aktualisEmelet).map((type) => (
-                        <div key={type}>
-                            <p>{type} helyek</p>
-                            {aktualisEmelet[type].map((place) => {
-                                let backgroundColor;
-                                switch (place.statusz) {
-                                    case "b":
-                                        backgroundColor = "red";
-                                        break;
-                                    case "s":
-                                        backgroundColor = "green";
-                                        break;
-                                    case "n":
-                                        backgroundColor = "silver";
-                                        break;
-                                    case "f":
-                                        backgroundColor = "yellow";
-                                        break;
-                                    default:
-                                        backgroundColor = "transparent";
-                                }
+                    {Object.keys(aktualisEmelet).map((type, index) => (
+                        <Fragment key={index}>
+                            <div className="foglalasBorder">
+                                <div className="foglalasFejlec">
 
-                                return (
-                                    <div className={place.hely_id} key={place.hely_id} style={{ backgroundColor }} onClick={() => helyHandle(place.hely_id)}>
-                                        {place.statusz}
-                                    </div>
-                                );
-                            })}
-                        </div>
+                                    <p>{type} helyek</p>
+                                </div>
+                                <div className={type} >
+
+                                    {aktualisEmelet[type].map((place) => {
+                                        let backgroundColor;
+                                        switch (place.statusz) {
+                                            case "b":
+                                                backgroundColor = "red";
+                                                break;
+                                            case "s":
+                                                backgroundColor = "green";
+                                                break;
+                                            case "n":
+                                                backgroundColor = "silver";
+                                                break;
+                                            case "f":
+                                                backgroundColor = "yellow";
+                                                break;
+                                            default:
+                                                backgroundColor = "transparent";
+                                        }
+
+                                        return (
+                                            <div className={type + "Hely"} key={place.hely_id} style={{ backgroundColor }} onClick={() => helyHandle(place.hely_id)}>
+                                                {place.statusz}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </Fragment>
                     ))}
+                    <ul>
+                        <li>
+                            <p className="zold">
+                                Zöld jelzés: A parkolóhely szabad.
+                            </p>
+                        </li>
+                        <li>
+                            <p className="piros">
+                                Piros jelzés: A parkolóhely bérelve van.
+                            </p>
+                        </li>
+                        <li>
+                            <p className="sarga">
+                                Sárga jelzés: A parkolóhely foglalt.
+                            </p>
+                        </li>
+                        <li>
+                            <p className="szurke">
+                                Szürke jelzés: A parkolóhely karbantartás alatt van.
+                            </p>
+                        </li>
+                    </ul>
                 </div>
                 <div className="foglalasUrlap">
                     <form onSubmit={handleSubmit}>
@@ -159,11 +189,12 @@ export default function FoglalasArticle() {
                                     min={new Date().toISOString().substring(0, 10)}
                                 />
                             </label>
+                            <p>Összesen {napokKulonbseg} napra foglalna bérlést!</p>
                         </div>
                     </form>
 
                     <p>Ár: Ft</p>
-                    <h6>Kedvezmények:</h6>
+                    <h6>Kedvezmények: {kedvezmeny.merteke}%</h6>
                     <ul>
                         <li> napos kedvezmény! </li>
                     </ul>
@@ -171,9 +202,7 @@ export default function FoglalasArticle() {
                     <button className="btn btn-outline-danger"><i className="bi bi-ban"></i> Mégse</button>
                 </div>
             </>
-
         </article>
-
     )
 }
 

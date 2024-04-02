@@ -1,7 +1,6 @@
 import "../css/article.css"
 import Kepnezegeto from "./Kepnezegeto";
 import useAuthContext from "../contexts/AuthContext";
-import Napi_arak from "./Napi_arak";
 
 export default function Article() {
 
