@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Header from "../components/Header";
 import useAuthContext from "../contexts/AuthContext";
 import Footer from "../components/Footer";
+import AdminNav from "../components/AdminNav";
 const LayoutAdmin = () => {
   const { logout } = useAuthContext();
   return (
@@ -17,8 +18,7 @@ const LayoutAdmin = () => {
           balIkon={"bi bi-person-lines-fill"}
           jobbEsemeny={logout}
         />
-        <Nav
-        isLoggedIn= {true}/>
+        <AdminNav />
         <Outlet />
         <Footer />
       </main>

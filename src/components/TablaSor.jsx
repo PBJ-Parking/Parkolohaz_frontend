@@ -86,7 +86,7 @@ export default function TablaSor(props) {
                 type="text"
                 name={key}
                 id={"input_" + key}
-                value={objektum[key] || ""}
+                value={objektum[key]}
                 onChange={ertek_modositas}
               />
             ) : (
@@ -94,7 +94,7 @@ export default function TablaSor(props) {
                 type="text"
                 name={key}
                 id={"input_" + key}
-                value={objektum[key] || ""}
+                value={objektum[key]}
                 readOnly
               />
             )}

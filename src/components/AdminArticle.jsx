@@ -8,14 +8,17 @@ import TablaFejlecSor from "./TablaFejlecSor";
 import AdminForm from "./AdminForm";
 import lista from "../data/data";
 
-export default function AdminArticle() {
+export default function AdminArticle(props) {
   const [objLista, setObjLista] = useState([]);
 
+  const tabla = lista[props.tabla]
+
   const adatlekeres = async () => {
-    const url = lista.felhasznalok.apik.indexUrl;
+    const url = tabla.apik.indexUrl;
     try {
       const { data } = await axios.get(url);
       setObjLista(data);
+      console.log(data)
     } catch (error) {
       console.error(error);
     }
@@ -23,33 +26,34 @@ export default function AdminArticle() {
 
   useEffect(() => {
     adatlekeres();
-    console.log(objLista[0])
-  }, []);
+  }, [props]);
+
   return (
     <Container fluid className="admin-container">
       {objLista.length && (
         <>
           <AdminForm
-            alapObj={lista.felhasznalok.alapObj}
-            adatok={lista.felhasznalok.adatok}
-            apik={lista.felhasznalok.apik}
+            alapObj={tabla.alapObj}
+            adatok={tabla.adatok}
+            apik={tabla.apik}
           />
 
           <Table responsive striped className="admin-table">
             <thead>
-              <TablaFejlecSor adatok={lista.felhasznalok.adatok} />
+              <TablaFejlecSor adatok={tabla.adatok} />
             </thead>
 
             <tbody>
               {objLista.map((value, index) => {
+                console.log(index)
                 return (
                   <TablaSor
                     key={index}
                     obj={value}
                     fejlec={true}
                     sorszam={index}
-                    adatok={lista.felhasznalok.adatok}
-                    apik={lista.felhasznalok.apik}
+                    adatok={tabla.adatok}
+                    apik={tabla.apik}
                   />
                 );
               })}
