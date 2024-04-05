@@ -53,6 +53,10 @@ function App() {
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<AdminArticle />} />
+          <Route path="/admin/felhasznalok" element={<AdminArticle />} />
+          <Route path="/admin/jarmuvek" element={<AdminArticle />} />
+          <Route path="/admin/berlesek" element={<AdminArticle />} />
+          <Route path="/admin/tipusok" element={<AdminArticle />} />
           <Route path="/admin/Rolunk" element={<Rolunk />} />
           <Route path="/admin/ASZF" element={<ASZF />} />
           <Route path="/admin/Adatkezeles" element={<Adatkezeles />} />

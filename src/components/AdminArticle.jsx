@@ -11,7 +11,7 @@ import lista from "../data/data";
 export default function AdminArticle(props) {
   const [objLista, setObjLista] = useState([]);
 
-  const tabla = lista[props.tabla]
+  const tabla = lista[props.tabla] ?? lista["felhasznalok"]
 
   const adatlekeres = async () => {
     const url = tabla.apik.indexUrl;
