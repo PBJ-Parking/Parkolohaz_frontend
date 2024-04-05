@@ -27,6 +27,11 @@ export default function AdminNav() {
             Típusok
           </Link>
         </li>
+        <li>
+          <Link to="/admin/parkolohelyek" >
+            Parkolóhelyek
+          </Link>
+        </li>
       </ul>
     </nav>
   );
