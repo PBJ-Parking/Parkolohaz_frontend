@@ -310,6 +310,75 @@ const lista = [
         fizetve: "",
       },
     },
+    parkolohelyek: {
+      elnevezes: "Parkolohelyek",
+      apik: {
+        indexUrl: "api/parkolohely",
+        showUrl: "api/parkolohely/{id}",
+        storeUrl: "api/parkolohely",
+        updateUrl: "api/parkolohely/{id}",
+        destroyUrl: "api/parkolohely/{id}",
+      },
+      adatok: {
+        hely_id: {
+          tipus: "number",
+          modosithato: false,
+          kotelezo: true,
+          fejlec: "hely_id",
+          lathato: true,
+        },
+       
+        hely_tipusa: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "tipus id (FK)",
+          lathato: true,
+        },
+
+        statusz: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          regex: "^(s|f|b|n)$",
+          alapertek: "s",
+          fejlec: "statusz",
+          lathato: true,
+        },
+       
+        emelet: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: 1,
+          fejlec: "emelet",
+          lathato: true,
+        },
+        created_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "létrehozva",
+          lathato: true,
+        },
+        updated_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "módosítva",
+          lathato: true,
+        },
+      },
+      alapObj: {
+        hely_id: "",
+        hely_tipusa: "",
+        statusz: 's',
+        emelet:1,
+      },
+    }, 
   },
 ][0];
 
