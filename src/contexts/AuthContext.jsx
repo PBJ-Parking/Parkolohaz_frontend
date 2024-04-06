@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
             await getUser();
             await profileAdatLekeres();
             //elmegyünk  a kezdőlapra
-            navigate("/loggedIn");
+            //navigate("/loggedIn");
         } catch (error) {
             console.log(error);
             if (error.response.status === 422) {
