@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "../api/axios";
 
+
 const ParkolohelyContext = createContext();
 
 export const useParkolohelyContext = () => useContext(ParkolohelyContext);
@@ -10,6 +11,12 @@ export const ParkolohelyProvider = ({ children }) => {
   const [elsoEmelet, setElsoEmelet] = useState([]);
   const [masodikEmelet, setMasodikEmelet] = useState([]);
   const [harmadikEmelet, setHarmadikEmelet] = useState([]);
+  const [aktualisEmeletEll, setAktualisEmeletEll] = useState([]);
+  const [emeletSzam, setEmeletSzam] = useState();
+  const [arEllenorzes, setArEllenorzes] = useState();
+  const [arTipus, setArTipus] = useState(0);
+  const [KedvezmenyID, setKedvezmenyID] = useState();
+  const [helyID, setHelyID] = useState();
 
 
   const getElsoEmelet = async () => {
@@ -36,23 +43,23 @@ export const ParkolohelyProvider = ({ children }) => {
       console.log(error);
     }
   };
-  
 
-  /* parkolohely.forEach((element) => {
-      if (element.emelet === 1) {
-        setElsoEmelet((prevElsoEmelet) => [...prevElsoEmelet, element]);
-      } else if (element.emelet === 2) {
-        setMasodikEmelet((prevMasodikEmelet) => [...prevMasodikEmelet, element]);
-      } else if (element.emelet === 3) {
-        setHarmadikEmelet((prevHarmadikEmelet) => [...prevHarmadikEmelet, element]);
-      }
-    }); */
-
-
+  const getEmelet = async (szam) => {
+    try {
+      const { data } = await axios.get("api/emeletek/" + szam);
+      console.log(data)
+      setAktualisEmeletEll(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
   return (
-    <ParkolohelyContext.Provider value={{ parkolohely, setParkolohely, getElsoEmelet, getMasodikEmelet, getHarmadikEmelet, elsoEmelet, setElsoEmelet, masodikEmelet, harmadikEmelet }}>
+    <ParkolohelyContext.Provider value={{ parkolohely, setParkolohely, getElsoEmelet, getMasodikEmelet, 
+    getHarmadikEmelet, elsoEmelet, setElsoEmelet, masodikEmelet, harmadikEmelet, setAktualisEmeletEll, aktualisEmeletEll,
+    arEllenorzes, setArEllenorzes, getEmelet, emeletSzam, setEmeletSzam, arTipus, setArTipus,
+    KedvezmenyID, setKedvezmenyID, helyID, setHelyID}}>
       {children}
     </ParkolohelyContext.Provider>
   );

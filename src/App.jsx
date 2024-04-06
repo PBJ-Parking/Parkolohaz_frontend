@@ -30,7 +30,7 @@ function App() {
   const { utvonalValaszto } = useUtvonalContext();
   const navigate = useNavigate();
 
-  const { home} = utvonalValaszto(user);
+  const { home } = utvonalValaszto(user);
 
   useEffect(() => {
     navigate(home)
@@ -49,8 +49,8 @@ function App() {
           <Route path="/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/email" element={<Email />} />
           <Route path="/gyik" element={<Gyik />} />
-       
-      </Route>
+
+        </Route>
 
 
         <Route path="/loggedIn" element={<LoggedIn />}>
@@ -76,7 +76,10 @@ function App() {
 
           <Route
             path="/loggedIn/foglalasVeglegesitve"
-            element={<FoglalasVeglegesitve />}
+            element={
+              <InputProvider>
+                <FoglalasVeglegesitve />
+              </InputProvider>}
           />
           <Route path="/loggedIn/ASZF" element={<ASZF />} />
           <Route path="/loggedIn/Adatkezeles" element={<Adatkezeles />} />
