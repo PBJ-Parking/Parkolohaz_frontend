@@ -6,7 +6,7 @@ import "../css/kapcsolat.css"
 
 export default function Kapcsolat() {
     return(
-
+<article>
   <div>    
   <ul className="list-group list-group-flush">
     <li className="list-group-item">Telefon: +36-89-654-987</li>
@@ -16,7 +16,7 @@ export default function Kapcsolat() {
   </ul>
  
  </div> 
-
+ </article>
 
 
 
