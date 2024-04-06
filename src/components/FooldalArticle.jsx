@@ -9,6 +9,7 @@ export default function FooldalArticle() {
  // const { user } = useAuthContext()
 
   return (
+    <article>
     <Container fluid className="fooldal-container">
    
   
@@ -21,8 +22,9 @@ export default function FooldalArticle() {
     
       </div>
      
-     
+   
       </Container>
+      </article>
       
   );
 }

@@ -28,7 +28,7 @@ export default function AdminNav() {
           </Link>
         </li>
         <li>
-          <Link to="/admin/parkolohelyek" >
+          <Link to="/admin/parkolohelyek" state={{ tabla: "parkolohelyek" }}>
             Parkolóhelyek
           </Link>
         </li>

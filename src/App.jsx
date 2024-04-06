@@ -26,7 +26,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<FooldalArticle />} />
+          <Route index element={<FooldalArticle />}/>
           <Route path="/Rolunk" element={<Rolunk />} />
           <Route path="/belepes" element={<Bejelentkezes />} />
           <Route path="/regisztracio" element={<Regisztracio />} />
@@ -34,39 +34,40 @@ function App() {
           <Route path="/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/email" element={<Email />} />
-        </Route>
        
+      </Route>
 
-        <Route path="/loggedIn" element={<LoggedIn />}>
-          <Route index element={<Article />} />
-          <Route path="/loggedIn/profil" element={<Profile />} />
 
-          <Route path="/loggedIn/foglalas" element={<InputProvider><FoglalasArticle /></InputProvider>} />
-          <Route path="/loggedIn/foglalasEllenorzes" element={<InputProvider><FoglalasEllenorzes /></InputProvider>} />
+      <Route path="/loggedIn" element={<LoggedIn />}>
+        <Route index element={<Article />} />
+        <Route path="/loggedIn/profil" element={<Profile />} />
 
-          <Route path="/loggedIn/foglalasVeglegesitve" element={<FoglalasVeglegesitve />} />
-          <Route path="/loggedIn/ASZF" element={<ASZF />} />
-          <Route path="/loggedIn/Adatkezeles" element={<Adatkezeles />} />
-          <Route path="/loggedIn/Kapcsolat" element={<Kapcsolat />} />
-          <Route path="/loggedIn/email" element={<Email />} />
-          <Route path="/loggedIn/Rolunk" element={<Rolunk />} />
-        </Route>
-        <Route path="/admin" element={<LayoutAdmin />}>
-          <Route index element={<AdminArticle />} />
-          <Route path="/admin/felhasznalok" element={<AdminArticle />} />
-          <Route path="/admin/jarmuvek" element={<AdminArticle />} />
-          <Route path="/admin/berlesek" element={<AdminArticle />} />
-          <Route path="/admin/tipusok" element={<AdminArticle />} />
-          <Route path="/admin/Rolunk" element={<Rolunk />} />
-          <Route path="/admin/ASZF" element={<ASZF />} />
-          <Route path="/admin/Adatkezeles" element={<Adatkezeles />} />
-          <Route path="/admin/Kapcsolat" element={<Kapcsolat />} />
-          <Route path="/admin/email" element={<Email />} />
-        </Route>
-        <Route path="*" element={<NoPage />} />
-      
-        
-      
+        <Route path="/loggedIn/foglalas" element={<InputProvider><FoglalasArticle /></InputProvider>} />
+        <Route path="/loggedIn/foglalasEllenorzes" element={<InputProvider><FoglalasEllenorzes /></InputProvider>} />
+
+        <Route path="/loggedIn/foglalasVeglegesitve" element={<FoglalasVeglegesitve />} />
+        <Route path="/loggedIn/ASZF" element={<ASZF />} />
+        <Route path="/loggedIn/Adatkezeles" element={<Adatkezeles />} />
+        <Route path="/loggedIn/Kapcsolat" element={<Kapcsolat />} />
+        <Route path="/loggedIn/email" element={<Email />} />
+        <Route path="/loggedIn/Rolunk" element={<Rolunk />} />
+      </Route>
+      <Route path="/admin" element={<LayoutAdmin />}>
+        <Route index element={<AdminArticle />} />
+        <Route path="/admin/felhasznalok" element={<AdminArticle />} />
+        <Route path="/admin/jarmuvek" element={<AdminArticle />} />
+        <Route path="/admin/berlesek" element={<AdminArticle />} />
+        <Route path="/admin/tipusok" element={<AdminArticle />} />
+        <Route path="/admin/parkolohelyek" element={<AdminArticle />} />
+        <Route path="/admin/ASZF" element={<ASZF />} />
+        <Route path="/admin/Adatkezeles" element={<Adatkezeles />} />
+        <Route path="/admin/Kapcsolat" element={<Kapcsolat />} />
+        <Route path="/admin/email" element={<Email />} />
+      </Route>
+      <Route path="*" element={<NoPage />} />
+
+
+
 
     </Routes >
 
