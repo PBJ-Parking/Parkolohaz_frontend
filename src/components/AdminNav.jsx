@@ -8,27 +8,27 @@ export default function AdminNav() {
           <Link to="/admin">Főoldal</Link>
         </li>
         <li>
-          <Link to="/admin/felhasznalok" state={{ tabla: "felhasznalok" }}>
+          <Link to="/admin/felhasznalok">
             Felhasználók
           </Link>
         </li>
         <li>
-          <Link to="/admin/jarmuvek" state={{ tabla: "jarmuvek" }}>
+          <Link to="/admin/jarmuvek">
             Járművek
           </Link>
         </li>
         <li>
-          <Link to="/admin/berlesek" state={{ tabla: "berlesek" }}>
+          <Link to="/admin/berlesek">
             Bérlések
           </Link>
         </li>
         <li>
-          <Link to="/admin/tipusok" state={{ tabla: "tipusok" }}>
+          <Link to="/admin/tipusok">
             Típusok
           </Link>
         </li>
         <li>
-          <Link to="/admin/parkolohelyek" state={{ tabla: "parkolohelyek" }}>
+          <Link to="/admin/parkolohelyek">
             Parkolóhelyek
           </Link>
         </li>
