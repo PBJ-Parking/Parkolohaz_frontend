@@ -23,6 +23,7 @@ import Regisztracio from "./pages/Regisztracio";
 import useAuthContext from "./contexts/AuthContext";
 import useUtvonalContext from "./contexts/UtvonalContext";
 import { useEffect } from "react";
+import Gyik from "./components/Gyik";
 import AdminFoodal from "./components/AdminFoodal";
 
 function App() {
@@ -48,7 +49,10 @@ function App() {
           <Route path="/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/email" element={<Email />} />
-        </Route>
+          <Route path="/gyik" element={<Gyik />} />
+       
+      </Route>
+
 
         <Route path="/loggedIn" element={<LoggedIn />}>
           <Route index element={<Article />} />
