@@ -20,6 +20,7 @@ import Kapcsolat from "./components/Kapcsolat";
 import Email from "./components/Email";
 import NoPage from "./pages/NoPage";
 import Regisztracio from "./pages/Regisztracio";
+import Gyik from "./components/Gyik";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/email" element={<Email />} />
+          <Route path="/gyik" element={<Gyik />} />
        
       </Route>
 
