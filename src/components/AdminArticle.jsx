@@ -2,11 +2,10 @@ import axios from "../api/axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Container, Table } from "react-bootstrap";
-import TablaSor from "./TablaSor";
 import "../css/adminArticle.css";
-import TablaFejlecSor from "./TablaFejlecSor";
 import AdminForm from "./AdminForm";
 import lista from "../data/data";
+import AdminTabla from "./AdminTabla";
 
 export default function AdminArticle(props) {
   const [objLista, setObjLista] = useState([]);
@@ -43,26 +42,7 @@ export default function AdminArticle(props) {
               apik={tabla.apik}
             />
 
-            <Table responsive striped className="admin-table">
-              <thead>
-                <TablaFejlecSor adatok={tabla.adatok} />
-              </thead>
-
-              <tbody>
-                {objLista.map((value, index) => {
-                  return (
-                    <TablaSor
-                      key={index}
-                      obj={value}
-                      fejlec={true}
-                      sorszam={index}
-                      adatok={tabla.adatok}
-                      apik={tabla.apik}
-                    />
-                  );
-                })}
-              </tbody>
-            </Table>
+            <AdminTabla adatok={tabla.adatok} objLista={objLista} apik={tabla.apik}/>
           </>
         )}
       </Container>

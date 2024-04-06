@@ -6,7 +6,7 @@ export default function TablaSor(props) {
   const [modosithato, setModosithato] = useState(false);
   const [objektum, setObjektum] = useState(props.obj);
   const [regiObjektum, setRegiObjektum] = useState(props.obj);
-  const [lathatosag, SetLathatosag] = useState();
+  const [lathatosag, SetLathatosag] = useState("");
 
   function modosithatova_allitas() {
     setRegiObjektum(objektum);
@@ -44,7 +44,7 @@ export default function TablaSor(props) {
   }
 
   async function axiosModositas(modositottId) {
-    await axios.put(`api/felhasznalok/${modositottId}`, {
+    await axios.put(props.apik.updateUrl +`/${modositottId}`, {
       ...objektum,
       _token: await csrf(),
     });
@@ -59,7 +59,7 @@ export default function TablaSor(props) {
     const torlendoId = event.target.attributes["sorindex"].value;
     try {
       const axiosTorles = async () => {
-        await axios.delete(`api/felhasznalok/${torlendoId}`, {
+        await axios.delete(props.apik.destroyUrl +`/${torlendoId}`, {
           headers: {
             "X-CSRF-TOKEN": await csrf(),
           },
@@ -75,9 +75,9 @@ export default function TablaSor(props) {
 
   return (
     <tr style={{ display: lathatosag }}>
-      {Object.keys(props.obj).map(function (key) {
+      {Object.keys(objektum).map(function (key) {
         return (
-          <td key={props.obj["id"] + key}>
+          <td key={objektum["id"] + key}>
             {modosithato &&
             key !== "id" &&
             key !== "created_at" &&
@@ -106,7 +106,7 @@ export default function TablaSor(props) {
           <Button
             variant="outline-success"
             onClick={mentes}
-            sorindex={props.obj["id"]}
+            sorindex={objektum["id"]}
           >
             Mentés
           </Button>
@@ -114,7 +114,7 @@ export default function TablaSor(props) {
           <Button
             variant="outline-success"
             onClick={modosithatova_allitas}
-            sorindex={props.obj["id"]}
+            sorindex={objektum["id"]}
           >
             Módosítás
           </Button>
@@ -126,7 +126,7 @@ export default function TablaSor(props) {
           <Button
             variant="outline-danger"
             onClick={megse}
-            sorindex={props.obj["id"]}
+            sorindex={objektum["id"]}
           >
             Mégse
           </Button>
@@ -134,7 +134,7 @@ export default function TablaSor(props) {
           <Button
             variant="outline-danger"
             onClick={torles}
-            sorindex={props.obj["id"]}
+            sorindex={objektum["id"]}
           >
             Törlés
           </Button>

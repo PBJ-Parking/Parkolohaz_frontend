@@ -310,6 +310,57 @@ const lista = [
         fizetve: "",
       },
     },
+
+    tipusok: {
+      elnevezes: "Típusok",
+      apik: {
+        indexUrl: "api/tipusok",
+        showUrl: "api/tipusok",
+        storeUrl: "api/tipusok",
+        updateUrl: "api/tipusok",
+        destroyUrl: "api/tipusok",
+      },
+      adatok: {
+        id: {
+          tipus: "number",
+          modosithato: false,
+          kotelezo: true,
+          fejlec: "azon",
+          lathato: true,
+        },
+
+        elnevezes: {
+          tipus: "text",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "elnevezés",
+          lathato: true,
+        },
+
+        created_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "létrehozva",
+          lathato: true,
+        },
+        updated_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "módosítva",
+          lathato: true,
+        },
+      },
+      alapObj: {
+        id: "",
+        elnevezes: "",
+      },
+    },
+
     parkolohelyek: {
       elnevezes: "Parkolohelyek",
       apik: {
@@ -327,7 +378,7 @@ const lista = [
           fejlec: "hely_id",
           lathato: true,
         },
-       
+
         hely_tipusa: {
           tipus: "number",
           modosithato: true,
@@ -338,7 +389,7 @@ const lista = [
         },
 
         statusz: {
-          tipus: "number",
+          tipus: "text",
           modosithato: true,
           kotelezo: true,
           regex: "^(s|f|b|n)$",
@@ -346,7 +397,7 @@ const lista = [
           fejlec: "statusz",
           lathato: true,
         },
-       
+
         emelet: {
           tipus: "number",
           modosithato: true,
@@ -375,10 +426,10 @@ const lista = [
       alapObj: {
         hely_id: "",
         hely_tipusa: "",
-        statusz: 's',
-        emelet:1,
+        statusz: "s",
+        emelet: 1,
       },
-    }, 
+    },
   },
 ][0];
 
