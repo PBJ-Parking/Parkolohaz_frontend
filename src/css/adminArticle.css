@@ -1,31 +1,39 @@
+.admin-article {
+    display: block;
+}
+
 .admin-form-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 0 15px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 0 15px;
+  justify-content: center;
 }
 
 .admin-form input {
-    width: auto;
+  width: auto;
 }
 
-.admin-table  {
-    font-size: 0.8rem;
+.table-responsive,
+.admin-table {
+  max-width: 100%;
+}
+
+.admin-table {
+  font-size: 0.8rem;
 }
 
 .admin-table td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .admin-table input {
-    margin: 0;
-    padding: 5px;
-    box-shadow: none;
-    width: auto;
+  margin: 0;
+  padding: 5px;
+  box-shadow: none;
+  width: auto;
 }
 
 .admin-table input:read-only {
-    background-color: transparent;
-    border: 0;
+  background-color: transparent;
+  border: 0;
 }
-

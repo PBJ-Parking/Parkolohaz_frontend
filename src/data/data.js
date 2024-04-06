@@ -4,10 +4,10 @@ const lista = [
       elnevezes: "Felhasználók",
       apik: {
         indexUrl: "api/felhasznalok",
-        showUrl: "api/felhasznalok/{id}",
+        showUrl: "api/felhasznalok",
         storeUrl: "api/felhasznalok",
-        updateUrl: "api/felhasznalok/{id}",
-        destroyUrl: "api/felhasznalok/{id}",
+        updateUrl: "api/felhasznalok",
+        destroyUrl: "api/felhasznalok",
       },
       adatok: {
         id: {
@@ -133,10 +133,10 @@ const lista = [
       elnevezes: "Járművek",
       apik: {
         indexUrl: "api/jarmuvek",
-        showUrl: "api/jarmuvek/{id}",
+        showUrl: "api/jarmuvek",
         storeUrl: "api/jarmuvek",
-        updateUrl: "api/jarmuvek/{id}",
-        destroyUrl: "api/jarmuvek/{id}",
+        updateUrl: "api/jarmuvek",
+        destroyUrl: "api/jarmuvek",
       },
       adatok: {
         jarmu_id: {
@@ -209,10 +209,10 @@ const lista = [
       elnevezes: "Bérlések",
       apik: {
         indexUrl: "api/berlesek",
-        showUrl: "api/berlesek/{id}",
+        showUrl: "api/berlesek",
         storeUrl: "api/berlesek",
-        updateUrl: "api/berlesek/{id}",
-        destroyUrl: "api/berlesek/{id}",
+        updateUrl: "api/berlesek",
+        destroyUrl: "api/berlesek",
       },
       adatok: {
         jarmu_id: {
@@ -314,10 +314,10 @@ const lista = [
       elnevezes: "Parkolohelyek",
       apik: {
         indexUrl: "api/parkolohely",
-        showUrl: "api/parkolohely/{id}",
+        showUrl: "api/parkolohely",
         storeUrl: "api/parkolohely",
-        updateUrl: "api/parkolohely/{id}",
-        destroyUrl: "api/parkolohely/{id}",
+        updateUrl: "api/parkolohely",
+        destroyUrl: "api/parkolohely",
       },
       adatok: {
         hely_id: {

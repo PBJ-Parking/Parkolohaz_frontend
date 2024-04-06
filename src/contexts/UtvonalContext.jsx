@@ -8,15 +8,15 @@ const UtvonalContext = createContext();
 export const UtvonalProvider = ({ children }) => {
   function utvonalValaszto(user) {
     if (user === null) {
-      return { home: "/", routes: vendeg_routes };
+      return {role: "guest", home: "/", routes: vendeg_routes };
     }
 
     if (user !== null && user.admin_e == 0) {
-      return { home: "/loggedIn", routes: felhasznalo_routes };
+      return {role: "user",  home: "/loggedIn", routes: felhasznalo_routes };
     }
 
     if (user !== null && user.admin_e === 1) {
-      return { home: "/admin", routes: admin_routes };
+      return {role: "admin", home: "/admin", routes: admin_routes };
     }
   }
 

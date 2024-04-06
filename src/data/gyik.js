@@ -1,18 +1,35 @@
 
-const text =
-    `
+const lista =
+    [
 
-    liquet eget.Mattis nunc sed blandit libero volutpat sed.Phasellus vestibulum lorem sed risus ultricies
-     tristique nulla aliquet enim.Blandit cursus risus at ultrices mi.Tempor id eu nisl nunc mi.Sollicitudin
-      nibh sit amet commodo nulla facilisi nullam vehicula.Pulvinar neque laoreet suspendisse interdum consec
-      tetur libero id faucibus nisl.Diam donec adipiscing tristique risus nec feugiat in fermentum.Purus non
-       enim praesent elementum.Donec adipiscing tristique risus nec feugiat in.Nulla facilisi nullam vehicula
-        ipsum a arcu cursus vitae.Faucibus nisl tincidunt eget nullam non nisi est.Eu augue ut lectus arcu 
-        bibendum at varius vel pharetra.Eget dolor morbi non arcu risus quis varius.Ultricies lacus sed turpis
-         tincidunt id aliquet risus feugiat in.Orci sagittis eu volutpat odio facilisis mauris sit.Metus
-          aliquam eleifend mi in nulla posuere sollicitudin aliquam.Urna cursus eget nunc scelerisque viverra
-mauris in aliquam sem.
-        `;
 
-export default text;
+        {
+            kerdes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            valasz: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis. Urna et pharetra pharetra massa massa ultricies mi quis hendrerit. Natoque penatibus et magnis dis parturient montes nascetur. Ut sem viverra aliquet eget sit amet tellus cras adipiscing. Cum sociis natoque penatibus et magnis dis parturient montes. Dictum non consectetur a erat nam. Lectus sit amet est placerat. Porttitor rhoncus dolor purus non enim praesent elementum facilisis. Tristique sollicitudin nibh sit amet. Sed risus pretium quam vulputate dignissim suspendisse. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Placerat orci nulla pellentesque dignissim enim sit amet. Mollis nunc sed id semper risus in. Nibh venenatis cras sed felis eget velit aliquet. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.",
+        },
+        {
+            kerdes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            valasz: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis. Urna et pharetra pharetra massa massa ultricies mi quis hendrerit. Natoque penatibus et magnis dis parturient montes nascetur. Ut sem viverra aliquet eget sit amet tellus cras adipiscing. Cum sociis natoque penatibus et magnis dis parturient montes. Dictum non consectetur a erat nam. Lectus sit amet est placerat. Porttitor rhoncus dolor purus non enim praesent elementum facilisis. Tristique sollicitudin nibh sit amet. Sed risus pretium quam vulputate dignissim suspendisse. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Placerat orci nulla pellentesque dignissim enim sit amet. Mollis nunc sed id semper risus in. Nibh venenatis cras sed felis eget velit aliquet. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.",
+        },
+        {
+            kerdes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            valasz: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis. Urna et pharetra pharetra massa massa ultricies mi quis hendrerit. Natoque penatibus et magnis dis parturient montes nascetur. Ut sem viverra aliquet eget sit amet tellus cras adipiscing. Cum sociis natoque penatibus et magnis dis parturient montes. Dictum non consectetur a erat nam. Lectus sit amet est placerat. Porttitor rhoncus dolor purus non enim praesent elementum facilisis. Tristique sollicitudin nibh sit amet. Sed risus pretium quam vulputate dignissim suspendisse. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Placerat orci nulla pellentesque dignissim enim sit amet. Mollis nunc sed id semper risus in. Nibh venenatis cras sed felis eget velit aliquet. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.",
+        },
+        {
+            kerdes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            valasz: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis. Urna et pharetra pharetra massa massa ultricies mi quis hendrerit. Natoque penatibus et magnis dis parturient montes nascetur. Ut sem viverra aliquet eget sit amet tellus cras adipiscing. Cum sociis natoque penatibus et magnis dis parturient montes. Dictum non consectetur a erat nam. Lectus sit amet est placerat. Porttitor rhoncus dolor purus non enim praesent elementum facilisis. Tristique sollicitudin nibh sit amet. Sed risus pretium quam vulputate dignissim suspendisse. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Placerat orci nulla pellentesque dignissim enim sit amet. Mollis nunc sed id semper risus in. Nibh venenatis cras sed felis eget velit aliquet. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.",
+        },
+        {
+            kerdes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            valasz: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis. Urna et pharetra pharetra massa massa ultricies mi quis hendrerit. Natoque penatibus et magnis dis parturient montes nascetur. Ut sem viverra aliquet eget sit amet tellus cras adipiscing. Cum sociis natoque penatibus et magnis dis parturient montes. Dictum non consectetur a erat nam. Lectus sit amet est placerat. Porttitor rhoncus dolor purus non enim praesent elementum facilisis. Tristique sollicitudin nibh sit amet. Sed risus pretium quam vulputate dignissim suspendisse. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Placerat orci nulla pellentesque dignissim enim sit amet. Mollis nunc sed id semper risus in. Nibh venenatis cras sed felis eget velit aliquet. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.",
+        },
+
+
+
+
+
+
+    ]
+
+export default lista;
 

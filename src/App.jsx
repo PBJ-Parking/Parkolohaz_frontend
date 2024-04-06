@@ -24,6 +24,7 @@ import useAuthContext from "./contexts/AuthContext";
 import useUtvonalContext from "./contexts/UtvonalContext";
 import { useEffect } from "react";
 import Gyik from "./components/Gyik";
+import AdminFoodal from "./components/AdminFoodal";
 
 function App() {
   const { user } = useAuthContext();
@@ -88,12 +89,12 @@ function App() {
           <Route path="/loggedIn/Rolunk" element={<Rolunk />} />
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
-          <Route index element={<AdminArticle />} />
-          <Route path="/admin/felhasznalok" element={<AdminArticle />} />
-          <Route path="/admin/jarmuvek" element={<AdminArticle />} />
-          <Route path="/admin/berlesek" element={<AdminArticle />} />
-          <Route path="/admin/tipusok" element={<AdminArticle />} />
-          <Route path="/admin/parkolohelyek" element={<AdminArticle />} />
+          <Route index element={<AdminFoodal />} />
+          <Route path="/admin/felhasznalok" element={<AdminArticle tabla="felhasznalok"/>} />
+          <Route path="/admin/jarmuvek" element={<AdminArticle tabla="jarmuvek"/>} />
+          <Route path="/admin/berlesek" element={<AdminArticle tabla="berlesek"/>} />
+          <Route path="/admin/tipusok" element={<AdminArticle tabla="tipusok"/>} />
+          <Route path="/admin/parkolohelyek" element={<AdminArticle tabla="parkolohelyek"/>} />
           <Route path="/admin/ASZF" element={<ASZF />} />
           <Route path="/admin/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/admin/Kapcsolat" element={<Kapcsolat />} />
