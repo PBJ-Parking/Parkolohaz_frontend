@@ -99,6 +99,7 @@ function App() {
           <Route path="/admin/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/admin/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/admin/email" element={<Email />} />
+          <Route path="/admin/profil" element={<Profile />} />
         </Route>
         <Route path="*" element={<NoPage />} />
       </Routes>

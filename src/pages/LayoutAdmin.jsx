@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Nav from "../components/Nav";
 import Header from "../components/Header";
 import useAuthContext from "../contexts/AuthContext";
 import Footer from "../components/Footer";
@@ -10,7 +9,7 @@ const LayoutAdmin = () => {
     <>
       <main>
         <Header
-          bal={"loggedIn/profil"}
+          bal={"admin/profil"}
           balOldali={"Profilom"}
           jobb={""}
           jobbOldali={"Kijelentkezés"}

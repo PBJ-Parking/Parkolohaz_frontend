@@ -8,7 +8,7 @@ export default function Nav(props) {
     <nav>
       <ul>
         <li>
-          <Link to="/">
+          <Link to="/loggedIn">
             <i className="bi bi-house-fill"></i> Főoldal
           </Link>
         </li>
@@ -18,12 +18,12 @@ export default function Nav(props) {
           </Link>
         </li>
         <li>
-        <Link to="/rolunk">
+        <Link to="/loggedIn/rolunk">
           <i className="bi bi-book"></i> Rólunk
         </Link>
       </li>
         <li>
-          <Link to="/kapcsolat">
+          <Link to="/loggedIn/kapcsolat">
             <i className="bi bi-person-lines-fill"></i> Kapcsolat
           </Link>
         </li>
