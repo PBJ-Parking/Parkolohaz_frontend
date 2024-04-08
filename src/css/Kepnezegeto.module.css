@@ -1,0 +1,36 @@
+
+/*
+CSS module-ok :)
+
+# a fájlnév fontos!
+.module.css-re kell, hogy végződjön.
+
+# mindennek saját osztályt kell adni, camelCase-s formázással!
+pl.: 
+.adminArticle { 
+    margin: 0;
+    paddig: 0;
+    stb ...
+}
+
+# a react komponenseknél így importáljuk be a css fájlokat:
+import styles from "../css/fajlnev.module.css
+(érdemes a komponens nevével egyező fájlnevet használni)
+
+# JSX-hez a className-en keresztül tudjuk kapcsolni a formázást így:
+<article className:{styles.adminArticle}> 
+
+</article>
+**/
+
+.slideshow {
+    width: 700px;
+    height: 500px;
+    margin: 0 auto;
+  }
+
+.slideshowImage {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
