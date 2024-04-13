@@ -38,7 +38,8 @@ if (hiba) {
 }
 
 if (akt_arak.length==0) {
-  return(<Adatnincs/>)
+
+  return(  <Adattoltes/>)
 }
 
 return (
@@ -48,9 +49,9 @@ return (
       
       {akt_arak.length>0?  
       akt_arak.map((elem, index) => {
-        
+      
         return <li className="list-group-item list-group-item-light" key={index}> {elem.elnevezes} : {elem.ar} forint</li>;
-      }): <Adattoltes/>}
+      }):<Adatnincs/> }
    
 
 

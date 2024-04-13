@@ -16,7 +16,7 @@ export default function SzovegKiir(props){
       <span>{props.tartalom}</span>
       <br></br>
       <br></br>
-   </div> 
+   </div>
     
     </Container>
  )  

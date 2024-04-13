@@ -1,30 +1,34 @@
 import Kepnezegeto from "./Kepnezegeto";
-import useAuthContext from "../contexts/AuthContext";
+
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Napi_arak from "./Napi_arak";
+import MaxKedvezmeny from "./MaxKedvezmeny";
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function FooldalArticle() {
- // const { user } = useAuthContext()
+
 
   return (
-    <article>
-    <Container fluid className="fooldal-container">
-   
-  
-  <div className="row">
 
-      <div className="col"><h1> Napijegy áraink:</h1>{ <Napi_arak/>}</div>
-     
-      <div className="col"><Kepnezegeto /></div>
-      
-    
-      </div>
-     
+<article>
+  <table>
+<tr><Container fluid><MaxKedvezmeny/></Container></tr>
+<tr>
+<Container fluid className="fooldal-container">
    
-      </Container>
-      </article>
-      
+    
+  <Row className="row ">
+  <Col className="col"><h1> Napijegy áraink:</h1>{ <Napi_arak/>}</Col>
+  <Col className="col" ><Kepnezegeto /></Col>
+  </Row>
+  </Container>
+  </tr>
+  </table>
+  </article>
+    
+    
   );
 }
