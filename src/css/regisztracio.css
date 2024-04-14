@@ -1,0 +1,15 @@
+/* Customize the label (the container) */
+.radio{
+    color: black;
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    width: 40px;
+    padding: 10px;
+  }
+
+ .radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }

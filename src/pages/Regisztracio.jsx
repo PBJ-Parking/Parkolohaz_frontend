@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "../api/axios";
 import useAuthContext from "../contexts/AuthContext";
+import "../css/regisztracio.css"
 
 
 export default function Regisztracio() {
@@ -26,7 +27,7 @@ export default function Regisztracio() {
 
     const adat = {
       name: name,
-     
+
       email: email,
       password: password,
       password_confirmation: password_confirmation,
@@ -40,8 +41,13 @@ export default function Regisztracio() {
 
   };
 
+  let token = "";
+  const csrf = () =>
+    axios.get("/token").then((response) => {
+      //console.log(response);
+      token = response.data;
+    });
 
- 
 
   return (
     <div className="m-auto" style={{ maxWidth: "400px" }}>
@@ -136,18 +142,41 @@ export default function Regisztracio() {
             )}
           </div>
 
+         
+        <div className="mb-3" >
+          <label htmlFor="tipus" className="form-label">
+            Magánszemély vagyok
+
+            <input
+              type="radio"
+              value="M"
+              onChange={(e) => {
+                setMegrendelo_Tipus(e.target.value);
+              }}
+              className="radio"
+              id="tipus_maganszemely"
+
+              name="megrendelo_tipus"
+            />
+          </label>
+          <div>
+            {errors.megrendelo_tipus && (
+              <span className="text-danger">{errors.megrendelo_tipus[0]}</span>
+            )}
+          </div>
+
           <div className="mb-3">
             <label htmlFor="tipus" className="form-label">
-              Magánszemély vagyok
+              Cég vagyok
 
               <input
                 type="radio"
-                value="M"
+                value="C"
                 onChange={(e) => {
                   setMegrendelo_Tipus(e.target.value);
                 }}
                 className="radio"
-                id="tipus_maganszemely"
+                id="tipus_ceg"
 
                 name="megrendelo_tipus"
               />
@@ -158,60 +187,38 @@ export default function Regisztracio() {
               )}
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="tipus" className="form-label">
-                Cég vagyok
-
-                <input
-                  type="radio"
-                  value="C"
-                  onChange={(e) => {
-                    setMegrendelo_Tipus(e.target.value);
-                  }}
-                  className="radio"
-                  id="tipus_ceg"
-
-                  name="megrendelo_tipus"
-                />
-              </label>
-              <div>
-                {errors.megrendelo_tipus && (
-                  <span className="text-danger">{errors.megrendelo_tipus[0]}</span>
-                )}
-              </div>
-            
 
             <label htmlFor="adoszam" className="form-label">
-            Adószám:
-          </label>
-          <input
-            type="text"
-            value={adoszam}
-            onChange={(e) => {
-              setAdoszam(e.target.value);
-            }}
-            className="form-control"
-            id="adoszam"
-            placeholder="adószám"
-            name="adoszam"
-          />
-        </div>
-        <div>
-          {errors.name && (
-            <span className="text-danger">{errors.name[0]}</span>
-          )}
-        </div>
-
-
-            <div className=" text-center">
-              <button type="submit" className="btn btn-primary w-100">
-                Regisztrálok
-              </button>
-
-            </div>
+              Adószám:
+            </label>
+            <input
+              type="text"
+              value={adoszam}
+              onChange={(e) => {
+                setAdoszam(e.target.value);
+              }}
+              className="form-control"
+              id="adoszam"
+              placeholder="adószám"
+              name="adoszam"
+            />
           </div>
+          <div>
+            {errors.name && (
+              <span className="text-danger">{errors.name[0]}</span>
+            )}
           </div>
-      </form>
+
+
+          <div className=" text-center">
+            <button type="submit" className="btn btn-primary w-100">
+              Regisztrálok
+            </button>
+
+          </div>
+        </div>
     </div>
+      </form >
+    </div >
   );
 }

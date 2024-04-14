@@ -1,11 +1,11 @@
- article ul li a {
+ article a {
     border-color: rgb(66, 136, 228);
     color: rgb(34, 60, 206);
     text-shadow: none;
     margin-left:5px;
   }
   
- article ul li a:hover {
+ article a:hover {
     border-color: #01a1c9;
     color: #4d8fda;
     background-color: rgb(254, 255, 255);

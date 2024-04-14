@@ -25,6 +25,9 @@ import useUtvonalContext from "./contexts/UtvonalContext";
 import { useEffect } from "react";
 import Gyik from "./components/Gyik";
 import AdminFoodal from "./components/AdminFoodal";
+import AdminStatisztika from "./pages/AdminStatisztika";
+import AdminStatisztikaParkolohely from "./pages/AdminStatisztikaParkolohely";
+
 
 function App() {
   const { user } = useAuthContext();
@@ -86,7 +89,7 @@ function App() {
           <Route path="/loggedIn/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/loggedIn/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/loggedIn/email" element={<Email />} />
-          <Route path="/loggedIn/Rolunk" element={<Rolunk />} />
+          <Route path="/loggedIn/Rolunk" element={<Rolunk />} />  
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<AdminFoodal />} />
@@ -100,6 +103,11 @@ function App() {
           <Route path="/admin/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/admin/email" element={<Email />} />
           <Route path="/admin/profil" element={<Profile />} />
+          <Route path="/admin/arak" element={<AdminArticle tabla="napiArak"/>} />
+          <Route path="/admin/kedvezmenyek" element={<AdminArticle tabla="kedvezmenyek"/>} />
+          <Route path="/admin/statisztikak" element={<AdminStatisztika />} />
+          <Route path="/admin/statisztikak/parkolohely" element={<AdminStatisztikaParkolohely />} />
+
         </Route>
         <Route path="*" element={<NoPage />} />
       </Routes>

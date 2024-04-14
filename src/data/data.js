@@ -430,6 +430,179 @@ const lista = [
         emelet: 1,
       },
     },
+
+    napiArak: {
+      elnevezes: "Napi árak",
+      apik: {
+        indexUrl: "api/napi_arak",
+        showUrl: "api/napi_arak",
+        storeUrl: "api/napi_arak",
+        updateUrl: "api/napi_arak",
+        destroyUrl: "api/napi_arak",
+      },
+      adatok: {
+        ar_id: {
+          tipus: "number",
+          modosithato: false,
+          kotelezo: true,
+          fejlec: "ar_id",
+          lathato: true,
+        },
+
+        megnevezes: {
+          tipus: "text",
+          modosithato: true,
+          kotelezo: true,
+          regex: "[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+",
+          alapertek: "",
+          fejlec: "megnevezés",
+          lathato: true,
+        },
+
+        ar: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: 0,
+          fejlec: "ár",
+          lathato: true,
+        },
+
+        mikortol: {
+          tipus: "date",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "mikortól",
+          lathato: true,
+        },
+
+        tipus: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "tipus id (FK)",
+          lathato: true,
+        },
+
+
+        created_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "létrehozva",
+          lathato: true,
+        },
+        updated_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "módosítva",
+          lathato: true,
+        },
+      },
+      alapObj: {
+        ar_id: "",
+        megnevezes: "",
+        ar: 0,
+        mikortol: "",
+        tipus: "",
+      },
+    },
+
+    kedvezmenyek: {
+      elnevezes: "kedvezmenyek",
+      apik: {
+        indexUrl: "api/kedvezmenyek",
+        showUrl: "api/kedvezmenyek",
+        storeUrl: "api/kedvezmenyek",
+        updateUrl: "api/kedvezmenyek",
+        destroyUrl: "api/kedvezmenyek",
+      },
+      adatok: {
+        kedvezmeny_id: {
+          tipus: "number",
+          modosithato: false,
+          kotelezo: true,
+          fejlec: "kedvezmeny_id",
+          lathato: true,
+        },
+
+        megnevezes: {
+          tipus: "text",
+          modosithato: true,
+          kotelezo: true,
+          regex: "[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+",
+          alapertek: "",
+          fejlec: "megnevezés",
+          lathato: true,
+        },
+
+        hatartol: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "határtól",
+          lathato: true,
+        },
+
+        hatarig: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "határig",
+          lathato: true,
+        },
+
+        mikortol: {
+          tipus: "date",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "mikortól",
+          lathato: true,
+        },
+
+        meddig: {
+          tipus: "date",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "meddig",
+          lathato: true,
+        },
+
+        created_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "létrehozva",
+          lathato: true,
+        },
+        updated_at: {
+          tipus: "text",
+          modosithato: false,
+          kotelezo: false,
+          alapertek: "",
+          fejlec: "módosítva",
+          lathato: true,
+        },
+      },
+      alapObj: {
+        kedvezmeny_id: "",
+        megnevezes: "",
+        hatartol: "",
+        hatarig: "",
+        mikortol: "",
+        meddig: "",
+      },
+    },
   },
 ][0];
 

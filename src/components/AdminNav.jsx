@@ -32,6 +32,21 @@ export default function AdminNav() {
             Parkolóhelyek
           </Link>
         </li>
+        <li>
+          <Link to="/admin/arak">
+            Napi árak
+          </Link>
+        </li>
+        <li>
+          <Link to="/admin/kedvezmenyek">
+            Kedvezmények
+          </Link>
+        </li>
+        <li>
+          <Link to="/admin/statisztikak">
+            Statisztikák
+          </Link>
+        </li>
       </ul>
     </nav>
   );
