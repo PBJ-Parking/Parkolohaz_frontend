@@ -10,6 +10,7 @@ const lista = [
         destroyUrl: "api/felhasznalok",
       },
       adatok: {
+        elsodleges_kulcs: ["id"],
         id: {
           tipus: "number",
           modosithato: false,
@@ -139,6 +140,7 @@ const lista = [
         destroyUrl: "api/jarmuvek",
       },
       adatok: {
+        elsodleges_kulcs: ["jarmu_id"],
         jarmu_id: {
           tipus: "number",
           modosithato: false,
@@ -215,6 +217,7 @@ const lista = [
         destroyUrl: "api/berlesek",
       },
       adatok: {
+        elsodleges_kulcs: ["jarmu_id", "foglalas_datuma"],
         jarmu_id: {
           tipus: "number",
           modosithato: false,
@@ -223,15 +226,15 @@ const lista = [
           lathato: true,
         },
         foglalas_datuma: {
-          tipus: "text",
+          tipus: "date",
           modosithato: false,
           kotelezo: true,
           alapertek: "",
-          fejlec: "rendszám",
+          fejlec: "foglalás dátuma",
           lathato: true,
         },
         foglalas_kezdet: {
-          tipus: "text",
+          tipus: "date",
           modosithato: true,
           kotelezo: true,
           alapertek: "",
@@ -239,7 +242,7 @@ const lista = [
           lathato: true,
         },
         foglalas_vege: {
-          tipus: "text",
+          tipus: "date",
           modosithato: true,
           kotelezo: true,
           alapertek: "",
@@ -265,13 +268,6 @@ const lista = [
           modosithato: true,
           kotelezo: true,
           fejlec: "hely id (FK)",
-          lathato: true,
-        },
-        generalt_kod: {
-          tipus: "text",
-          modosithato: false,
-          kotelezo: false,
-          fejlec: "generált kód",
           lathato: true,
         },
         fizetve: {
@@ -306,7 +302,6 @@ const lista = [
         ar_id: "",
         kedvezmeny_id: "",
         hely_id: "",
-        generalt_kod: "",
         fizetve: "",
       },
     },
@@ -321,6 +316,7 @@ const lista = [
         destroyUrl: "api/tipusok",
       },
       adatok: {
+        elsodleges_kulcs: ["id"],
         id: {
           tipus: "number",
           modosithato: false,
@@ -485,7 +481,6 @@ const lista = [
           fejlec: "tipus id (FK)",
           lathato: true,
         },
-
 
         created_at: {
           tipus: "text",

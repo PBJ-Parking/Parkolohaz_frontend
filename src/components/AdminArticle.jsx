@@ -15,10 +15,8 @@ export default function AdminArticle(props) {
   const adatlekeres = async () => {
     const url = tabla.apik.indexUrl;
     try {
-      console.log(url)
       const { data } = await axios.get(url);
       setObjLista(data)
-      console.log(objLista)
     } catch (error) {
       console.error(error);
     }
@@ -26,9 +24,7 @@ export default function AdminArticle(props) {
   };
 
   useEffect(() => {
-    console.log(tabla)
     adatlekeres();
-    
   }, [tabla]);
 
   return (
@@ -40,6 +36,7 @@ export default function AdminArticle(props) {
               alapObj={tabla.alapObj}
               adatok={tabla.adatok}
               apik={tabla.apik}
+              frissites={adatlekeres}
             />
 
             <AdminTabla adatok={tabla.adatok} objLista={objLista} apik={tabla.apik}/>
