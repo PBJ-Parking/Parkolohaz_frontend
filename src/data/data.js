@@ -577,6 +577,16 @@ const lista = [
           lathato: true,
         },
 
+        
+        merteke: {
+          tipus: "number",
+          modosithato: true,
+          kotelezo: true,
+          alapertek: "",
+          fejlec: "mértéke",
+          lathato: true,
+        },
+
         created_at: {
           tipus: "text",
           modosithato: false,
@@ -601,6 +611,7 @@ const lista = [
         hatarig: "",
         mikortol: "",
         meddig: "",
+        merteke:"",
       },
     },
   },
