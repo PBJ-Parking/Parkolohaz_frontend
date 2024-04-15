@@ -23,7 +23,7 @@ export default function Regisztracio() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await csrf();
+    //await csrf();
 
     const adat = {
       name: name,
@@ -31,7 +31,7 @@ export default function Regisztracio() {
       email: email,
       password: password,
       password_confirmation: password_confirmation,
-      _token: token,
+      //_token: token,
       megrendelo_tipus: megrendelo_tipus,
       adoszam: adoszam,
     };
@@ -41,12 +41,13 @@ export default function Regisztracio() {
 
   };
 
-  let token = "";
+ /* let token = "";
   const csrf = () =>
     axios.get("/token").then((response) => {
       //console.log(response);
       token = response.data;
     });
+    */
 
 
   return (
@@ -146,7 +147,7 @@ export default function Regisztracio() {
         <div className="mb-3" >
           <label htmlFor="tipus" className="form-label">
             Magánszemély vagyok
-
+           
             <input
               type="radio"
               value="M"
