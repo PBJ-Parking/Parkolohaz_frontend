@@ -30,7 +30,10 @@ export default function AdminStatisztikaMutat(props) {
   let temp = [];
 
   temp.push(["státusz", "darab", { role: "style" }]);
-  parkolohelyek.map((item) => temp.push([item.statusz, item.darab, ""]));
+  parkolohelyek.map((item) => 
+{
+  if(item.statusz!='m')
+  {temp.push([item.statusz, item.darab, ""])}});
   console.log(temp);
 
 
