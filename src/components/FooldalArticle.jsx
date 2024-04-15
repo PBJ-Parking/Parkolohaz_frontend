@@ -14,19 +14,20 @@ export default function FooldalArticle() {
   return (
 
 <article>
-  <table>
-<tr><Container fluid><MaxKedvezmeny/></Container></tr>
-<tr>
+
+
+
 <Container fluid className="fooldal-container">
    
-    
+<Row className="row ">
+<Col className="col"><MaxKedvezmeny/></Col>
+ </Row>
   <Row className="row ">
   <Col className="col"><h1> Napijegy áraink:</h1>{ <Napi_arak/>}</Col>
   <Col className="col" ><Kepnezegeto /></Col>
   </Row>
   </Container>
-  </tr>
-  </table>
+  
   </article>
     
     
