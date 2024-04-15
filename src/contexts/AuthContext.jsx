@@ -49,25 +49,11 @@ export const AuthProvider = ({ children }) => {
 
     const loginReg = async ({ ...adat }, vegpont) => {
         await csrf()
-        //console.log(token)
         adat._token = token;
-        //console.log(adat)
-        //lekérjük a csrf tokent
-       
-        //bejelentkezés
-        //Összegyűjtjük egyetlen objektumban az űrlap adatokat
-
-        // Megrpóbáljuk elküldeni a /login végpontra az adatot
-        // hiba esetén kiiratjuk a hibaüzenetet
         try {
             await axios.post(vegpont, adat);
-            //console.log("siker");
-            //sikeres bejelentkezés/regisztráció esetén
-            //Lekérdezzük a usert
             await getUser();
             await profileAdatLekeres();
-            //elmegyünk  a kezdőlapra
-            //navigate("/loggedIn");
         } catch (error) {
             console.log(error);
             if (error.response.status === 422) {
