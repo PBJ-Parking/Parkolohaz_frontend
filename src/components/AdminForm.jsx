@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import axios from "../api/axios";
 
@@ -9,6 +9,10 @@ export default function AdminForm(props) {
     setObjektum({ ...objektum, [event.target.name]: event.target.value });
     console.log(objektum);
   }
+
+  useEffect(()=> {
+    setObjektum(props.alapObj)
+  }, [props])
 
   function elkuld(event) {
     event.preventDefault();
@@ -32,6 +36,7 @@ export default function AdminForm(props) {
         _token: await csrf(),
       });
       console.log(response);
+      props.frissites()
     } catch (error) {
       console.error(error);
     }
@@ -46,7 +51,7 @@ export default function AdminForm(props) {
               {adatok[index].modosithato && (
                 <div className="d-flex gap-3 align-items-center justify-content-between">
                   <label className="p-0 m-0" htmlFor={"admin_form_" + index}>
-                    {index}:
+                    {adatok[index].fejlec}:
                   </label>
                   <input
                     id={"admin_form_" + index}

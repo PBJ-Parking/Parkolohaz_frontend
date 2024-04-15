@@ -10,21 +10,19 @@ export default function AdminTabla(props) {
       </thead>
 
       <tbody>
-        
-
-        {props.objLista && 
-            props.objLista.map((value, index) => {
-          return (
-            <TablaSor
-              key={index}
-              obj={value}
-              fejlec={true}
-              sorszam={index}
-              adatok={props.adatok}
-              apik={props.apik}
-            />
-          );
-        }) }
+        {props.objLista &&
+          props.objLista.map((value, index) => {
+            return (
+              <TablaSor
+                key={index}
+                obj={value}
+                fejlec={true}
+                sorszam={index}
+                adatok={props.adatok}
+                apik={props.apik}
+              />
+            );
+          })}
       </tbody>
     </Table>
   );

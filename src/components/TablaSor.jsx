@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import axios from "../api/axios";
 
@@ -8,43 +8,63 @@ export default function TablaSor(props) {
   const [regiObjektum, setRegiObjektum] = useState(props.obj);
   const [lathatosag, SetLathatosag] = useState("");
 
+  const sorIdGeneralas = () => {
+    const kulcsok_lista = props.adatok.elsodleges_kulcs;
+
+
+    if (kulcsok_lista.length > 1) {
+      let kompozit_kulcs = "";
+      let i = 0;
+      while (i < kulcsok_lista.length) {
+        kompozit_kulcs += objektum[kulcsok_lista[i]] + "/";
+        i++;
+      }
+      return kompozit_kulcs.replace(" ", "%20");
+    }
+
+    return objektum[kulcsok_lista[0]];
+  };
+
+  useEffect(() => {
+    setObjektum(props.obj);
+    setRegiObjektum(props.obj);
+  }, [props]);
+
   function modosithatova_allitas() {
     setRegiObjektum(objektum);
     setModosithato(true);
   }
 
   const csrf = async () => {
+    let visszater;
     try {
       const { data: token } = await axios.get("/token");
-      return token;
+      visszater = token;
     } catch (error) {
       console.log(error);
-      return false;
+      visszater = false;
     }
+
+    return visszater;
   };
 
   function ertek_modositas(event) {
     setObjektum({ ...objektum, [event.target.name]: event.target.value });
-    console.log(objektum);
   }
 
-  function mentes(event) {
-    const modositottId = event.target.attributes["sorindex"].value;
+  function mentes() {
+    let modositottId = sorIdGeneralas();
     try {
       axiosModositas(modositottId);
       setModosithato(false);
-      console.log(
-        modositottId + ". azonosítójú sor módosítva!",
-        regiObjektum,
-        objektum
-      );
+      console.log(modositottId + ". azonosítójú sor módosítva!", regiObjektum, objektum);
     } catch (error) {
       console.error(error);
     }
   }
 
   async function axiosModositas(modositottId) {
-    await axios.put(props.apik.updateUrl +`/${modositottId}`, {
+    await axios.put(props.apik.updateUrl + `/${modositottId}`, {
       ...objektum,
       _token: await csrf(),
     });
@@ -55,11 +75,11 @@ export default function TablaSor(props) {
     setModosithato(false);
   }
 
-  function torles(event) {
-    const torlendoId = event.target.attributes["sorindex"].value;
+  function torles() {
+    const torlendoId = sorIdGeneralas()
     try {
       const axiosTorles = async () => {
-        await axios.delete(props.apik.destroyUrl +`/${torlendoId}`, {
+        await axios.delete(props.apik.destroyUrl + `/${torlendoId}`, {
           headers: {
             "X-CSRF-TOKEN": await csrf(),
           },
@@ -103,19 +123,11 @@ export default function TablaSor(props) {
       })}
       <td>
         {modosithato ? (
-          <Button
-            variant="outline-success"
-            onClick={mentes}
-            sorindex={objektum["id"]}
-          >
+          <Button variant="outline-success" onClick={mentes}>
             Mentés
           </Button>
         ) : (
-          <Button
-            variant="outline-success"
-            onClick={modosithatova_allitas}
-            sorindex={objektum["id"]}
-          >
+          <Button variant="outline-success" onClick={modosithatova_allitas}>
             Módosítás
           </Button>
         )}
@@ -123,19 +135,11 @@ export default function TablaSor(props) {
 
       <td>
         {modosithato ? (
-          <Button
-            variant="outline-danger"
-            onClick={megse}
-            sorindex={objektum["id"]}
-          >
+          <Button variant="outline-danger" onClick={megse}>
             Mégse
           </Button>
         ) : (
-          <Button
-            variant="outline-danger"
-            onClick={torles}
-            sorindex={objektum["id"]}
-          >
+          <Button variant="outline-danger" onClick={torles}>
             Törlés
           </Button>
         )}
