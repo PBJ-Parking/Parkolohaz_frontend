@@ -3,14 +3,13 @@ import { Button } from "react-bootstrap";
 import axios from "../api/axios";
 
 export default function TablaSor(props) {
-  const [modosithato, setModosithato] = useState(false);
+  const [sorModosithato, setSorModosithato] = useState(false);
   const [objektum, setObjektum] = useState(props.obj);
   const [regiObjektum, setRegiObjektum] = useState(props.obj);
   const [lathatosag, SetLathatosag] = useState("");
 
   const sorIdGeneralas = () => {
     const kulcsok_lista = props.adatok.elsodleges_kulcs;
-
 
     if (kulcsok_lista.length > 1) {
       let kompozit_kulcs = "";
@@ -28,11 +27,13 @@ export default function TablaSor(props) {
   useEffect(() => {
     setObjektum(props.obj);
     setRegiObjektum(props.obj);
+    setSorModosithato(false);
+    SetLathatosag("");
   }, [props]);
 
   function modosithatova_allitas() {
     setRegiObjektum(objektum);
-    setModosithato(true);
+    setSorModosithato(true);
   }
 
   const csrf = async () => {
@@ -56,8 +57,12 @@ export default function TablaSor(props) {
     let modositottId = sorIdGeneralas();
     try {
       axiosModositas(modositottId);
-      setModosithato(false);
-      console.log(modositottId + ". azonosítójú sor módosítva!", regiObjektum, objektum);
+      setSorModosithato(false);
+      console.log(
+        modositottId + ". azonosítójú sor módosítva!",
+        regiObjektum,
+        objektum
+      );
     } catch (error) {
       console.error(error);
     }
@@ -72,11 +77,11 @@ export default function TablaSor(props) {
 
   function megse() {
     setObjektum(regiObjektum);
-    setModosithato(false);
+    setSorModosithato(false);
   }
 
   function torles() {
-    const torlendoId = sorIdGeneralas()
+    const torlendoId = sorIdGeneralas();
     try {
       const axiosTorles = async () => {
         await axios.delete(props.apik.destroyUrl + `/${torlendoId}`, {
@@ -98,10 +103,9 @@ export default function TablaSor(props) {
       {Object.keys(objektum).map(function (key) {
         return (
           <td key={objektum["id"] + key}>
-            {modosithato &&
-            key !== "id" &&
-            key !== "created_at" &&
-            key !== "updated_at" ? (
+            {sorModosithato &&
+            props.adatok[key] &&
+            props.adatok[key].modosithato ? (
               <input
                 type="text"
                 name={key}
@@ -122,7 +126,7 @@ export default function TablaSor(props) {
         );
       })}
       <td>
-        {modosithato ? (
+        {sorModosithato ? (
           <Button variant="outline-success" onClick={mentes}>
             Mentés
           </Button>
@@ -134,12 +138,13 @@ export default function TablaSor(props) {
       </td>
 
       <td>
-        {modosithato ? (
+        {sorModosithato ? (
           <Button variant="outline-danger" onClick={megse}>
             Mégse
           </Button>
         ) : (
-          <Button variant="outline-danger" onClick={torles}>
+          <Button variant="outline-secondary" onClick={torles} disabled>
+            <i className="bi bi-lock-fill"></i>
             Törlés
           </Button>
         )}
