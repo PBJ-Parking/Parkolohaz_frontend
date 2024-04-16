@@ -32,7 +32,7 @@ if(name.length<1 || name.length>255 ){
 
 }
 
-if(email.length<1 || !/[a-z0-9]@[a-z0-9].[a-z]{2,3}/.test(email) ){
+if(email.length<1 || !/[a-z0-9]+@[a-z0-9]+\.[a-z]{2,3}/.test(email) ){
   setValidaciosError("Az email üres vagy nem megfelelő formátumú.")
   return;
 
@@ -61,6 +61,7 @@ if(adoszam.length!==13 || !/^\d+$/.test(adoszam) ){
   return;
 
 }
+
 setValidaciosError("")
     const adat = {
       name: name,
@@ -186,7 +187,6 @@ setValidaciosError("")
         <div className="mb-3" >
           <label htmlFor="tipus" className="form-label">
             Magánszemély vagyok
-            </label>
            
             <input
               type="radio"
@@ -196,14 +196,16 @@ setValidaciosError("")
               }}
               className="radio"
               id="tipus_maganszemely"
-
+              
               name="megrendelo_tipus"
-            />
+              />
+               </label>
           <div>
             {errors.megrendelo_tipus && (
               <span className="text-danger">{errors.megrendelo_tipus[0]}</span>
             )}
           </div>
+           
 
           <div className="mb-3">
             <label htmlFor="tipus" className="form-label">

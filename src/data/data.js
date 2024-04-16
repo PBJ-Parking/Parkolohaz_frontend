@@ -365,8 +365,10 @@ const lista = [
         storeUrl: "api/parkolohely",
         updateUrl: "api/parkolohely",
         destroyUrl: "api/parkolohely",
+        megszuntetUrl:"api/parkolohely_megszuntet"
       },
       adatok: {
+        elsodleges_kulcs: ["hely_id"],
         hely_id: {
           tipus: "number",
           modosithato: false,
@@ -437,6 +439,7 @@ const lista = [
         destroyUrl: "api/napi_arak",
       },
       adatok: {
+        elsodleges_kulcs: ["ar_id"],
         ar_id: {
           tipus: "number",
           modosithato: false,
@@ -516,8 +519,10 @@ const lista = [
         storeUrl: "api/kedvezmenyek",
         updateUrl: "api/kedvezmenyek",
         destroyUrl: "api/kedvezmenyek",
+    
       },
       adatok: {
+        elsodleges_kulcs: ["kedvezmeny_id"],
         kedvezmeny_id: {
           tipus: "number",
           modosithato: false,

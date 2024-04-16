@@ -77,7 +77,21 @@ export default function TablaSor(props) {
 
   function torles() {
     const torlendoId = sorIdGeneralas()
+
+
     try {
+      //   if (props.elnevezes=='Parkolohelyek'){
+      //     const axiosMegszuntet = async () => { 
+      //       await axios.put(props.apik.megszuntetUrl + `/${torlendoId}`, {
+      //         ...objektum,
+      //         _token: await csrf(),
+      //       });
+
+      //     };
+      //   axiosMegszuntet();
+      //   props.frissites(); 
+      //   }
+      //   else{
       const axiosTorles = async () => {
         await axios.delete(props.apik.destroyUrl + `/${torlendoId}`, {
           headers: {
@@ -88,6 +102,7 @@ export default function TablaSor(props) {
         console.log(torlendoId + " azonosítójú sor törölve!");
       };
       axiosTorles();
+      // }
     } catch (error) {
       console.error(error);
     }
@@ -99,9 +114,9 @@ export default function TablaSor(props) {
         return (
           <td key={objektum["id"] + key}>
             {modosithato &&
-            key !== "id" &&
-            key !== "created_at" &&
-            key !== "updated_at" ? (
+              key !== "id" &&
+              key !== "created_at" &&
+              key !== "updated_at" ? (
               <input
                 type="text"
                 name={key}
