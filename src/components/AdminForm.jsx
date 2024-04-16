@@ -44,7 +44,7 @@ export default function AdminForm(props) {
 
   return (
     <form className="admin-form py-3" onSubmit={elkuld} method="post">
-      <Container className="admin-form-wrapper" b style={{ display: "block", height: "auto" }}>
+      <Container className="admin-form-wrapper" style={{ display: "block", height: "auto" }}>
         <Row>
           {Object.keys(adatok).map(function (index) {
             return (

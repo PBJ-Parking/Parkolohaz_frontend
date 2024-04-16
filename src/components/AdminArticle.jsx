@@ -29,6 +29,7 @@ export default function AdminArticle(props) {
 
   return (
     <article className="admin-article">
+      <h2>{tabla.elnevezes}</h2>
       <Container fluid className="admin-container">
         {objLista.length > 0 && (
           <>

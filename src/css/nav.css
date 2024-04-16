@@ -37,15 +37,23 @@ nav ul li a:hover {
   background-color: rgba(199, 210, 224, 0.87);
 }
 
-#offcanvasNavbar-expand[aria-modal=true] ul {
+#offcanvasNavbar-expand[aria-modal="true"] ul {
   flex-direction: column;
   padding: 0 30px 0 10px;
 }
 
-#offcanvasNavbar-expand[aria-modal=true] ul li {
+#offcanvasNavbar-expand[aria-modal="true"] ul li {
   width: 100%;
 }
 
-#offcanvasNavbar-expand[aria-modal=true] ul li a {
+#offcanvasNavbar-expand[aria-modal="true"] ul li a {
   width: 100%;
+}
+
+.nav-felhasznaloi-menu {
+  display: none;
+}
+
+#offcanvasNavbar-expand[aria-modal="true"] .nav-felhasznaloi-menu {
+  display: block;
 }
