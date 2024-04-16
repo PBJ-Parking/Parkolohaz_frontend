@@ -12,8 +12,10 @@ export default function Regisztracio() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
-  const [megrendelo_tipus, setMegrendelo_Tipus] = useState("");
+  const [megrendeloTipus, setMegrendelo_Tipus] = useState("");
   const [adoszam, setAdoszam] = useState("");
+
+  const [validaciosError, setValidaciosError] = useState("");
 
 
 
@@ -24,7 +26,42 @@ export default function Regisztracio() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //await csrf();
+if(name.length<1 || name.length>255 ){
+  setValidaciosError("A névnek 1-255 karakter között kell lennie.")
+  return;
 
+}
+
+if(email.length<1 || !/[a-z0-9]@[a-z0-9].[a-z]{2,3}/.test(email) ){
+  setValidaciosError("Az email üres vagy nem megfelelő formátumú.")
+  return;
+
+}
+
+if(password.length<8 || password.length>16 ){
+  setValidaciosError("A jelszó 8 és 16 karakter közötti.")
+  return;
+
+}
+
+if(password!==password_confirmation){
+  setValidaciosError("A két jelszó nem egyezik.")
+  return;
+
+}
+if(megrendeloTipus===""){
+  setValidaciosError("Válasszon magánszemély vagy cég.")
+  return;
+
+}
+
+
+if(adoszam.length!==13 || !/^\d+$/.test(adoszam) ){
+  setValidaciosError("Az adószám 13 karakerű, csak számok.")
+  return;
+
+}
+setValidaciosError("")
     const adat = {
       name: name,
 
@@ -32,7 +69,7 @@ export default function Regisztracio() {
       password: password,
       password_confirmation: password_confirmation,
       //_token: token,
-      megrendelo_tipus: megrendelo_tipus,
+      megrendelo_tipus: megrendeloTipus,
       adoszam: adoszam,
     };
 
@@ -51,6 +88,8 @@ export default function Regisztracio() {
 
 
   return (
+    <>
+   
     <div className="m-auto" style={{ maxWidth: "400px" }}>
       <h1 className="text-center">Regisztráció</h1>
       <form onSubmit={handleSubmit}>
@@ -147,6 +186,7 @@ export default function Regisztracio() {
         <div className="mb-3" >
           <label htmlFor="tipus" className="form-label">
             Magánszemély vagyok
+            </label>
            
             <input
               type="radio"
@@ -159,7 +199,6 @@ export default function Regisztracio() {
 
               name="megrendelo_tipus"
             />
-          </label>
           <div>
             {errors.megrendelo_tipus && (
               <span className="text-danger">{errors.megrendelo_tipus[0]}</span>
@@ -178,9 +217,9 @@ export default function Regisztracio() {
                 }}
                 className="radio"
                 id="tipus_ceg"
-
+                
                 name="megrendelo_tipus"
-              />
+                />
             </label>
             <div>
               {errors.megrendelo_tipus && (
@@ -205,11 +244,12 @@ export default function Regisztracio() {
             />
           </div>
           <div>
-            {errors.name && (
-              <span className="text-danger">{errors.name[0]}</span>
+            {errors.adoszam && (
+              <span className="text-danger">{errors.adoszam[0]}</span>
             )}
           </div>
 
+    {validaciosError!=="" && <p>{validaciosError}</p>}
 
           <div className=" text-center">
             <button type="submit" className="btn btn-primary w-100">
@@ -221,5 +261,6 @@ export default function Regisztracio() {
     </div>
       </form >
     </div >
+    </>
   );
 }
