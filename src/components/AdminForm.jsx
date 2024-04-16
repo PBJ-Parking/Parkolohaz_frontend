@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import axios from "../api/axios";
 
 export default function AdminForm(props) {
@@ -10,9 +10,9 @@ export default function AdminForm(props) {
     console.log(objektum);
   }
 
-  useEffect(()=> {
-    setObjektum(props.alapObj)
-  }, [props])
+  useEffect(() => {
+    setObjektum(props.alapObj);
+  }, [props]);
 
   function elkuld(event) {
     event.preventDefault();
@@ -36,7 +36,7 @@ export default function AdminForm(props) {
         _token: await csrf(),
       });
       console.log(response);
-      props.frissites()
+      props.frissites();
     } catch (error) {
       console.error(error);
     }
@@ -44,28 +44,35 @@ export default function AdminForm(props) {
 
   return (
     <form className="admin-form py-3" onSubmit={elkuld} method="post">
-      <div className="admin-form-wrapper">
-        {Object.keys(adatok).map(function (index) {
-          return (
-            <Fragment key={index}>
-              {adatok[index].modosithato && (
-                <div className="d-flex gap-3 align-items-center justify-content-between">
-                  <label className="p-0 m-0" htmlFor={"admin_form_" + index}>
-                    {adatok[index].fejlec}:
-                  </label>
-                  <input
-                    id={"admin_form_" + index}
-                    name={index}
-                    value={objektum[index] || adatok[index].alapertek}
-                    onChange={ertekmodositas}
-                    type={adatok[index].tipus}
-                  />
-                </div>
-              )}
-            </Fragment>
-          );
-        })}
-      </div>
+      <Container className="admin-form-wrapper" b style={{ display: "block", height: "auto" }}>
+        <Row>
+          {Object.keys(adatok).map(function (index) {
+            return (
+              <Fragment key={index}>
+                {adatok[index].modosithato && (
+                  <Col>
+                    <div>
+                      <label
+                        className="p-0 m-0"
+                        htmlFor={"admin_form_" + index}
+                      >
+                        {adatok[index].fejlec}:
+                      </label>
+                      <input
+                        id={"admin_form_" + index}
+                        name={index}
+                        value={objektum[index] || adatok[index].alapertek}
+                        onChange={ertekmodositas}
+                        type={adatok[index].tipus}
+                      />
+                    </div>
+                  </Col>
+                )}
+              </Fragment>
+            );
+          })}
+        </Row>
+      </Container>
       <Button
         variant="outline-success"
         as="input"

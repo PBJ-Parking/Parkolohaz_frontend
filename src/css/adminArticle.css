@@ -2,13 +2,6 @@
     display: block;
 }
 
-.admin-form-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 0 15px;
-  justify-content: center;
-}
-
 .admin-form input {
   width: auto;
 }
