@@ -212,7 +212,7 @@ const lista = [
       apik: {
         indexUrl: "api/berlesek",
         showUrl: "api/berlesek",
-        storeUrl: "api/berlesek",
+        storeUrl: "api/postBerles",
         updateUrl: "api/berlesek",
         destroyUrl: "api/berlesek",
       },
