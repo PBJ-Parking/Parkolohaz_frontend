@@ -4,10 +4,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 export default function AdminNav() {
-
   return (
     <>
-      <Navbar expand="lg" style={{padding: `${0.5}rem`}}>
+      <Navbar expand="lg" style={{ padding: `${0.5}rem` }}>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand`}
@@ -24,6 +23,9 @@ export default function AdminNav() {
               <ul>
                 <li>
                   <Link to="/admin">Főoldal</Link>
+                </li>
+                <li>
+                  <Link to="/admin/statisztikak">Statisztikák</Link>
                 </li>
                 <li>
                   <Link to="/admin/felhasznalok">Felhasználók</Link>
@@ -45,9 +47,6 @@ export default function AdminNav() {
                 </li>
                 <li>
                   <Link to="/admin/kedvezmenyek">Kedvezmények</Link>
-                </li>
-                <li>
-                  <Link to="/admin/statisztikak">Statisztikák</Link>
                 </li>
               </ul>
             </Nav>
