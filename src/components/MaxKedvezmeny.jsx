@@ -34,12 +34,12 @@ export default function MaxKedvezmeny(props) {
     return (<h2 className="text-center text-bg-light p-3"> Kedvezményért nézzen vissza később!</h2>)
   }
 
-  const textArray = ['Regisztráljon még ma!', 'Unja a parkolóhely keresést? Nálunk megtalálta!'];
+  const textArray = ['Regisztráljon még ma!', 'Unja a parkolóhely keresést?','Nálunk megtalálta!'];
 
 
   return (
 
-   <h1 class="text-center" >Béreljen most akár {maxKedvezmeny.merteke} % kedvezménnyel!
+   <h1 className="text-center" >Béreljen most akár {maxKedvezmeny.merteke} % kedvezménnyel!
     
       <TypingAnimator
         textArray={textArray}

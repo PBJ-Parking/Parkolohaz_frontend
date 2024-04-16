@@ -7,24 +7,27 @@ import MaxKedvezmeny from "./MaxKedvezmeny";
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import "../css/fooldalArticle.css";
 export default function FooldalArticle() {
 
 
   return (
 
-<article>
+<article className="fooldalArticle">
 
 
 
 <Container fluid className="fooldal-container">
    
-<Row className="row ">
-<Col className="col"><MaxKedvezmeny/></Col>
+<Row>
+<Col><MaxKedvezmeny/></Col>
  </Row>
-  <Row className="row ">
-  <Col className="col"><h1> Napijegy áraink:</h1>{ <Napi_arak/>}</Col>
-  <Col className="col" ><Kepnezegeto /></Col>
+  <Row>
+  <Col><h1> Napijegy áraink:</h1>{ <Napi_arak/>}</Col>
+  <Col className="d-none d-sm-block" ><Kepnezegeto /></Col>
+  </Row>
+  <Row className="d-sm-none" >
+  <Col ><Kepnezegeto /></Col>
   </Row>
   </Container>
   
