@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Nav from "../components/Nav";
+import Navigacio from "../components/Navigacio";
 import Header from "../components/Header";
 import "../css/loggedIn.css";
 import useAuthContext from "../contexts/AuthContext";
@@ -20,7 +20,7 @@ const LoggedIn = () => {
           balIkon={"bi bi-person-lines-fill"}
           jobbEsemeny ={logout}
         />
-        <Nav 
+        <Navigacio 
         isLoggedIn= {true}
         foglalas={"loggedIn/foglalas"}
         />

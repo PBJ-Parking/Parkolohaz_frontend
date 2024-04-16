@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Nav from "../components/Nav";
+import Navigacio from "../components/Navigacio";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -7,15 +7,18 @@ const Layout = () => {
   return (
     <>
       <main>
-        <Header bal={"belepes"} balOldali={"Belépés"} jobb={"regisztracio"} jobbOldali={"Regisztráció"} balIkon={"bi bi-box-arrow-in-right"} jobbIkon={"bi bi-person-plus-fill"} />
-        <Nav
-         isLoggedIn= {false}/>
+        <Header
+          bal={"belepes"}
+          balOldali={"Belépés"}
+          jobb={"regisztracio"}
+          jobbOldali={"Regisztráció"}
+          balIkon={"bi bi-box-arrow-in-right"}
+          jobbIkon={"bi bi-person-plus-fill"}
+        />
+        <Navigacio isLoggedIn={false} />
         <Outlet />
         <Footer />
       </main>
-
-
-
     </>
   );
 };
