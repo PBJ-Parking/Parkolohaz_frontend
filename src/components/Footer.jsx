@@ -20,7 +20,7 @@ export default function Footer() {
                 </li>
                 <li>
                     <Link to="/Adatkezeles">
-                        <i className="bi fill"></i> Adatkezelési tájékoztató
+                        <i className="bi fill"></i> Adatkezelés
                     </Link>
                 </li>
                 <li>
