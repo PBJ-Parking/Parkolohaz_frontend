@@ -50,7 +50,7 @@ export default function Navigacio(props) {
               <h6>Felhasználói menü</h6>
               <ul>
                 <li>
-                  <Link to="/admin/profil">
+                  <Link to="/loggedIn/profil">
                     <i className="bi bi-person-lines-fill"></i>
                     Profilom
                   </Link>
@@ -84,7 +84,7 @@ export default function Navigacio(props) {
           <Nav>
             <ul>
               <li>
-                <Link to="/">
+                <Link to="/" data-bs-dismiss="offcanvasNavbar-expand" >
                   <i className="bi bi-house-fill"></i> Főoldal
                 </Link>
               </li>
