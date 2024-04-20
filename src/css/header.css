@@ -70,4 +70,108 @@ a {
     border: none;
     background-color: none;
   }
-  
+
+
+@media screen and (max-width: 1400px) {
+  header .h1{
+    font-size: 90px;
+  }
+
+  header{
+    height: 350px;
+  }
+
+  a{
+    font-size: 20px;
+    
+  }
+}
+@media screen and (max-width: 1200px) {
+  header .h1{
+    font-size: 90px;
+  }
+
+  header{
+    height: 300px;
+  }
+
+  a{
+    font-size: 18px;
+    
+  }
+}
+@media screen and (max-width: 992px) {
+  header .h1{
+    font-size: 70px;
+  }
+
+  header{
+    height: 210px;
+  }
+
+  a{
+    font-size: 20px;
+  }
+
+  header ul {
+    top: 10px;
+    right: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header .h1{
+    font-size: 60px;
+  }
+
+  header{
+    height: 190px;
+  }
+
+  a{
+    font-size: 15px;
+  }
+  header ul {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  header .h1{
+    font-size: 40px;
+  }
+
+  header{
+    height: 130px;
+  }
+
+  a{
+    font-size: 10px;
+  }
+
+  header ul {
+    top: 5px;
+    right: 10px;
+  }
+
+}
+@media screen and (max-width: 420px) {
+  header .h1{
+    font-size: 35px;
+  }
+
+  header{
+    height: 90px;
+  }
+
+  a{
+    font-size: 10px;
+    
+  }
+
+  header ul {
+    display: none;
+    
+  }
+
+}

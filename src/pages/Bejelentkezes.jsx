@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "../api/axios";
 import useAuthContext from "../contexts/AuthContext";
+import "../css/bejelentkezes.css"
 
 export default function Bejelentkezes() {
     const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ export default function Bejelentkezes() {
   return (
     <div className="m-auto" style={{ maxWidth: "400px" }}>
       <h1 className="text-center">Bejelentkezés</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="bejelentkezesForm" onSubmit={handleSubmit}>
         <div className="mb-3 mt-3">
           <label htmlFor="email" className="form-label">
             Email:

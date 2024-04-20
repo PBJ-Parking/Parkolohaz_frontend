@@ -46,7 +46,7 @@ export default function FoglalasVeglegesitve() {
     return (
         <>
 
-            <div className="container">
+            <div className="foglalasContainer">
                 <h2>Foglalás</h2>
                 <div className="foglalasHelyekVeglegesitve">
                     <p>Bérlő neve: {user.name}</p>

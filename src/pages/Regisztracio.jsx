@@ -93,7 +93,7 @@ setValidaciosError("")
    
     <div className="m-auto" style={{ maxWidth: "400px" }}>
       <h1 className="text-center">Regisztráció</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="regisztracioForm" onSubmit={handleSubmit}>
 
         <div className="mb-3 mt-3">
           <label htmlFor="name" className="form-label">
@@ -184,7 +184,7 @@ setValidaciosError("")
           </div>
 
          
-        <div className="mb-3" >
+        <div className="mb-3 mt-4" >
           <label htmlFor="tipus" className="form-label">
             Magánszemély vagyok
            

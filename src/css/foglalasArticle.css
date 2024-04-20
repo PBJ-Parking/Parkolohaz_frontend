@@ -108,7 +108,7 @@
     font-size: 22px;
   }
   
-  article{
+  .foglalasArticle{
     width: 100%;
     display: grid;
     grid-template-areas: 'h2 h2'
@@ -170,5 +170,158 @@
   button.btn-outline-danger{
     margin-left: 15px;
   }
+
+  @media screen and (max-width: 1400px) {
+    .motorHely{
+      width: 75px;
+    }
+  }
   
+  
+  @media screen and (max-width: 1200px) {
+    .motorHely{
+      width: 120px;
+    }
+
+    .hagyományosHely{
+      width: 140px;
+    }
+    .mozgássérültHely{
+      width: 240px;
+    }
+    .elektromosHely{
+      width: 140px;
+    }
+
+    .foglalasUrlap{
+      padding: 0;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .foglalasArticle{
+      width: 100%;
+      display: grid;
+      grid-template-areas: 'h2 h2'
+                          'fh fh'
+                          'fu fu';
+   }
+
+   .foglalasUrlap{
+    padding: 5px;
+  }
+  .motorHely{
+    width: 95px;
+  }
+
+  .hagyományosHely{
+    width: 120px;
+  }
+  .mozgássérültHely{
+    width: 200px;
+  }
+  .elektromosHely{
+    width: 120px;
+  }
+
+  }
+  @media screen and (max-width: 768px) {
+    .motorHely{
+      width: 63px;
+    }
+
+    .hagyományosHely{
+      width: 75px;
+    }
+    .mozgássérültHely{
+      width: 130px;
+    }
+    .elektromosHely{
+      width: 76px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .motorHely{
+      width: 50px;
+    }
+
+    .hagyományosHely{
+      width: 60px;
+    }
+    .mozgássérültHely{
+      width: 100px;
+    }
+    .elektromosHely{
+      width: 60px;
+    }
+
+    .foglalasHelyek p{
+      font-size: 15px;
+    }
+
+    .foglalasArticle{
+      padding: 5px;
+    }
+
+    
+     .foglalasUrlap form, .foglalasUrlap .form-group, .foglalasUrlap label{
+      width: 100%;
+     }
+  
+     input, select{
+      width: 100%;
+     }
+  
+  }
+  @media screen and (max-width: 430px) {
+    .motorHely{
+      width: 40px;
+    }
+
+    .hagyományosHely{
+      width: 50px;
+    }
+    .mozgássérültHely{
+      width: 85px;
+    }
+    .elektromosHely{
+      width: 50px;
+    }
+
+    .foglalasHelyek p{
+      font-size: 15px;
+    }
+
+    .foglalasHelyek {
+      width: 100%;
+    }
+
+    .foglalasBorder{
+      width: 100%;
+    }
+
+    .foglalasArticle{
+      width: 100%;
+    }
+
+    .foglalasArticle{
+      width: 100%;
+      display: grid;
+      grid-template-areas: 'h2 '
+                          'fh'
+                          'fu';
+   }
+
+   .foglalasUrlap{
+    width: 100%;
+   }
+   .foglalasUrlap form, .foglalasUrlap .form-group, .foglalasUrlap label{
+    width: 100%;
+   }
+
+   input, select{
+    width: 100%;
+   }
+  
+  }
   

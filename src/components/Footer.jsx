@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Footer() {
     return (
 
-        <Container fluid className="fooldal-container">
+       
    
         <footer>
             <nav>
@@ -33,7 +33,7 @@ export default function Footer() {
             </nav>
             <h3 className="text-area text-center" >PBJ Parking Kft. 2024 </h3>
         </footer>
-        </Container>
+        
 
 
 

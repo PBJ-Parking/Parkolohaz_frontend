@@ -41,7 +41,7 @@ export default function ProfileArticle() {
     };
 
     return (
-        <article>
+        <article className="profileArticle">
             <h1>Profilom</h1>
             <div className="userNeveEsKepe">
                 <h2>{user ? " " + user.name : ""}</h2>

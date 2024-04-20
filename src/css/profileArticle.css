@@ -38,7 +38,113 @@ h2 button {
 .UserTovabbiAdatai div {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 600px;
   background-color: whitesmoke;
   padding-top: 10px;
+}
+
+.profileArticle {
+  display: block;
+}
+
+@media screen and (max-width: 1400px) {
+  .profileArticle h1 {
+    font-size: 50px;
+  }
+
+  .profileArticle {
+    display: block;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .profileArticle h1 {
+    font-size: 50px;
+  }
+
+  .profileArticle {
+    display: block;
+  }
+}
+@media screen and (max-width: 992px) {
+  .profileArticle h1 {
+    font-size: 50px;
+  }
+
+  .profileArticle {
+    display: block;
+  }
+
+  .profileArticle ul {
+    width: 700px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .profileArticle h1 {
+    font-size: 50px;
+  }
+
+  .profileArticle {
+    display: block;
+  }
+
+ .UserTovabbiAdatai ul {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .UserTovabbiAdatai div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .profileArticle h1 {
+    font-size: 40px;
+  }
+  .profileArticle h2 {
+    font-size: 25px;
+  }
+
+  .profileArticle {
+    display: block;
+  }
+
+  p {
+    font-size: small;
+  }
+
+  .UserTovabbiAdatai ul {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .UserTovabbiAdatai div {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .profileArticle h1 {
+    font-size: 30px;
+  }
+  .profileArticle h2 {
+    font-size: 20px;
+  }
+
+  .profileArticle {
+    display: block;
+    width: 100%;
+  }
+
+  p {
+    font-size: small;
+  }
+
+  .profileArticle ul {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .UserTovabbiAdatai div {
+    width: 100%;
+  }
 }

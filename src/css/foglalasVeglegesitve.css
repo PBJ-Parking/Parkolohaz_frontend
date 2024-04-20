@@ -20,7 +20,7 @@
   align-items: start;
 }
 
-.container {
+.foglalasContainer {
   height: 500px;
   margin: 0;
   padding: 15px;
@@ -33,7 +33,7 @@
     "fh fu";
 }
 
-.container h2 {
+.foglalasContainer h2 {
   grid-area: h2;
   padding: 0px;
   margin: 0;
@@ -51,4 +51,64 @@
   border-color: #0101c9;
   color: #0101c9;
   background-color: rgba(199, 210, 224, 0.87);
+}
+@media screen and (max-width: 768px) {
+  .foglalasContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows:10% 35% 40%;
+    grid-template-areas:
+      "h2 h2"
+      "fu fu"
+      "fh fh";
+  }
+
+  .letoltes {
+    padding: 0;
+  }
+
+  .foglalasContainer h2{
+    height: 1px;
+  }}
+
+@media screen and (max-width: 576px) {
+  .foglalasContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows:10% 35% 40%;
+    grid-template-areas:
+      "h2 h2"
+      "fu fu"
+      "fh fh";
+  }
+
+  .letoltes {
+    padding: 0;
+  }
+
+  .foglalasContainer h2{
+    height: 1px;
+  }
+
+}
+@media screen and (max-width: 420px) {
+  .foglalasContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows:10% 30% 40%;
+    grid-template-areas:
+      "h2 h2"
+      "fu fu"
+      "fh fh";
+  }
+
+  .letoltes {
+    padding: 0;
+  }
+
+  .foglalasContainer h2{
+    height: 1px;
+  }
+
+
 }

@@ -1,0 +1,10 @@
+.bejelentkezesForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.bejelentkezesForm p{
+    text-align: center;
+}

@@ -198,7 +198,7 @@ export default function FoglalasArticle() {
     };
 
     return (
-        <article>
+        <article className="foglalasArticle">
             <>
                 <h2>Foglalás</h2>
                 <div className="foglalasHelyek">
