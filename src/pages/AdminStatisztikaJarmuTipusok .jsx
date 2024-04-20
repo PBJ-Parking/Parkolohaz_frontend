@@ -7,14 +7,14 @@ import { Chart } from "react-google-charts";
 
 export default function AdminStatisztikaMutat(props) {
 
-  const [parkolohelyTipusok, setParkolohelyTipusok] = useState([]);
+  const [jarmuTipusok, setJarmuTipusok] = useState([]);
 
   const [hiba, sethiba] = useState(null);
 
   const adatlekeres = async () => {
     try {
-      const { data } = await axios.get("api/parkolohely_darab_tipusok");
-      setParkolohelyTipusok(data);
+      const { data } = await axios.get("api/jarmuvek_darab_tipusok");
+      setJarmuTipusok(data);
       console.log(data);
     } catch (error) {
       console.log(error);

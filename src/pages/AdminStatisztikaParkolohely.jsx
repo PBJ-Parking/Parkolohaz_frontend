@@ -43,8 +43,8 @@ export default function AdminStatisztikaMutat(props) {
         
           <Chart
             chartType="PieChart"
-            width="100%"
-            height="400px"
+            width="120%"
+            height="700px"
             data={temp}
            
           />

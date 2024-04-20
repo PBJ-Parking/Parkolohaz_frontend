@@ -28,7 +28,7 @@ import AdminFoodal from "./components/AdminFoodal";
 import AdminStatisztika from "./pages/AdminStatisztika";
 import AdminStatisztikaParkolohely from "./pages/AdminStatisztikaParkolohely";
 import AdminStatisztikaParkolohelyTipusok from "./pages/AdminStatisztikaParkolohelyTipusok";
-
+import AdminStatisztikaJarmuTipusok from "./pages/AdminStatisztikaParkolohelyTipusok";
 
 function App() {
   const { user } = useAuthContext();
@@ -109,6 +109,7 @@ function App() {
           <Route path="/admin/statisztikak" element={<AdminStatisztika />} />
           <Route path="/admin/statisztikak/parkolohely" element={<AdminStatisztikaParkolohely />} />
           <Route path="/admin/statisztikak/parkolohelyTipusok" element={<AdminStatisztikaParkolohelyTipusok />} />
+          <Route path="/admin/statisztikak/jarmuTipusok" element={<AdminStatisztikaJarmuTipusok />} />
         </Route>
         <Route path="*" element={<NoPage />} />
       </Routes>
