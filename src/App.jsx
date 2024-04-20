@@ -27,6 +27,7 @@ import Gyik from "./components/Gyik";
 import AdminFoodal from "./components/AdminFoodal";
 import AdminStatisztika from "./pages/AdminStatisztika";
 import AdminStatisztikaParkolohely from "./pages/AdminStatisztikaParkolohely";
+import AdminStatisztikaParkolohelyTipusok from "./pages/AdminStatisztikaParkolohelyTipusok";
 
 
 function App() {
@@ -107,7 +108,7 @@ function App() {
           <Route path="/admin/kedvezmenyek" element={<AdminArticle tabla="kedvezmenyek"/>} />
           <Route path="/admin/statisztikak" element={<AdminStatisztika />} />
           <Route path="/admin/statisztikak/parkolohely" element={<AdminStatisztikaParkolohely />} />
-
+          <Route path="/admin/statisztikak/parkolohelyTipusok" element={<AdminStatisztikaParkolohelyTipusok />} />
         </Route>
         <Route path="*" element={<NoPage />} />
       </Routes>
