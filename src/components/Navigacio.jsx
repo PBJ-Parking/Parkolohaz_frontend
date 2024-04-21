@@ -2,18 +2,34 @@ import { Link } from "react-router-dom";
 import "../css/nav.css";
 import { Nav, Navbar, Offcanvas } from "react-bootstrap";
 import useAuthContext from "../contexts/AuthContext";
+import { useState } from "react";
 
 export default function Navigacio(props) {
+  const [menuNyitva, setMenuNyitva] = useState(false);
+
+  const menuToggle = () => {
+    setMenuNyitva(!menuNyitva);
+  };
+
+  const menuBezar = () => {
+    setMenuNyitva(false);
+  };
+
   const { logout } = useAuthContext();
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
     return (
       <Navbar expand="sm" style={{ padding: `${0.5}em` }}>
-        <Navbar.Toggle aria-controls="offcanvasNavbar-expand" />
+        <Navbar.Toggle
+          aria-controls="offcanvasNavbar-expand"
+          onClick={menuToggle}
+        />
         <Navbar.Offcanvas
           id="offcanvasNavbar-expand"
           aria-labelledby="offcanvasNavbarLabel-expand"
           placement="start"
+          show={menuNyitva}
+          onHide={menuBezar}
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel-expand">
@@ -24,22 +40,22 @@ export default function Navigacio(props) {
             <Nav>
               <ul>
                 <li>
-                  <Link to="/loggedIn">
+                  <Link to="/loggedIn" onClick={menuBezar}>
                     <i className="bi bi-house-fill"></i> Főoldal
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/" + props.foglalas}>
+                  <Link to={"/" + props.foglalas} onClick={menuBezar}>
                     <i className="bi bi-cart3"></i> Foglalás
                   </Link>
                 </li>
                 <li>
-                  <Link to="/loggedIn/rolunk">
+                  <Link to="/loggedIn/rolunk" onClick={menuBezar}>
                     <i className="bi bi-book"></i> Rólunk
                   </Link>
                 </li>
                 <li>
-                  <Link to="/loggedIn/kapcsolat">
+                  <Link to="/loggedIn/kapcsolat" onClick={menuBezar}>
                     <i className="bi bi-person-lines-fill"></i> Kapcsolat
                   </Link>
                 </li>
@@ -50,7 +66,7 @@ export default function Navigacio(props) {
               <h6>Felhasználói menü</h6>
               <ul>
                 <li>
-                  <Link to="/loggedIn/profil">
+                  <Link to="/loggedIn/profil" onClick={menuBezar}>
                     <i className="bi bi-person-lines-fill"></i>
                     Profilom
                   </Link>
@@ -69,11 +85,16 @@ export default function Navigacio(props) {
   }
   return (
     <Navbar expand="sm" style={{ padding: `${0.5}em` }}>
-      <Navbar.Toggle aria-controls="offcanvasNavbar-expand" />
+      <Navbar.Toggle
+        aria-controls="offcanvasNavbar-expand"
+        onClick={menuToggle}
+      />
       <Navbar.Offcanvas
         id="offcanvasNavbar-expand"
         aria-labelledby="offcanvasNavbarLabel-expand"
         placement="start"
+        show={menuNyitva}
+        onHide={menuBezar}
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title id="offcanvasNavbarLabel-expand">
@@ -84,17 +105,21 @@ export default function Navigacio(props) {
           <Nav>
             <ul>
               <li>
-                <Link to="/" data-bs-dismiss="offcanvasNavbar-expand" >
+                <Link
+                  to="/"
+                  data-bs-dismiss="offcanvasNavbar-expand"
+                  onClick={menuBezar}
+                >
                   <i className="bi bi-house-fill"></i> Főoldal
                 </Link>
               </li>
               <li>
-                <Link to="/rolunk">
+                <Link to="/rolunk" onClick={menuBezar}>
                   <i className="bi bi-book"></i> Rólunk
                 </Link>
               </li>
               <li>
-                <Link to="/kapcsolat">
+                <Link to="/kapcsolat" onClick={menuBezar}>
                   <i className="bi bi-person-lines-fill"></i> Kapcsolat
                 </Link>
               </li>
@@ -105,12 +130,12 @@ export default function Navigacio(props) {
             <h6>Felhasználói menü</h6>
             <ul>
               <li>
-                <Link to="/belepes">
+                <Link to="/belepes" onClick={menuBezar}>
                   <i className="bi bi-box-arrow-in-right"></i> Bejelentkezés
                 </Link>
               </li>
               <li>
-                <Link to="/regisztracio">
+                <Link to="/regisztracio" onClick={menuBezar}>
                   <i className="bi bi-person-plus-fill"></i> Regisztráció
                 </Link>
               </li>

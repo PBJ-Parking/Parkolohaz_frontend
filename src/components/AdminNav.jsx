@@ -3,17 +3,34 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import useAuthContext from "../contexts/AuthContext";
+import { useState } from "react";
 
 export default function AdminNav() {
+
+  const [menuNyitva, setMenuNyitva] = useState(false)
+
+  const menuToggle = () => {
+    setMenuNyitva(!menuNyitva)
+  }
+
+  const menuBezar = () => {
+    setMenuNyitva(false)
+  }
+
   const { logout } = useAuthContext();
   return (
     <>
-      <Navbar expand="lg" style={{ padding: `${0.5}rem` }}>
-        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
+      <Navbar className="admin-nav" expand="lg" style={{ padding: `${0.5}rem` }}>
+        <Navbar.Toggle 
+        aria-controls={`offcanvasNavbar-expand`} 
+        onClick={menuToggle}
+        />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand`}
           aria-labelledby={`offcanvasNavbarLabel-expand`}
           placement="start"
+          show={menuNyitva}
+          onHide={menuBezar}
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
@@ -24,47 +41,47 @@ export default function AdminNav() {
             <Nav>
               <ul>
                 <li>
-                  <Link to="/admin">
+                  <Link to="/admin" onClick={menuBezar}>
                     <i className="bi bi-house-fill"></i> Főoldal
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/statisztikak">
+                  <Link to="/admin/statisztikak" onClick={menuBezar}>
                     <i className="bi bi-bar-chart-line-fill"></i> Statisztikák
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/felhasznalok">
+                  <Link to="/admin/felhasznalok" onClick={menuBezar}>
                     <i className="bi bi-people-fill"></i> Felhasználók
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/jarmuvek">
+                  <Link to="/admin/jarmuvek" onClick={menuBezar}>
                     <i className="bi bi-car-front-fill"></i> Járművek
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/berlesek">
+                  <Link to="/admin/berlesek" onClick={menuBezar}>
                     <i className="bi bi-calendar-week-fill"></i> Bérlések
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/tipusok">
+                  <Link to="/admin/tipusok" onClick={menuBezar}>
                     <i className="bi bi-list-ul"></i> Típusok
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/parkolohelyek">
+                  <Link to="/admin/parkolohelyek" onClick={menuBezar}>
                     <i className="bi bi-p-square-fill"></i> Parkolóhelyek
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/arak">
+                  <Link to="/admin/arak" onClick={menuBezar}>
                     <i className="bi bi-currency-euro"></i> Napi árak
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/kedvezmenyek">
+                  <Link to="/admin/kedvezmenyek" onClick={menuBezar}>
                     <i className="bi bi-percent"></i> Kedvezmények
                   </Link>
                 </li>
@@ -75,7 +92,7 @@ export default function AdminNav() {
               <h6>Felhasználói menü</h6>
               <ul>
                 <li>
-                  <Link to="/admin/profil">
+                  <Link to="/admin/profil" onClick={menuBezar}>
                     <i className="bi bi-person-lines-fill"></i> Profilom
                   </Link>
                 </li>
