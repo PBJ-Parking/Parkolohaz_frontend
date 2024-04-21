@@ -58,3 +58,16 @@ nav ul li a:hover {
 #offcanvasNavbar-expand[aria-modal="true"] .nav-felhasznaloi-menu {
   display: block;
 }
+
+@media screen and (max-width: 1400px) {
+  .admin-nav a {
+    font-size: 16px !important
+  }
+}
+@media screen and (max-width: 1200px) {
+  .admin-nav a {
+    font-size: 15px !important;
+  }
+
+
+}
