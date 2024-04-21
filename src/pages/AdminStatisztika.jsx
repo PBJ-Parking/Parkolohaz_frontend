@@ -11,19 +11,19 @@ import Col from 'react-bootstrap/Col';
 export default function AdminStatisztika(props) {
 
     return (
-        <article>
+        <article className="fooldalArticle">
     <Container fluid className="fooldal-container">
    <Row>  
    <Col>  
-    <Card border="info"  bg="light" style={{ width: '18rem' }}>
+    <Card border="info"  bg="light" style={{ maxWidth: '18rem' }}>
     <Card.Header>Parkolóhelyek</Card.Header>
    <Card.Body> <Link to="/admin/statisztikak/parkolohely">Foglaltság adatai</Link></Card.Body>
    <Card.Body> <Link to="/admin/statisztikak/parkolohelyTipusok">Típusok szerinti megoszlás</Link></Card.Body>
     </Card>
     </Col>
     <Col>  
-    <Card border="info"  bg="light" style={{ width: '18rem' }}>
-    <Card.Header>Jarmuvek</Card.Header>
+    <Card border="info"  bg="light" style={{ maxWidth: '18rem' }}>
+    <Card.Header>Járművek</Card.Header>
    
    <Card.Body> <Link to="/admin/statisztikak/jarmuTipusok">Típusok szerinti megoszlás</Link></Card.Body>
     </Card>

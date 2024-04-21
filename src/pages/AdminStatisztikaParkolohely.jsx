@@ -36,13 +36,17 @@ export default function AdminStatisztikaMutat(props) {
   {temp.push([item.statusz, item.darab, ""])}});
   console.log(temp);
 
-
+  let options = {
+    title: "Parkolóhelyek státusz szerinti megoszlása",
+  
+  };
       return (
 
 
         
           <Chart
             chartType="PieChart"
+            options={options}
             width="120%"
             height="700px"
             data={temp}
