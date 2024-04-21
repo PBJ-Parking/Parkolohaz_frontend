@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
 import useAuthContext from "../contexts/AuthContext";
 import "../css/regisztracio.css"
@@ -12,15 +12,16 @@ export default function Regisztracio() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
-  const [megrendeloTipus, setMegrendelo_Tipus] = useState("");
+  const [megrendeloTipus, setMegrendeloTipus] = useState("");
   const [adoszam, setAdoszam] = useState("");
 
   const [validaciosError, setValidaciosError] = useState("");
 
 
 
-  const { loginReg, errors } = useAuthContext();
+  const { loginReg, errors, hibaNullaz } = useAuthContext();
 
+  useEffect(()=>{hibaNullaz();},[])
 
 
   const handleSubmit = async (e) => {
@@ -56,11 +57,13 @@ export default function Regisztracio() {
     }
 
 
-    if (adoszam.length !== 13 || !/^[0-9]{8}-[0-9]-[0-9]{2}$/.test(adoszam)) {
+    if (megrendeloTipus!='M')
+    {if(adoszam.length !== 13 || !/^[0-9]{8}-[0-9]-[0-9]{2}$/.test(adoszam)) {
       setValidaciosError(" Csak számok és kötőjelek. Felépítése: xxxxxxxx-y-zz.")
       return;
 
     }
+  }
 
     setValidaciosError("")
     const adat = {
@@ -177,6 +180,7 @@ export default function Regisztracio() {
               placeholder="jelszó mégegyszer"
               name="pwd2"
             />
+            </div>
             <div>
               {errors.password_confirmation && (
                 <span className="text-danger">{errors.password_confirmation[0]}</span>
@@ -191,7 +195,7 @@ export default function Regisztracio() {
                   type="radio"
                   value="M"
                   onChange={(e) => {
-                    setMegrendelo_Tipus(e.target.value);
+                    setMegrendeloTipus(e.target.value);
                   }}
                   className="radio"
                   id="tipus_maganszemely"
@@ -200,6 +204,7 @@ export default function Regisztracio() {
                 />
                 Magánszemély vagyok
               </label>
+              </div>
               <div>
                 {errors.megrendelo_tipus && (
                   <span className="text-danger">{errors.megrendelo_tipus[0]}</span>
@@ -214,7 +219,7 @@ export default function Regisztracio() {
                     type="radio"
                     value="C"
                     onChange={(e) => {
-                      setMegrendelo_Tipus(e.target.value);
+                      setMegrendeloTipus(e.target.value);
                     }}
                     className="radio"
                     id="tipus_ceg"
@@ -225,13 +230,16 @@ export default function Regisztracio() {
 
 
                 </label>
+                </div>
                 <div>
                   {errors.megrendelo_tipus && (
                     <span className="text-danger">{errors.megrendelo_tipus[0]}</span>
                   )}
                 </div>
 
-
+                {megrendeloTipus ==='C' &&
+                <>
+                <div>
                 <label htmlFor="adoszam" className="form-label">
                   Adószám:
                 </label>
@@ -252,7 +260,8 @@ export default function Regisztracio() {
                   <span className="text-danger">{errors.adoszam[0]}</span>
                 )}
               </div>
-
+              </>
+}
               {validaciosError !== "" && <p className="text-danger">{validaciosError}</p>}
 
               <div className=" text-center">
@@ -261,8 +270,7 @@ export default function Regisztracio() {
                 </button>
 
               </div>
-            </div>
-          </div>
+
         </form >
       </div >
     </>

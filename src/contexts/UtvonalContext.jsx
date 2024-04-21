@@ -5,7 +5,7 @@ const UtvonalContext = createContext();
 export const UtvonalProvider = ({ children }) => {
   function utvonalValaszto(user) {
     if (user === null) {
-      return { role: "guest", home: "/" };
+      return { role: "guest", home: "" };
     }
 
     if (user !== null && user.admin_e == 0) {

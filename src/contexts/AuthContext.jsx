@@ -54,6 +54,7 @@ export const AuthProvider = ({ children }) => {
             await axios.post(vegpont, adat);
             await getUser();
             await profileAdatLekeres();
+            navigate("/loggedIn");
         } catch (error) {
             console.log(error);
             if (error.response.status === 422) {
@@ -115,11 +116,21 @@ export const AuthProvider = ({ children }) => {
         }
     };
     
-    
+   const hibaNullaz=()=>{
+    setErrors({
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+        megrendelo_tipus:"",
+        adoszam:"",
+    });
+
+   }; 
 
     return (
         <AuthContext.Provider
-            value={{ logout, loginReg, errors, getUser, user, profileAdatLekeres, jarmu, userUpdate, jarmuUpdate}}
+            value={{hibaNullaz, logout, loginReg, errors, getUser, user, profileAdatLekeres, jarmu, userUpdate, jarmuUpdate}}
         >
             {children}
         </AuthContext.Provider>

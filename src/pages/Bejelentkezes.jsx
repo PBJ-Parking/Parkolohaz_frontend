@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "../api/axios";
 import useAuthContext from "../contexts/AuthContext";
 import "../css/bejelentkezes.css"
@@ -7,7 +7,12 @@ import "../css/bejelentkezes.css"
 export default function Bejelentkezes() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { loginReg, errors } = useAuthContext();
+    const { loginReg, errors, hibaNullaz } = useAuthContext();
+
+    useEffect(()=>{hibaNullaz();},[])
+
+    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         await csrf();

@@ -18,7 +18,7 @@ import ASZF from "./components/ASZF";
 import Adatkezeles from "./components/Adatkezeles";
 import Kapcsolat from "./components/Kapcsolat";
 import Email from "./components/Email";
-import NoPage from "./pages/NoPage";
+import NoPage from "./components/NoPage";
 import Regisztracio from "./pages/Regisztracio";
 import useAuthContext from "./contexts/AuthContext";
 import useUtvonalContext from "./contexts/UtvonalContext";
@@ -31,15 +31,7 @@ import AdminStatisztikaParkolohelyTipusok from "./pages/AdminStatisztikaParkoloh
 import AdminStatisztikaJarmuTipusok from "./pages/AdminStatisztikaJarmuTipusok";
 
 function App() {
-  const { user } = useAuthContext();
-  const { utvonalValaszto } = useUtvonalContext();
-  const navigate = useNavigate();
 
-  const { home } = utvonalValaszto(user);
-
-  useEffect(() => {
-    navigate(home)
-  }, [user]);
 
   return (
     <>
@@ -54,7 +46,7 @@ function App() {
           <Route path="/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/email" element={<Email />} />
           <Route path="/gyik" element={<Gyik />} />
-
+          <Route path="*" element={<NoPage />} />
         </Route>
 
 
@@ -90,28 +82,32 @@ function App() {
           <Route path="/loggedIn/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/loggedIn/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/loggedIn/email" element={<Email />} />
-          <Route path="/loggedIn/Rolunk" element={<Rolunk />} />  
+          <Route path="/loggedIn/Rolunk" element={<Rolunk />} />
+          <Route path="/loggedIn/gyik" element={<Gyik />} />
+          <Route path="/loggedIn/*" element={<NoPage />} />
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<AdminFoodal />} />
-          <Route path="/admin/felhasznalok" element={<AdminArticle tabla="felhasznalok"/>} />
-          <Route path="/admin/jarmuvek" element={<AdminArticle tabla="jarmuvek"/>} />
-          <Route path="/admin/berlesek" element={<AdminArticle tabla="berlesek"/>} />
-          <Route path="/admin/tipusok" element={<AdminArticle tabla="tipusok"/>} />
-          <Route path="/admin/parkolohelyek" element={<AdminArticle tabla="parkolohelyek"/>} />
+          <Route path="/admin/felhasznalok" element={<AdminArticle tabla="felhasznalok" />} />
+          <Route path="/admin/jarmuvek" element={<AdminArticle tabla="jarmuvek" />} />
+          <Route path="/admin/berlesek" element={<AdminArticle tabla="berlesek" />} />
+          <Route path="/admin/tipusok" element={<AdminArticle tabla="tipusok" />} />
+          <Route path="/admin/parkolohelyek" element={<AdminArticle tabla="parkolohelyek" />} />
           <Route path="/admin/ASZF" element={<ASZF />} />
           <Route path="/admin/Adatkezeles" element={<Adatkezeles />} />
           <Route path="/admin/Kapcsolat" element={<Kapcsolat />} />
           <Route path="/admin/email" element={<Email />} />
           <Route path="/admin/profil" element={<Profile />} />
-          <Route path="/admin/arak" element={<AdminArticle tabla="napiArak"/>} />
-          <Route path="/admin/kedvezmenyek" element={<AdminArticle tabla="kedvezmenyek"/>} />
+          <Route path="/admin/arak" element={<AdminArticle tabla="napiArak" />} />
+          <Route path="/admin/kedvezmenyek" element={<AdminArticle tabla="kedvezmenyek" />} />
           <Route path="/admin/statisztikak" element={<AdminStatisztika />} />
           <Route path="/admin/statisztikak/parkolohely" element={<AdminStatisztikaParkolohelyStatusz />} />
           <Route path="/admin/statisztikak/parkolohelyTipusok" element={<AdminStatisztikaParkolohelyTipusok />} />
           <Route path="/admin/statisztikak/jarmuTipusok" element={<AdminStatisztikaJarmuTipusok />} />
+          <Route path="/admin/gyik" element={<Gyik />} />
+          {/* <Route path="/admin/*" element={<NoPage />} /> */}
         </Route>
-        <Route path="*" element={<NoPage />} />
+
       </Routes>
     </>
   );
