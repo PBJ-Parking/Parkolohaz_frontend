@@ -1,5 +1,5 @@
 .admin-article {
-    display: block;
+  display: block;
 }
 
 .admin-form input {
@@ -29,4 +29,16 @@
 .admin-table input:read-only {
   background-color: transparent;
   border: 0;
+}
+
+.card-body a {
+  border-color: darkblue;
+  color: darkblue;
+  text-shadow: none;
+}
+
+.card-body a:hover {
+  border-color: #0101c9;
+  color: #0101c9;
+  background-color: rgba(199, 210, 224, 0.87);
 }
