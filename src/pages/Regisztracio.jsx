@@ -56,8 +56,8 @@ export default function Regisztracio() {
     }
 
 
-    if (adoszam.length !== 13 || !/^\d+$/.test(adoszam)) {
-      setValidaciosError("Az adószám 13 karakerű, csak számok.")
+    if (adoszam.length !== 13 || !/^[0-9]{8}-[0-9]-[0-9]{2}$/.test(adoszam)) {
+      setValidaciosError(" Csak számok és kötőjelek. Felépítése: xxxxxxxx-y-zz.")
       return;
 
     }
@@ -253,7 +253,7 @@ export default function Regisztracio() {
                 )}
               </div>
 
-              {validaciosError !== "" && <p>{validaciosError}</p>}
+              {validaciosError !== "" && <p className="text-danger">{validaciosError}</p>}
 
               <div className=" text-center">
                 <button type="submit" className="btn btn-primary w-100">
