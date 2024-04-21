@@ -12,25 +12,33 @@ export default function AdminStatisztika(props) {
 
     return (
         <article className="fooldalArticle">
-    <Container fluid className="fooldal-container">
-   <Row>  
+   
+   <Row  xs={1} sm={2} md={2} lg={3} className="g-4">  
    <Col>  
-    <Card border="info"  bg="light" style={{ maxWidth: '18rem' }}>
-    <Card.Header>Parkolóhelyek</Card.Header>
-   <Card.Body> <Link to="/admin/statisztikak/parkolohely">Foglaltság adatai</Link></Card.Body>
-   <Card.Body> <Link to="/admin/statisztikak/parkolohelyTipusok">Típusok szerinti megoszlás</Link></Card.Body>
+    <Card border="info"  bg="light" style={{ maxWidth: '22rem', width:'100%' }}>
+    <Card.Header><h5 className="text-center m-0">Parkolóhelyek</h5></Card.Header>
+   <Card.Body> 
+    <Container className="kartya" >
+   <Row ><Link to="/admin/statisztikak/parkolohely">Foglaltság adatai</Link></Row>
+   <Row ><Link to="/admin/statisztikak/parkolohelyTipusok">Típusok szerinti megoszlás</Link></Row>
+   </Container>
+   </Card.Body>
     </Card>
     </Col>
     <Col>  
-    <Card border="info"  bg="light" style={{ maxWidth: '18rem' }}>
-    <Card.Header>Járművek</Card.Header>
+    <Card border="info"  bg="light" style={{ maxWidth: '22rem' , width:'100%' }}>
+    <Card.Header><h5  className="text-center m-0">Járművek</h5></Card.Header>
    
-   <Card.Body> <Link to="/admin/statisztikak/jarmuTipusok">Típusok szerinti megoszlás</Link></Card.Body>
+   <Card.Body>
+   <Container>
+    <Row> <Link to="/admin/statisztikak/jarmuTipusok">Típusok szerinti megoszlás</Link></Row>
+   </Container> 
+   </Card.Body>
     </Card>
     </Col>
-    <Col></Col>
+   
     </Row> 
-    </Container>
+  
         </article> 
     )
  

@@ -10,3 +10,8 @@
     color: #4d8fda;
     background-color: rgb(254, 255, 255);
   }
+
+  .card-body{
+
+    padding:3%;
+  }
