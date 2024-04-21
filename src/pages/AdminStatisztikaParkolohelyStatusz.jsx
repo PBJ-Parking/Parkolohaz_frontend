@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Chart } from "react-google-charts";
 
 
-export default function AdminStatisztikaMutat(props) {
+export default function AdminStatisztikaParkolohelyStatusz(props) {
 
   const [parkolohelyek, setParkolohelyek] = useState([]);
 
@@ -32,9 +32,26 @@ export default function AdminStatisztikaMutat(props) {
   temp.push(["státusz", "darab", { role: "style" }]);
   parkolohelyek.map((item) => 
 {
-  if(item.statusz!='m')
-  {temp.push([item.statusz, item.darab, ""])}});
-  console.log(temp);
+  switch (item.statusz) {
+    case "s": 
+    temp.push(["szabad", item.darab, ""]);
+    break;
+    case "f": 
+    temp.push(["foglalt", item.darab, ""]);
+    break;
+    case "n": 
+    temp.push(["nem üzemel", item.darab, ""]);
+    break;
+    case "b": 
+    temp.push(["bérelt", item.darab, ""]);
+    break;
+  
+    default:
+      break;
+  }
+  
+  });
+  
 
   let options = {
     title: "Parkolóhelyek státusz szerinti megoszlása",

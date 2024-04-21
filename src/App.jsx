@@ -26,9 +26,9 @@ import { useEffect } from "react";
 import Gyik from "./components/Gyik";
 import AdminFoodal from "./components/AdminFoodal";
 import AdminStatisztika from "./pages/AdminStatisztika";
-import AdminStatisztikaParkolohely from "./pages/AdminStatisztikaParkolohely";
+import AdminStatisztikaParkolohelyStatusz from "./pages/AdminStatisztikaParkolohelyStatusz";
 import AdminStatisztikaParkolohelyTipusok from "./pages/AdminStatisztikaParkolohelyTipusok";
-import AdminStatisztikaJarmuTipusok from "./pages/AdminStatisztikaParkolohelyTipusok";
+import AdminStatisztikaJarmuTipusok from "./pages/AdminStatisztikaJarmuTipusok";
 
 function App() {
   const { user } = useAuthContext();
@@ -107,7 +107,7 @@ function App() {
           <Route path="/admin/arak" element={<AdminArticle tabla="napiArak"/>} />
           <Route path="/admin/kedvezmenyek" element={<AdminArticle tabla="kedvezmenyek"/>} />
           <Route path="/admin/statisztikak" element={<AdminStatisztika />} />
-          <Route path="/admin/statisztikak/parkolohely" element={<AdminStatisztikaParkolohely />} />
+          <Route path="/admin/statisztikak/parkolohely" element={<AdminStatisztikaParkolohelyStatusz />} />
           <Route path="/admin/statisztikak/parkolohelyTipusok" element={<AdminStatisztikaParkolohelyTipusok />} />
           <Route path="/admin/statisztikak/jarmuTipusok" element={<AdminStatisztikaJarmuTipusok />} />
         </Route>

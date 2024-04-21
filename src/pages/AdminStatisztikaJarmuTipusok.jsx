@@ -5,7 +5,7 @@ import { Chart } from "react-google-charts";
 
 
 
-export default function AdminStatisztikaMutat(props) {
+export default function AdminStatisztikaJarmuTipusok(props) {
 
   const [jarmuTipusok, setJarmuTipusok] = useState([]);
 
@@ -27,23 +27,34 @@ export default function AdminStatisztikaMutat(props) {
   }, []);
 
 
-  console.log(parkolohelyTipusok);
+  console.log(jarmuTipusok);
 
   let temp = [];
 
   temp.push(["típus", "darab", { role: "style" }]);
-  parkolohelyTipusok.map((item) => 
-{
-  
-  {temp.push([item.elnevezes, item.darab, ""])}});
+  jarmuTipusok.map((item) => 
+{{temp.push([item.elnevezes, item.darab, ""])}});
   console.log(temp);
+
+  let options = {
+    title: "Járművek típus szerinti megoszlása",
+  
+  };
 
 
       return (
 
+       
         
-        <Chart chartType="ColumnChart" width="100%" height="400px" data={temp} />
-
+        <Chart
+        chartType="ColumnChart"
+        options={options}
+        width="120%"
+        height="700px"
+        data={temp}
+       
+      />
+    
     
       );
     }

@@ -5,7 +5,7 @@ import { Chart } from "react-google-charts";
 
 
 
-export default function AdminStatisztikaMutat(props) {
+export default function AdminStatisztikaParkolohelyTipusok(props) {
 
   const [parkolohelyTipusok, setParkolohelyTipusok] = useState([]);
 
@@ -39,10 +39,14 @@ export default function AdminStatisztikaMutat(props) {
   console.log(temp);
 
 
+  let options = {
+    title: "Parkolóhelyek típus szerinti megoszlása",
+  
+  };
       return (
 
         
-        <Chart chartType="ColumnChart" width="100%" height="400px" data={temp} />
+        <Chart chartType="ColumnChart"  options={options} width="100%" height="400px" data={temp} />
 
     
       );

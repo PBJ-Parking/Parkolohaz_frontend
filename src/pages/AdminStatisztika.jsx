@@ -19,7 +19,7 @@ export default function AdminStatisztika(props) {
     <Card.Header><h5 className="text-center m-0">Parkolóhelyek</h5></Card.Header>
    <Card.Body> 
     <Container className="kartya" >
-   <Row ><Link to="/admin/statisztikak/parkolohely">Foglaltság adatai</Link></Row>
+   <Row ><Link to="/admin/statisztikak/parkolohely">Státusz adatok</Link></Row>
    <Row ><Link to="/admin/statisztikak/parkolohelyTipusok">Típusok szerinti megoszlás</Link></Row>
    </Container>
    </Card.Body>
