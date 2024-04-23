@@ -20,8 +20,6 @@ import Kapcsolat from "./components/Kapcsolat";
 import Email from "./components/Email";
 import NoPage from "./components/NoPage";
 import Regisztracio from "./pages/Regisztracio";
-import useAuthContext from "./contexts/AuthContext";
-import useUtvonalContext from "./contexts/UtvonalContext";
 import { useEffect } from "react";
 import Gyik from "./components/Gyik";
 import AdminFoodal from "./components/AdminFoodal";

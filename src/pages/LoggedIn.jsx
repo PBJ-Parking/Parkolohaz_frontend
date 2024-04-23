@@ -4,7 +4,6 @@ import Header from "../components/Header";
 
 import useAuthContext from "../contexts/AuthContext";
 import Footer from "../components/Footer";
-import useUtvonalContext from "../contexts/UtvonalContext";
 import { useEffect , useState} from "react";
 
 
@@ -12,13 +11,10 @@ const LoggedIn = () => {
   const { logout } = useAuthContext();
 
 
-const { user } = useAuthContext();
-const { utvonalValaszto } = useUtvonalContext();
+const { utvonalValaszto, user } = useAuthContext();
 const navigate = useNavigate();
 
-
-
-const { home } = utvonalValaszto(user);
+const { home } = utvonalValaszto();
 console.log(user);
 useEffect(() => {
   navigate(home)
