@@ -2,6 +2,7 @@ import axios from "../api/axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Chart } from "react-google-charts";
+import "../css/fooldalArticle.css";
 
 
 
@@ -44,17 +45,18 @@ export default function AdminStatisztikaJarmuTipusok(props) {
 
       return (
 
-       
+        <article className="fooldalArticle">
         
         <Chart
         chartType="ColumnChart"
         options={options}
-        width="120%"
-        height="700px"
+        width="100%"
+        height="400px"
         data={temp}
        
       />
     
+    </article> 
     
       );
     }

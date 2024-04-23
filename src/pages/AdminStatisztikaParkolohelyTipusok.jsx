@@ -2,6 +2,7 @@ import axios from "../api/axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Chart } from "react-google-charts";
+import "../css/fooldalArticle.css";
 
 
 
@@ -45,10 +46,11 @@ export default function AdminStatisztikaParkolohelyTipusok(props) {
   };
       return (
 
+        <article className="fooldalArticle">
         
         <Chart chartType="ColumnChart"  options={options} width="100%" height="400px" data={temp} />
 
-    
+        </article> 
       );
     }
   

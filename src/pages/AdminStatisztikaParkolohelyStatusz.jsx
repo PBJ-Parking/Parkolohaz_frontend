@@ -2,6 +2,8 @@ import axios from "../api/axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Chart } from "react-google-charts";
+import "../css/fooldalArticle.css";
+
 
 
 export default function AdminStatisztikaParkolohelyStatusz(props) {
@@ -17,6 +19,7 @@ export default function AdminStatisztikaParkolohelyStatusz(props) {
       console.log(data);
     } catch (error) {
       console.log(error);
+      sethiba(error);
     }
   };
 
@@ -57,22 +60,25 @@ export default function AdminStatisztikaParkolohelyStatusz(props) {
     title: "Parkolóhelyek státusz szerinti megoszlása",
   
   };
+
+
       return (
 
-
-        
+        <article className="fooldalArticle">
+       
           <Chart
             chartType="PieChart"
             options={options}
-            width="120%"
-            height="700px"
+            width="100%"
+            height="400px"
             data={temp}
            
           />
+      
         
-        /*<Chart chartType="ColumnChart" width="100%" height="400px" data={temp} />*/
+       
 
-
+        </article> 
       );
     }
   
