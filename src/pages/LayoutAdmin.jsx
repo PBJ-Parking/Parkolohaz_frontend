@@ -1,12 +1,19 @@
-import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import useAuthContext from "../contexts/AuthContext";
 import Footer from "../components/Footer";
 import AdminNav from "../components/AdminNav";
+import { Navigate, Outlet } from "react-router-dom";
+
 const LayoutAdmin = () => {
-  const { logout } = useAuthContext();
-  return (
-    <>
+  const { logout, utvonalValaszto } = useAuthContext();
+  const { role } = utvonalValaszto();
+
+  if (role !== "admin") {
+    return <Navigate to="/" />;
+  }
+
+  if (role === "admin") {
+    return (
       <main>
         <Header
           bal={"admin/profil"}
@@ -21,7 +28,7 @@ const LayoutAdmin = () => {
         <Outlet />
         <Footer />
       </main>
-    </>
-  );
+    );
+  }
 };
 export default LayoutAdmin;

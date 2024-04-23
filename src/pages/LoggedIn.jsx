@@ -1,29 +1,20 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Navigacio from "../components/Navigacio";
 import Header from "../components/Header";
 
 import useAuthContext from "../contexts/AuthContext";
 import Footer from "../components/Footer";
-import { useEffect , useState} from "react";
-
 
 const LoggedIn = () => {
-  const { logout } = useAuthContext();
+  const { logout, utvonalValaszto } = useAuthContext();
+  const { role } = utvonalValaszto();
 
+  if (role !== "user") {
+    return <Navigate to="/" />;
+  }
 
-const { utvonalValaszto, user } = useAuthContext();
-const navigate = useNavigate();
-
-const { home } = utvonalValaszto();
-console.log(user);
-useEffect(() => {
-  navigate(home)
-  console.log(user);
-},  [user]);
-
-
-  return (
-    <>
+  if (role === "user") {
+    return (
       <main>
         <Header
           bal={"loggedIn/profil"}
@@ -32,17 +23,14 @@ useEffect(() => {
           jobbOldali={"Kijelentkezés"}
           jobbIkon={"bi bi-box-arrow-left"}
           balIkon={"bi bi-person-lines-fill"}
-          jobbEsemeny ={logout}
+          jobbEsemeny={logout}
         />
-        <Navigacio 
-        isLoggedIn= {true}
-        foglalas={"loggedIn/foglalas"}
-        />
-        
+        <Navigacio isLoggedIn={true} foglalas={"loggedIn/foglalas"} />
+
         <Outlet />
         <Footer />
       </main>
-    </>
-  );
+    );
+  }
 };
 export default LoggedIn;

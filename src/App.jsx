@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Article from "./components/Article";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import LayoutAdmin from "./pages/LayoutAdmin";
 import LoggedIn from "./pages/LoggedIn";
@@ -20,7 +20,6 @@ import Kapcsolat from "./components/Kapcsolat";
 import Email from "./components/Email";
 import NoPage from "./components/NoPage";
 import Regisztracio from "./pages/Regisztracio";
-import { useEffect } from "react";
 import Gyik from "./components/Gyik";
 import AdminFoodal from "./components/AdminFoodal";
 import AdminStatisztika from "./pages/AdminStatisztika";
@@ -103,7 +102,7 @@ function App() {
           <Route path="/admin/statisztikak/parkolohelyTipusok" element={<AdminStatisztikaParkolohelyTipusok />} />
           <Route path="/admin/statisztikak/jarmuTipusok" element={<AdminStatisztikaJarmuTipusok />} />
           <Route path="/admin/gyik" element={<Gyik />} />
-          {/* <Route path="/admin/*" element={<NoPage />} /> */}
+          <Route path="/admin/*" element={<NoPage />} /> 
         </Route>
 
       </Routes>

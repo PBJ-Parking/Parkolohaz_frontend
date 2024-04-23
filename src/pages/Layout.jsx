@@ -1,11 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Navigacio from "../components/Navigacio";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import useAuthContext from "../contexts/AuthContext";
 
 const Layout = () => {
-  return (
-    <>
+  const { utvonalValaszto } = useAuthContext();
+  const { role } = utvonalValaszto();
+
+  if (role !== "admin" && role !== "user") {
+    return (
       <main>
         <Header
           bal={"belepes"}
@@ -19,7 +23,16 @@ const Layout = () => {
         <Outlet />
         <Footer />
       </main>
-    </>
-  );
+    );
+  }
+  
+  if (role === "user") {
+    return <Navigate to="/loggedIn" />;
+  }
+
+  if (role === "admin") {
+    return <Navigate to="/admin" />;
+  }
+
 };
 export default Layout;
