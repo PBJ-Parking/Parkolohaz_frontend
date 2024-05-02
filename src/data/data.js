@@ -12,7 +12,7 @@ const lista = [
       adatok: {
         elsodleges_kulcs: ["id"],
         id: {
-          tipus: "number",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           fejlec: "azon",
@@ -61,7 +61,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "e-mail megerősítve",
-          lathato: true,
+          lathato: false,
         },
 
         password: {
@@ -74,11 +74,10 @@ const lista = [
           lathato: false,
         },
         megrendelo_tipus: {
-          tipus: "text",
+          tipus: "select",
           modosithato: true,
           kotelezo: true,
-          alapertek: "",
-          regex: "^(C|M)$",
+          lista: ["M", "C"],
           fejlec: "megrendelő típus",
           lathato: true,
         },
@@ -92,13 +91,11 @@ const lista = [
           lathato: true,
         },
         admin_e: {
-          tipus: "number",
+          tipus: "select",
           modosithato: true,
           kotelezo: true,
-          alapertek: 0,
           fejlec: "admin-e",
-          min: 0,
-          max: 1,
+          lista: [0, 1],
           lathato: true,
         },
         created_at: {
@@ -107,7 +104,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "létrehozva",
-          lathato: true,
+          lathato: false,
         },
         updated_at: {
           tipus: "text",
@@ -115,7 +112,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "módosítva",
-          lathato: true,
+          lathato: false,
         },
       },
       alapObj: {
@@ -142,7 +139,7 @@ const lista = [
       adatok: {
         elsodleges_kulcs: ["jarmu_id"],
         jarmu_id: {
-          tipus: "number",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           fejlec: "azon",
@@ -174,10 +171,10 @@ const lista = [
           lathato: true,
         },
         generalt_azon: {
-          tipus: "number",
+          tipus: "select",
           modosithato: true,
           kotelezo: true,
-          alapertek: 0,
+          lista: [0, 1],
           fejlec: "generált azon",
           lathato: true,
         },
@@ -187,7 +184,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "létrehozva",
-          lathato: true,
+          lathato: false,
         },
         updated_at: {
           tipus: "text",
@@ -195,7 +192,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "módosítva",
-          lathato: true,
+          lathato: false,
         },
       },
       alapObj: {
@@ -219,14 +216,14 @@ const lista = [
       adatok: {
         elsodleges_kulcs: ["jarmu_id", "foglalas_datuma"],
         jarmu_id: {
-          tipus: "number",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           fejlec: "jármű id (FK)",
           lathato: true,
         },
         foglalas_datuma: {
-          tipus: "date",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           alapertek: "",
@@ -271,9 +268,10 @@ const lista = [
           lathato: true,
         },
         fizetve: {
-          tipus: "number",
+          tipus: "select",
           modosithato: false,
           kotelezo: false,
+          lista: [0, 1],
           fejlec: "fizetve",
           lathato: true,
         },
@@ -283,7 +281,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "létrehozva",
-          lathato: true,
+          lathato: false,
         },
         updated_at: {
           tipus: "text",
@@ -291,7 +289,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "módosítva",
-          lathato: true,
+          lathato: false,
         },
       },
       alapObj: {
@@ -318,7 +316,7 @@ const lista = [
       adatok: {
         elsodleges_kulcs: ["id"],
         id: {
-          tipus: "number",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           fejlec: "azon",
@@ -340,7 +338,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "létrehozva",
-          lathato: true,
+          lathato: false,
         },
         updated_at: {
           tipus: "text",
@@ -348,7 +346,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "módosítva",
-          lathato: true,
+          lathato: false,
         },
       },
       alapObj: {
@@ -365,12 +363,12 @@ const lista = [
         storeUrl: "api/parkolohely",
         updateUrl: "api/parkolohely",
         destroyUrl: "api/parkolohely",
-        megszuntetUrl:"api/parkolohely_megszuntet"
+        megszuntetUrl: "api/parkolohely_megszuntet",
       },
       adatok: {
         elsodleges_kulcs: ["hely_id"],
         hely_id: {
-          tipus: "number",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           fejlec: "hely_id",
@@ -387,11 +385,10 @@ const lista = [
         },
 
         statusz: {
-          tipus: "text",
+          tipus: "select",
           modosithato: true,
           kotelezo: true,
-          regex: "^(s|f|b|n)$",
-          alapertek: "s",
+          lista: ["s", "f", "b", "n"],
           fejlec: "statusz",
           lathato: true,
         },
@@ -410,7 +407,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "létrehozva",
-          lathato: true,
+          lathato: false,
         },
         updated_at: {
           tipus: "text",
@@ -418,7 +415,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "módosítva",
-          lathato: true,
+          lathato: false,
         },
       },
       alapObj: {
@@ -441,7 +438,7 @@ const lista = [
       adatok: {
         elsodleges_kulcs: ["ar_id"],
         ar_id: {
-          tipus: "number",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           fejlec: "ar_id",
@@ -491,7 +488,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "létrehozva",
-          lathato: true,
+          lathato: false,
         },
         updated_at: {
           tipus: "text",
@@ -499,7 +496,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "módosítva",
-          lathato: true,
+          lathato: false,
         },
       },
       alapObj: {
@@ -519,12 +516,11 @@ const lista = [
         storeUrl: "api/kedvezmenyek",
         updateUrl: "api/kedvezmenyek",
         destroyUrl: "api/kedvezmenyek",
-    
       },
       adatok: {
         elsodleges_kulcs: ["kedvezmeny_id"],
         kedvezmeny_id: {
-          tipus: "number",
+          tipus: "text",
           modosithato: false,
           kotelezo: true,
           fejlec: "kedvezmeny_id",
@@ -577,7 +573,6 @@ const lista = [
           lathato: true,
         },
 
-        
         merteke: {
           tipus: "number",
           modosithato: true,
@@ -593,7 +588,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "létrehozva",
-          lathato: true,
+          lathato: false,
         },
         updated_at: {
           tipus: "text",
@@ -601,7 +596,7 @@ const lista = [
           kotelezo: false,
           alapertek: "",
           fejlec: "módosítva",
-          lathato: true,
+          lathato: false,
         },
       },
       alapObj: {
@@ -611,7 +606,7 @@ const lista = [
         hatarig: "",
         mikortol: "",
         meddig: "",
-        merteke:"",
+        merteke: "",
       },
     },
   },

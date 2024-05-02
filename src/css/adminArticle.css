@@ -26,6 +26,18 @@
   width: auto;
 }
 
+.admin-table select {
+  width: 100%;
+  box-shadow: none;
+  padding: 7px;
+  margin: 0;
+}
+
+.admin-table select:disabled {
+  border: 0;
+  background: none;
+}
+
 .admin-table input:read-only {
   background-color: transparent;
   border: 0;
