@@ -71,7 +71,7 @@ const lista = [
           alapertek: "",
           regex: ".+",
           fejlec: "jelszó",
-          lathato: true,
+          lathato: false,
         },
         megrendelo_tipus: {
           tipus: "select",

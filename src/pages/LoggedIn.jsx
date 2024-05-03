@@ -17,6 +17,7 @@ const LoggedIn = () => {
     return (
       <main>
         <Header
+          home={"loggedIn"}
           bal={"loggedIn/profil"}
           balOldali={"Profilom"}
           jobb={""}
@@ -28,7 +29,7 @@ const LoggedIn = () => {
         <Navigacio isLoggedIn={true} foglalas={"loggedIn/foglalas"} />
 
         <Outlet />
-        <Footer />
+        <Footer home={"/loggedIn"} />
       </main>
     );
   }

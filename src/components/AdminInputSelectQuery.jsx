@@ -20,14 +20,14 @@ export default function AdminInputSelectQuery(props) {
   return (
     <>
       {props.readOnly ? (
-        <select name={props.name} disabled>
+        <select name={props.name} disabled value={props.objektum}>
           <option value={props.objektum}>{props.objektum}</option>
         </select>
       ) : (
         <select
           value={props.objektum}
           name={props.name}
-          onClick={lekerdezes}
+          onFocus={lekerdezes}
           onChange={valtozas}
         >
           {lista.map((value, index) => {

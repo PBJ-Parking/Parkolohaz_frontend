@@ -12,6 +12,7 @@ const Layout = () => {
     return (
       <main>
         <Header
+          home={""}
           bal={"belepes"}
           balOldali={"Belépés"}
           jobb={"regisztracio"}
@@ -21,11 +22,11 @@ const Layout = () => {
         />
         <Navigacio isLoggedIn={false} />
         <Outlet />
-        <Footer />
+        <Footer home={""} />
       </main>
     );
   }
-  
+
   if (role === "user") {
     return <Navigate to="/loggedIn" />;
   }
@@ -33,6 +34,5 @@ const Layout = () => {
   if (role === "admin") {
     return <Navigate to="/admin" />;
   }
-
 };
 export default Layout;
