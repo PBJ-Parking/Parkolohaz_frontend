@@ -2,10 +2,6 @@
   display: block;
 }
 
-.admin-form input {
-  width: auto;
-}
-
 .table-responsive,
 .admin-table {
   max-width: 100%;
@@ -27,10 +23,20 @@
 }
 
 .admin-table select {
-  width: 100%;
   box-shadow: none;
   padding: 7px;
-  margin: 0;
+}
+
+.admin-form input[type=submit] {
+  width: auto;
+}
+
+.admin-form select {
+  min-width: 100%;
+}
+
+.admin-table select {
+  min-width: 100%;
 }
 
 .admin-table select:disabled {

@@ -9,18 +9,14 @@ export default function AdminInputSelect(props) {
     <>
       {props.readOnly ? (
         <select name={props.name} onChange={valtozas} disabled>
-          <option value={props.objektum}>
-            {props.objektum}
-          </option>
+          <option value={props.objektum}>{props.objektum}</option>
         </select>
       ) : (
-        <select name={props.name} onChange={valtozas}>
+        <select value={props.objektum} name={props.name} onChange={valtozas}>
           {props.lista.map((value, index) => {
             return (
               <Fragment key={index}>
-                <option selected={value === props.objektum} value={value}>
-                  {value}
-                </option>
+                <option value={value}>{value}</option>
               </Fragment>
             );
           })}

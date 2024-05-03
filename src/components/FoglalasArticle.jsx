@@ -65,7 +65,7 @@ export default function FoglalasArticle() {
                 setEmeletSzam(1);
                 break;
         }
-    }, [Emelet, elsoEmelet, masodikEmelet, harmadikEmelet]);
+    }, [Emelet, elsoEmelet, masodikEmelet, harmadikEmelet, foglalasKezdete]);
 
     useEffect(() => {
         gombEngedelyezes();

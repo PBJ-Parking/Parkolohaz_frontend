@@ -15,6 +15,7 @@ export default function AdminInputNumber(props) {
           disabled
           min={props.min}
           max={props.max}
+          
         />
       ) : (
         <input
@@ -24,6 +25,7 @@ export default function AdminInputNumber(props) {
           value={props.objektum}
           min={props.min}
           max={props.max}
+          
         />
       )}
     </>
