@@ -7,6 +7,7 @@ import AdminInputDate from "./AdminInputDate";
 import AdminInputSelect from "./AdminInputSelect";
 import AdminInputEmail from "./AdminInputEmail";
 import AdminInputDateTime from "./AdminInputDateTime";
+import AdminInputSelectQuery from "./AdminInputSelectQuery";
 
 export default function TablaSor(props) {
   const [sorModosithato, setSorModosithato] = useState(false);
@@ -172,6 +173,17 @@ export default function TablaSor(props) {
                     objektum={objektum[key]}
                     esemeny={ertek_modositas}
                     lista={props.adatok[key].lista}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+                {props.adatok[key].tipus === "selectQuery" && (
+                  <AdminInputSelectQuery
+                    name={key}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    uri={props.adatok[key].uri}
                     readOnly={
                       !(sorModosithato && props.adatok[key].modosithato)
                     }
