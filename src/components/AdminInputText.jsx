@@ -14,6 +14,7 @@ export default function AdminInputText(props) {
           onChange={valtozas}
           value={props.objektum}
           readOnly
+          
         />
       ) : (
         <input
@@ -21,6 +22,7 @@ export default function AdminInputText(props) {
           name={props.name}
           onChange={valtozas}
           value={props.objektum}
+          
         />
       )}
     </>

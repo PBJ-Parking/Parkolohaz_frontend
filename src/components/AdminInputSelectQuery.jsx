@@ -24,13 +24,16 @@ export default function AdminInputSelectQuery(props) {
           <option value={props.objektum}>{props.objektum}</option>
         </select>
       ) : (
-        <select name={props.name} onClick={lekerdezes} onChange={valtozas}>
+        <select
+          value={props.objektum}
+          name={props.name}
+          onClick={lekerdezes}
+          onChange={valtozas}
+        >
           {lista.map((value, index) => {
             return (
               <Fragment key={index}>
-                <option selected={value === props.objektum} value={value}>
-                  {value}
-                </option>
+                <option value={value}>{value}</option>
               </Fragment>
             );
           })}

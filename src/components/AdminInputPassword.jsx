@@ -1,13 +1,14 @@
-export default function AdminInputEmail(props) {
+export default function AdminInputPassword(props) {
   function valtozas(event) {
     props.esemeny(event);
   }
+
 
   return (
     <>
       {props.readOnly ? (
         <input
-          type="email"
+          type="password"
           name={props.name}
           onChange={valtozas}
           value={props.objektum}
@@ -16,7 +17,7 @@ export default function AdminInputEmail(props) {
         />
       ) : (
         <input
-          type="email"
+          type="password"
           name={props.name}
           onChange={valtozas}
           value={props.objektum}

@@ -8,7 +8,6 @@ export default function Footer() {
   const temp = utvonalValaszto();
 
   const [userTipus, setUserTipus] = useState(temp);
-  console.log(userTipus);
   useEffect(() => {
     setUserTipus(temp);
   }, [user]);
