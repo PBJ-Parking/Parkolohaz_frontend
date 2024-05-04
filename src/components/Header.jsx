@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "../css/header.css";
 
-
 export default function Header(props) {
-
   return (
     <header>
-      <h1><Link className="h1" to="/">PBJ-Parking</Link></h1>
+      <h1>
+        <Link className="h1" to={"/" + props.home}>
+          PBJ-Parking
+        </Link>
+      </h1>
       <ul>
         <li>
           <Link to={"/" + props.bal}>
@@ -20,7 +22,5 @@ export default function Header(props) {
         </li>
       </ul>
     </header>
-
-    
   );
 }

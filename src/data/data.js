@@ -71,7 +71,7 @@ const lista = [
           alapertek: "",
           regex: ".+",
           fejlec: "jelszó",
-          lathato: true,
+          lathato: false,
         },
         megrendelo_tipus: {
           tipus: "select",
@@ -218,9 +218,10 @@ const lista = [
       adatok: {
         elsodleges_kulcs: ["jarmu_id", "foglalas_datuma"],
         jarmu_id: {
-          tipus: "text",
-          modosithato: false,
+          tipus: "selectQuery",
+          modosithato: true,
           kotelezo: true,
+          uri: "api/jarmu_id_fk",
           fejlec: "jármű id (FK)",
           lathato: true,
         },
@@ -305,7 +306,7 @@ const lista = [
         ar_id: "",
         kedvezmeny_id: "",
         hely_id: "",
-        fizetve: "",
+        fizetve: 0,
       },
     },
 
