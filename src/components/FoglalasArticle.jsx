@@ -44,6 +44,7 @@ export default function FoglalasArticle() {
         getElsoEmelet();
         setAktualisEmelet(elsoEmelet);
         getKedvezmeny(napokKulonbseg);
+        console.log(foglalasKezdeteDate);
     }, []);
 
     useEffect(() => {
@@ -51,6 +52,7 @@ export default function FoglalasArticle() {
             case "1emelet1p":
                 setAktualisEmelet(elsoEmelet);
                 setEmeletSzam(1);
+                console.log("frissült");
                 break;
             case "2emelet1p":
                 setAktualisEmelet(masodikEmelet);
@@ -63,9 +65,10 @@ export default function FoglalasArticle() {
             default:
                 setAktualisEmelet(elsoEmelet);
                 setEmeletSzam(1);
+                console.log(" def frissült");
                 break;
         }
-    }, [Emelet, elsoEmelet, masodikEmelet, harmadikEmelet]);
+    }, [Emelet, elsoEmelet, masodikEmelet, harmadikEmelet, foglalasKezdete]);
 
     useEffect(() => {
         gombEngedelyezes();
@@ -121,6 +124,15 @@ export default function FoglalasArticle() {
         }
     };
 
+    const statuszFigyelo = (foglalas_kezdet) => {
+        aktualisEmelet.map((hely)=>{
+          if(hely.statusz != "m"){
+
+        }  
+        })
+        
+    }
+
     const getValasztottTipusAr = async (tipus) => {
         try {
             const { data } = await axios.get(
@@ -172,12 +184,12 @@ export default function FoglalasArticle() {
     const helyHandle = async (event) => {
         switch (event.statusz) {
             case "s":
-                console.log('helyHandle');
+                console.log('helyHandle helyID:', event.hely_id);
                 setHelyTipusData(event.hely_tipusa);
                 setHelyStatusData(event.statusz)
                 arSzamitas(event.hely_tipusa, event.statusz, napokKulonbseg);
                 getValasztottArTipus(event.hely_tipusa);
-                setHelyID(event.hely_tipusa);
+                setHelyID(event.hely_id);
                 break;
             case "b":
                 alert("Ez a parkolóhely jelenleg ki van bérelve! Kérem válasszon egy zöld háttérrel rendelkező mezőt!");

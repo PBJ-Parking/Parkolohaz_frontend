@@ -39,6 +39,20 @@ export default function FoglalasVeglegesitve() {
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
+
+            try {
+                console.log("Parkolohely")
+                const { data: token } = await axios.get("/token");
+                axios.defaults.headers.common["X-CSRF-TOKEN"] = token;
+                const adatok = {
+                    statusz: "b",
+                }
+                console.log("Fetched data:", adatok);
+                await axios.patch(`api/parkolohely/${helyID}`, adatok);
+                
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
         };
 
         fetchData();
