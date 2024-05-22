@@ -42,19 +42,14 @@ export const AuthProvider = ({ children }) => {
 
   const utvonalValaszto = () => {
     if (user === null) {
-        console.log("VENDÉG")
       return { role: "guest", home: "" };
     }
 
     if (user !== null && user.admin_e == 0) {
-        console.log("FELHASZNÁLÓ")
-
       return { role: "user", home: "/loggedIn" };
     }
 
     if (user !== null && user.admin_e === 1) {
-        console.log("ADMINISZTRÁTOR")
-
       return { role: "admin", home: "/admin" };
     }
   };

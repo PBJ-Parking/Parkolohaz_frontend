@@ -8,7 +8,6 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { ParkolohelyProvider } from "./contexts/ParkolohelyContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <BrowserRouter>
       <ParkolohelyProvider>
           <AuthProvider>
@@ -16,5 +15,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </AuthProvider>
       </ParkolohelyProvider>
     </BrowserRouter>
-  </React.StrictMode>
 );

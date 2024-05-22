@@ -16,6 +16,7 @@ const LayoutAdmin = () => {
     return (
       <main>
         <Header
+          home={"admin"}
           bal={"admin/profil"}
           balOldali={"Profilom"}
           jobb={""}
@@ -26,7 +27,7 @@ const LayoutAdmin = () => {
         />
         <AdminNav />
         <Outlet />
-        <Footer />
+        <Footer home={"/admin"} />
       </main>
     );
   }

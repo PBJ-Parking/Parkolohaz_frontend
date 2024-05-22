@@ -1,6 +1,14 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Button } from "react-bootstrap";
 import axios from "../api/axios";
+import AdminInputText from "./AdminInputText";
+import AdminInputNumber from "./AdminInputNumber";
+import AdminInputDate from "./AdminInputDate";
+import AdminInputSelect from "./AdminInputSelect";
+import AdminInputEmail from "./AdminInputEmail";
+import AdminInputDateTime from "./AdminInputDateTime";
+import AdminInputSelectQuery from "./AdminInputSelectQuery";
+import AdminInputPassword from "./AdminInputPassword";
 
 export default function TablaSor(props) {
   const [sorModosithato, setSorModosithato] = useState(false);
@@ -81,7 +89,7 @@ export default function TablaSor(props) {
   }
 
   function torles() {
-    const torlendoId = sorIdGeneralas()
+    const torlendoId = sorIdGeneralas();
     try {
       const axiosTorles = async () => {
         await axios.delete(props.apik.destroyUrl + `/${torlendoId}`, {
@@ -101,29 +109,102 @@ export default function TablaSor(props) {
 
   return (
     <tr style={{ display: lathatosag }}>
-      {Object.keys(objektum).map(function (key) {
+      {Object.keys(objektum).map(function (key, index) {
         return (
-          <td key={objektum["id"] + key}>
-            {sorModosithato &&
-            props.adatok[key] &&
-            props.adatok[key].modosithato ? (
-              <input
-                type="text"
-                name={key}
-                id={"input_" + key}
-                value={objektum[key]}
-                onChange={ertek_modositas}
-              />
-            ) : (
-              <input
-                type="text"
-                name={key}
-                id={"input_" + key}
-                value={objektum[key]}
-                readOnly
-              />
+          <Fragment key={index}>
+            {props.adatok[key] && props.adatok[key].lathato && (
+              <td>
+                {props.adatok[key].tipus === "text" && (
+                  <AdminInputText
+                    name={key}
+                    regex={props.adatok[key].regex}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+
+                {props.adatok[key].tipus === "password" && (
+                  <AdminInputPassword
+                    name={key}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+
+                {props.adatok[key].tipus === "email" && (
+                  <AdminInputEmail
+                    name={key}
+                    regex={props.adatok[key].regex}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+                {props.adatok[key].tipus === "number" && (
+                  <AdminInputNumber
+                    name={key}
+                    min={props.adatok[key].min}
+                    max={props.adatok[key].max}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+                {props.adatok[key].tipus === "date" && (
+                  <AdminInputDate
+                    name={key}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+                {props.adatok[key].tipus === "datetime" && (
+                  <AdminInputDateTime
+                    name={key}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+                {props.adatok[key].tipus === "select" && (
+                  <AdminInputSelect
+                    name={key}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    lista={props.adatok[key].lista}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+                {props.adatok[key].tipus === "selectQuery" && (
+                  <AdminInputSelectQuery
+                    name={key}
+                    objektum={objektum[key]}
+                    esemeny={ertek_modositas}
+                    uri={props.adatok[key].uri}
+                    readOnly={
+                      !(sorModosithato && props.adatok[key].modosithato)
+                    }
+                  />
+                )}
+              </td>
             )}
-          </td>
+          </Fragment>
         );
       })}
       <td>
